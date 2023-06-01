@@ -30,6 +30,7 @@ const Root = styled.div<Object>(() => {
 interface UnitTemplateFormProps {
   unitTemplate: UnitTemplate;
   data: EncounterDatabase;
+  hideTemplateLoadButton?: boolean;
 }
 const UnitTemplateForm = (props: UnitTemplateFormProps) => {
   const { formState, change, reset } = useForm({
@@ -104,6 +105,7 @@ const UnitTemplateForm = (props: UnitTemplateFormProps) => {
         <div
           style={{
             margin: '24px 0',
+            display: props.hideTemplateLoadButton ? 'none' : 'block',
             // padding: '12px 0',
             // width: '50%',
             // borderBottom: '1px solid ' + getColors().TEXT_DESCRIPTION,

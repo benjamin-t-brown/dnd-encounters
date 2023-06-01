@@ -4,7 +4,12 @@ import TopBar from 'elements/TopBar';
 import styled from 'styled-components';
 import CardTitle from 'elements/CardTitle';
 import CardTitleZone from 'elements/CardTitleZone';
-import { PageProps, createAggStringList, sortByDate } from 'utils';
+import {
+  PageProps,
+  createAggStringList,
+  downloadObjectAsJson,
+  sortByDate,
+} from 'utils';
 import Button from 'elements/Button';
 import {
   getFormValues,
@@ -35,6 +40,7 @@ import NewPartyTemplateModal from 'components/NewPartyTemplateModal';
 import TabNavigationBar from 'components/TabNavigationBar';
 import FlexWrapCard from 'elements/FlexWrapCard';
 import FlexWrapCardDateTime from 'elements/FlexWrapCardDateTime';
+import DefaultDatabase from 'data/defaultDatabase';
 
 const InnerRoot = styled.div<Object>(() => {
   return {
@@ -139,6 +145,7 @@ const EncounterItem = (props: { encounterTemplate: EncounterTemplate }) => {
 
 const EncounterListPage = (props: PageProps) => {
   const encounterTemplates = props.data.encounterTemplates;
+  const render = usePageReRender();
 
   return (
     <>
@@ -158,6 +165,30 @@ const EncounterListPage = (props: PageProps) => {
             <ImportDatabaseModal />
             <HSpace />
             <NewPartyTemplateModal />
+            <HSpace />
+            <Button
+              color="secondary"
+              onClick={() => {
+                saveEncounterDatabase(DefaultDatabase as any);
+                render();
+              }}
+            >
+              Reset Database
+            </Button>
+            <HSpace />
+            <Button
+              color="secondary"
+              onClick={() => {
+                downloadObjectAsJson(
+                  props.data,
+                  'dnd-encounters-database.json'
+                );
+                render();
+              }}
+            >
+              Export Database
+            </Button>
+            <HSpace />
           </div>
           <h1>Encounter Templates</h1>
           <div

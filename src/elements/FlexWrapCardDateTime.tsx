@@ -24,6 +24,7 @@ const FlexWrapCardDateTime = (props: {
           textAlign: 'center',
           color: getColors().TEXT_DESCRIPTION,
           marginLeft: '4px',
+          opacity: props.date === 0 ? '0' : '1',
         }}
       >
         {new Date(props.date).toISOString()}

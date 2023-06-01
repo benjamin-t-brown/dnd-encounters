@@ -111,7 +111,13 @@ export const usePageReRender = () => {
   return (window as any).reRender;
 };
 
-export type RouteString = 'unit-list' | 'party-list' | 'encounter-list' | null;
+export type RouteString =
+  | 'unit-list'
+  | 'party-list'
+  | 'encounter-list'
+  | 'error'
+  | string
+  | null;
 
 export const useLSRoute = (): RouteString => {
   return localStorage.getItem(getKey('route')) as RouteString;

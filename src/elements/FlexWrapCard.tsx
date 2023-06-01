@@ -6,6 +6,7 @@ const FlexWrapCard = styled.div<Object>(() => {
     border: '1px solid ' + getColors().TEXT_DESCRIPTION,
     borderRadius: '4px',
     margin: '8px',
+    padding: '4px',
     cursor: 'pointer',
     overflow: 'hidden',
   };

@@ -8,7 +8,7 @@ const Root = styled.div<Object>(() => {
     left: '0px',
     top: '0px',
     width: '100%',
-    height: 'calc(100% - 55px)',
+    height: 'calc(100% - 105px)',
     display: 'flex',
     justifyContent: 'center',
     overflow: 'auto',
@@ -33,14 +33,14 @@ const StandardLayout = (
     <Root
       id="content-root"
       style={{
-        top: props.topBar ? '22px' : '0px',
+        top: props.topBar ? '52px' : '0px',
+        marginTop: '52px',
       }}
     >
       <InnerRoot useBoxShadow={props.useBoxShadow}>
-        {/* A little space on the bottom */}
         <div
           style={{
-            height: '32px',
+            height: '4px',
           }}
         ></div>
         {props.children}
