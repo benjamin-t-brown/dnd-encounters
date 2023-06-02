@@ -1,5 +1,10 @@
+import { getPartyStorageById } from './storage';
+import { createUnitTemplate } from './storage';
+import { createUnit } from './storage';
+import { getEncounterTemplateById } from './storage';
 import {
   Alignment,
+  Encounter,
   EncounterDatabase,
   EncounterTemplate,
   UnitSize,
@@ -17,8 +22,11 @@ export interface UnitTemplateFormState {
   speedFly: number;
   speedSwim: number;
   immunities: string;
+  resistances: string;
+  vulnerabilities: string;
   skills: string;
   senses: string;
+  savingThrows: string;
   challenge: string;
   notes: string;
   imgUrl: string;
@@ -48,8 +56,11 @@ export const unitTemplateToFormState = (
     speedFly: t.speedFly,
     speedSwim: t.speedSwim,
     immunities: t.immunities.join(','),
+    resistances: t.resistances.join(','),
+    vulnerabilities: t.vulnerabilities.join(','),
     skills: t.skills.join(','),
     senses: t.senses.join(','),
+    savingThrows: t.savingThrows?.join(',') ?? '',
     challenge: t.challenge,
     size: t.size,
     imgUrl: t.imgUrl,
@@ -79,7 +90,10 @@ export const formStateToUnitTemplate = (
     speedFly: state.speedFly,
     senses: state.senses.split(','),
     immunities: state.immunities.split(','),
+    resistances: state.resistances.split(','),
+    vulnerabilities: state.vulnerabilities.split(','),
     skills: state.skills.split(','),
+    savingThrows: state.savingThrows.split(','),
     challenge: state.challenge,
     size: state.size,
     imgUrl: state.imgUrl,
@@ -122,5 +136,65 @@ export const formStateToEncounterTemplate = (
     name: state.name,
     units: state.units.slice(),
     lastUpdated: +new Date(),
+  };
+};
+
+export interface EncounterFormState {
+  id: string;
+  name: string;
+  templateId: string;
+  partyId: string;
+}
+
+export const encounterToFormState = (
+  encounter: Encounter
+): EncounterFormState => {
+  return {
+    id: encounter.id,
+    name: encounter.name,
+    templateId: encounter.templateId,
+    partyId: encounter.partyId,
+  };
+};
+
+export const formStateToEncounter = (
+  state: EncounterFormState,
+  data: EncounterDatabase
+): Encounter => {
+  const template = getEncounterTemplateById(state.templateId, data);
+  const units =
+    template?.units.map(id => {
+      const unitTemplate = getUnitTemplateById(id, data);
+      if (unitTemplate) {
+        return createUnit(unitTemplate);
+      }
+      throw new Error(`Unit template ${id} not found`);
+    }) || [];
+
+  const party = getPartyStorageById(state.partyId, data);
+  if (party) {
+    for (const i in party.partyMembers) {
+      const partyMemberName = party.partyMembers[i];
+      const partyMemberImgSrc = party.partyMembersImages[i];
+      const tmpUnitTemplate = createUnitTemplate();
+      tmpUnitTemplate.name = partyMemberName;
+      tmpUnitTemplate.imgUrl = partyMemberImgSrc;
+      const partyMemberUnit = createUnit(tmpUnitTemplate);
+      // partyMemberUnit.name = partyMemberName;
+      partyMemberUnit.isPlayer = true;
+      units.push(partyMemberUnit);
+    }
+  } else {
+    console.error('Could not find party for encounter:', state.partyId);
+  }
+
+  return {
+    id: state.id,
+    name: state.name,
+    templateId: state.templateId,
+    partyId: state.partyId,
+    units,
+    lastUpdated: +new Date(),
+    turnIndex: 0,
   };
 };

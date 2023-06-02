@@ -13,6 +13,7 @@ const Root = styled.div<Object>(() => {
     top: 0,
     justifyContent: 'center',
     alignItems: 'center',
+    zIndex: 10,
   };
 });
 
@@ -51,6 +52,9 @@ const Modal = (props: ModalProps) => {
     <Root
       style={{
         display: props.open ? 'flex' : 'none',
+      }}
+      onClick={ev => {
+        ev.stopPropagation();
       }}
     >
       <InnerRoot maxWidth={props.maxWidth}>

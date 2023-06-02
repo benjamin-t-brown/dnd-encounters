@@ -1,17 +1,22 @@
 import React from 'react';
 import InputLabel from './InputLabel';
 import Input from './Input';
+import MDEditor from '@uiw/react-md-editor';
+import { getColors } from 'style';
 
 export const FormTextInput = (props: {
   label: string;
   name: string;
   formState: Record<string, any>;
   change: (key: string, value: string) => void;
+  width?: string;
+  disabled?: boolean;
 }) => {
   return (
     <div
       style={{
         display: 'inline-block',
+        pointerEvents: props.disabled ? 'none' : 'auto',
       }}
     >
       <InputLabel>{props.label}</InputLabel>
@@ -25,7 +30,9 @@ export const FormTextInput = (props: {
           props.change(props.name, ev.target.value);
         }}
         style={{
-          width: '200px',
+          width: props.width ? props.width : '200px',
+          background: props.disabled ? getColors().BACKGROUND : undefined,
+          color: props.disabled ? getColors().TEXT_DEFAULT : undefined,
         }}
       />
     </div>
@@ -37,9 +44,14 @@ export const FormTextInputFullWidth = (props: {
   name: string;
   formState: Record<string, any>;
   change: (key: string, value: string) => void;
+  disabled?: boolean;
 }) => {
   return (
-    <div>
+    <div
+      style={{
+        pointerEvents: props.disabled ? 'none' : 'auto',
+      }}
+    >
       <InputLabel>{props.label}</InputLabel>
       <Input
         aria-label={props.name}
@@ -51,6 +63,8 @@ export const FormTextInputFullWidth = (props: {
         }}
         style={{
           width: '100%',
+          background: props.disabled ? getColors().BACKGROUND : undefined,
+          color: props.disabled ? getColors().TEXT_DEFAULT : undefined,
         }}
       />
     </div>
@@ -62,11 +76,13 @@ export const FormStatNumberInput = (props: {
   name: string;
   formState: Record<string, any>;
   change: (key: string, value: number) => void;
+  disabled?: boolean;
 }) => {
   return (
     <div
       style={{
         display: 'inline-block',
+        pointerEvents: props.disabled ? 'none' : 'auto',
       }}
     >
       <InputLabel>{props.label}</InputLabel>
@@ -76,11 +92,19 @@ export const FormStatNumberInput = (props: {
         value={props.formState[props.name]}
         type="number"
         onChange={ev => {
-          props.change(props.name, Number(ev.target.value));
+          props.change(
+            props.name,
+            (ev.target.value === '' ? '' : Number(ev.target.value)) as any
+          );
+        }}
+        onClick={ev => {
+          ev.stopPropagation();
         }}
         style={{
           width: '75px',
           marginRight: '2px',
+          background: props.disabled ? getColors().BACKGROUND : undefined,
+          color: props.disabled ? getColors().TEXT_DEFAULT : undefined,
         }}
       />
     </div>
@@ -185,6 +209,40 @@ export const FormCheckboxInput = (props: {
         }}
       />
       <InputLabel htmlFor={props.name}>{props.label}</InputLabel>
+    </div>
+  );
+};
+
+export const FormRte = (props: {
+  label: string;
+  name: string;
+  formState: Record<string, any>;
+  change: (key: string, value: string) => void;
+}) => {
+  return (
+    <div>
+      <InputLabel
+        style={{
+          marginBottom: '4px',
+        }}
+      >
+        {props.label}
+      </InputLabel>
+      <MDEditor
+        value={props.formState[props.name]}
+        onChange={value => {
+          props.change(props.name, value ?? '');
+        }}
+        height={400}
+        data-color-mode="light"
+        // style={{
+        //   height: '400px',
+        // }}
+      />
+      {/* <MDEditor.Markdown
+        source={props.formState[props.name]}
+        style={{ whiteSpace: 'pre-wrap' }}
+      /> */}
     </div>
   );
 };

@@ -3,8 +3,10 @@ import NewPartyTemplateModal from 'components/NewPartyTemplateModal';
 import {
   PartyStorage,
   UnitTemplate,
+  getLSUnitTemplateFilter,
   getUnitTemplateByName,
   saveEncounterDatabase,
+  setLSUnitTemplateFilter,
 } from 'data/storage';
 import CardTitle from 'elements/CardTitle';
 import CardTitleZone from 'elements/CardTitleZone';
@@ -20,10 +22,10 @@ import {
   useGlobalConfirm,
   usePageReRender,
 } from 'hooks';
-import React from 'react';
+import React, { useState } from 'react';
 import { getColors } from 'style';
 import styled from 'styled-components';
-import { PageProps, sortByDate } from 'utils';
+import { PageProps, sortByDate, sortByName } from 'utils';
 import ImagePortrait from 'elements/ImagePortrait';
 import PaginatedFlexWrapList from 'elements/PaginatedFlexWrapList';
 import NewUnitTemplateModal from 'components/NewUnitTemplateModal';
@@ -31,6 +33,9 @@ import HSpace from 'elements/HSpace';
 import { setLSRoute } from 'hooks';
 import Button from 'elements/Button';
 import { UnitTemplateFormState, formStateToUnitTemplate } from 'data/form';
+import VSpace from 'elements/VSpace';
+import DatabaseManagementBar from 'components/DatabaseManagementBar';
+import { FormTextInput } from 'elements/FormInputs';
 
 const InnerRoot = styled.div<Object>(() => {
   return {
@@ -47,7 +52,7 @@ const UnitItem = (props: { unitTemplate: UnitTemplate }) => {
   return (
     <FlexWrapCard
       style={{
-        width: '275px',
+        width: '245px',
         height: '124px',
         background: getColors().BACKGROUND3,
       }}
@@ -93,7 +98,7 @@ const UnitItem = (props: { unitTemplate: UnitTemplate }) => {
           display: 'flex',
         }}
       >
-        <ImagePortrait imgUrl={props.unitTemplate.imgUrl} />
+        <ImagePortrait imgUrl={props.unitTemplate.imgUrl} hideThreshold={0} />
         <HSpace />
         <div
           style={{
@@ -109,6 +114,18 @@ const UnitItem = (props: { unitTemplate: UnitTemplate }) => {
 
 const UnitTemplateListPage = (props: PageProps) => {
   const units = props.data.unitTemplates;
+  const [filter, _setFilter] = useState(getLSUnitTemplateFilter());
+  const setFilter = (value: string) => {
+    _setFilter(value);
+    setLSUnitTemplateFilter(value);
+  };
+
+  const filteredUnits = units.filter(unit => {
+    if (filter) {
+      return unit.name.toLowerCase().includes(filter.toLowerCase());
+    }
+    return true;
+  });
 
   return (
     <>
@@ -120,12 +137,26 @@ const UnitTemplateListPage = (props: PageProps) => {
       <StandardLayout topBar>
         <TabNavigationBar />
         <InnerRoot>
-          <div>
+          <h1>Unit Templates</h1>
+          <div
+            style={{
+              marginBottom: '16px',
+            }}
+          >
             <NewUnitTemplateModal />
           </div>
-          <h1>Unit Templates</h1>
+          <FormTextInput
+            label="Filter"
+            name="filter"
+            formState={{
+              filter,
+            }}
+            change={(_, value) => {
+              setFilter(value);
+            }}
+          />
           <PaginatedFlexWrapList
-            items={units.sort(sortByDate)}
+            items={filteredUnits.sort(sortByName)}
             maxItemsPerPage={20}
             renderItem={unitTemplate => {
               return (
@@ -133,6 +164,13 @@ const UnitTemplateListPage = (props: PageProps) => {
               );
             }}
           />
+          <VSpace />
+          <VSpace />
+          <VSpace />
+          <VSpace />
+          <VSpace />
+          <VSpace />
+          <DatabaseManagementBar />
         </InnerRoot>
       </StandardLayout>
     </>

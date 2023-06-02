@@ -16,12 +16,15 @@ import { randomId } from 'utils';
 import {
   FormCheckboxInput,
   FormOptionsInput,
+  FormRte,
   FormStatNumberInput,
   FormTextAreaInput,
   FormTextInput,
   FormTextInputFullWidth,
 } from 'elements/FormInputs';
 import HSpace from 'elements/HSpace';
+import VSpace from 'elements/VSpace';
+import { getModifier } from 'data/dice';
 
 const Root = styled.div<Object>(() => {
   return {};
@@ -124,14 +127,13 @@ const UnitTemplateForm = (props: UnitTemplateFormProps) => {
           </Button>
         </div>
         <div>
-          {/* <FormCheckboxInput
-            label="Is Player"
-            name="isPlayer"
+          <FormTextInputFullWidth
+            label="Image"
+            name="imgUrl"
             formState={formState}
             change={change}
-          /> */}
-        </div>
-        <div>
+          />
+          <br />
           <FormTextInput
             label="Name"
             name="name"
@@ -194,16 +196,52 @@ const UnitTemplateForm = (props: UnitTemplateFormProps) => {
                 value: 'any',
               },
               {
+                label: 'Any Good',
+                value: 'any good',
+              },
+              {
+                label: 'Any Neutral',
+                value: 'any neutral',
+              },
+              {
+                label: 'Any Evil',
+                value: 'any evil',
+              },
+              {
                 label: 'Lawful Good',
-                value: 'lawful-good',
+                value: 'lawful good',
+              },
+              {
+                label: 'Neutral Good',
+                value: 'neutral good',
+              },
+              {
+                label: 'Chaotic Good',
+                value: 'chaotic good',
+              },
+              {
+                label: 'Lawful Neutral',
+                value: 'lawful neutral',
               },
               {
                 label: 'Neutral',
                 value: 'neutral',
               },
               {
+                label: 'Chaotic Neutral',
+                value: 'chaotic neutral',
+              },
+              {
                 label: 'Lawful Evil',
-                value: 'lawful-evil',
+                value: 'lawful evil',
+              },
+              {
+                label: 'Neutral Evil',
+                value: 'neutral evil',
+              },
+              {
+                label: 'Chaotic Evil',
+                value: 'chaotic evil',
               },
             ]}
             formState={formState}
@@ -212,7 +250,7 @@ const UnitTemplateForm = (props: UnitTemplateFormProps) => {
         </div>
         <div
           style={{
-            width: '50%',
+            width: '75%',
           }}
         >
           <FormStatNumberInput
@@ -222,9 +260,37 @@ const UnitTemplateForm = (props: UnitTemplateFormProps) => {
             change={change}
           />
           <HSpace />
+          <FormStatNumberInput
+            label="Speed Water"
+            name="speedSwim"
+            formState={formState}
+            change={change}
+          />
+          <HSpace />
+          <FormStatNumberInput
+            label="Speed Fly"
+            name="speedFly"
+            formState={formState}
+            change={change}
+          />
+          <HSpace />
           <FormTextInputFullWidth
             label="Immunities"
             name="immunities"
+            formState={formState}
+            change={change}
+          />
+          <HSpace />
+          <FormTextInputFullWidth
+            label="Resistances"
+            name="resistances"
+            formState={formState}
+            change={change}
+          />
+          <HSpace />
+          <FormTextInputFullWidth
+            label="Vulnerabilities"
+            name="vulnerabilities"
             formState={formState}
             change={change}
           />
@@ -254,45 +320,105 @@ const UnitTemplateForm = (props: UnitTemplateFormProps) => {
           <HSpace />
           <HSpace />
           <HSpace />
-          <FormStatNumberInput
-            label="STR"
-            name="STR"
-            formState={formState}
-            change={change}
-          />
-          <FormStatNumberInput
-            label="DEX"
-            name="DEX"
-            formState={formState}
-            change={change}
-          />
-          <FormStatNumberInput
-            label="CON"
-            name="CON"
-            formState={formState}
-            change={change}
-          />
-          <FormStatNumberInput
-            label="INT"
-            name="INT"
-            formState={formState}
-            change={change}
-          />
-          <FormStatNumberInput
-            label="WIS"
-            name="WIS"
-            formState={formState}
-            change={change}
-          />
-          <FormStatNumberInput
-            label="CHA"
-            name="CHA"
-            formState={formState}
-            change={change}
-          />
+          <div>
+            <FormStatNumberInput
+              label="STR"
+              name="STR"
+              formState={formState}
+              change={change}
+            />{' '}
+            <div
+              style={{
+                textAlign: 'center',
+              }}
+            >
+              {(getModifier(formState.STR) > 0 ? '+' : '') +
+                getModifier(formState.STR)}
+            </div>
+          </div>
+          <div>
+            <FormStatNumberInput
+              label="DEX"
+              name="DEX"
+              formState={formState}
+              change={change}
+            />{' '}
+            <div
+              style={{
+                textAlign: 'center',
+              }}
+            >
+              {(getModifier(formState.DEX) > 0 ? '+' : '') +
+                getModifier(formState.DEX)}
+            </div>
+          </div>
+          <div>
+            <FormStatNumberInput
+              label="CON"
+              name="CON"
+              formState={formState}
+              change={change}
+            />{' '}
+            <div
+              style={{
+                textAlign: 'center',
+              }}
+            >
+              {(getModifier(formState.CON) > 0 ? '+' : '') +
+                getModifier(formState.CON)}
+            </div>
+          </div>
+          <div>
+            <FormStatNumberInput
+              label="INT"
+              name="INT"
+              formState={formState}
+              change={change}
+            />{' '}
+            <div
+              style={{
+                textAlign: 'center',
+              }}
+            >
+              {(getModifier(formState.INT) > 0 ? '+' : '') +
+                getModifier(formState.INT)}
+            </div>
+          </div>
+          <div>
+            <FormStatNumberInput
+              label="WIS"
+              name="WIS"
+              formState={formState}
+              change={change}
+            />{' '}
+            <div
+              style={{
+                textAlign: 'center',
+              }}
+            >
+              {(getModifier(formState.WIS) > 0 ? '+' : '') +
+                getModifier(formState.WIS)}
+            </div>
+          </div>
+          <div>
+            <FormStatNumberInput
+              label="CHA"
+              name="CHA"
+              formState={formState}
+              change={change}
+            />{' '}
+            <div
+              style={{
+                textAlign: 'center',
+              }}
+            >
+              {(getModifier(formState.CHA) > 0 ? '+' : '') +
+                getModifier(formState.CHA)}
+            </div>
+          </div>
         </div>
         <div>
-          <FormTextAreaInput
+          <FormRte
             label="Notes"
             name="notes"
             formState={formState}

@@ -64,14 +64,14 @@ const App = () => {
   };
 
   return (
-    <React.StrictMode>
-      <DataContext.Provider value={data}>
-        <Router />
-        {confirmModal}
-        {infoModal}
-        {/* <EncounterListPage data={data} /> */}
-      </DataContext.Provider>
-    </React.StrictMode>
+    // <React.StrictMode>
+    <DataContext.Provider value={data}>
+      <Router />
+      {confirmModal}
+      {infoModal}
+      {/* <EncounterListPage data={data} /> */}
+    </DataContext.Provider>
+    // </React.StrictMode>
   );
 };
 

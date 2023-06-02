@@ -1,7 +1,11 @@
 import React from 'react';
 import { getColors } from 'style';
 
-const ImagePortrait = (props: { imgUrl: string }) => {
+const ImagePortrait = (props: {
+  imgUrl: string;
+  hideThreshold: number;
+  style?: React.CSSProperties;
+}) => {
   return (
     <div
       style={{
@@ -16,7 +20,8 @@ const ImagePortrait = (props: { imgUrl: string }) => {
         backgroundAttachment: 'local',
         backgroundPosition: 'center',
         backgroundSize: 'auto 100%',
-        display: window.innerWidth < 500 ? 'none' : 'block',
+        display: window.innerWidth < props.hideThreshold ? 'none' : 'block',
+        ...(props.style ?? {}),
       }}
     ></div>
   );

@@ -37,6 +37,13 @@ export const sortByDate = (
   return a.lastUpdated < b.lastUpdated ? 1 : -1;
 };
 
+export const sortByName = (
+  a: unknown & { name: string },
+  b: unknown & { name: string }
+) => {
+  return a.name.toLowerCase().localeCompare(b.name.toLowerCase());
+};
+
 export const downloadObjectAsJson = (exportObj: Object, exportName: string) => {
   const dataStr =
     'data:text/json;charset=utf-8,' +
@@ -47,4 +54,8 @@ export const downloadObjectAsJson = (exportObj: Object, exportName: string) => {
   document.body.appendChild(downloadAnchorNode);
   downloadAnchorNode.click();
   downloadAnchorNode.remove();
+};
+
+export const plusOrMinus = (n: number): '+' | '-' => {
+  return n >= 0 ? '+' : '-';
 };

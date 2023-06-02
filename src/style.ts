@@ -20,4 +20,5 @@ export const getColors = () => {
 };
 
 export const MAX_WIDTH = 1400;
+export const MAX_HEIGHT_MODAL = 500;
 export const MEDIA_QUERY_PHONE_WIDTH = `@media (max-width: ${MAX_WIDTH}px)`;

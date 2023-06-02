@@ -25,6 +25,9 @@ const TabButton = styled.button<ITabButtonProps>(props => {
     borderRadius: '4px',
     borderBottomLeftRadius: '0px',
     borderBottomRightRadius: '0px',
+    maxWidth: '150px',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
   };
   if (props.flex) {
     ret.display = 'flex';

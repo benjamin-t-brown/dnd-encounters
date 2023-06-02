@@ -2,13 +2,12 @@ import { DataContext } from 'App';
 import { saveEncounterDatabase } from 'data/storage';
 import Button from 'elements/Button';
 import { useModal } from 'hooks';
-import React, { useContext } from 'react';
+import React from 'react';
 import { getColors } from 'style';
 
 const ImportDatabaseModal = () => {
   const [fileName, setFileName] = React.useState('');
   const fileInputRef = React.useRef<any>(null);
-  const data = useContext(DataContext);
 
   const { modal, setOpen } = useModal({
     onConfirm: () => {
@@ -18,9 +17,8 @@ const ImportDatabaseModal = () => {
         reader.onload = e => {
           try {
             const parsedData = JSON.parse(e.target?.result as string);
-            data.unitTemplates = parsedData;
-            console.log('SAVE!@!!!', data, parsedData);
-            saveEncounterDatabase(data);
+            // data.unitTemplates = parsedData
+            saveEncounterDatabase(parsedData);
           } catch (e) {
             console.error('Error during import', e);
             alert('Failed to import data');
@@ -32,7 +30,7 @@ const ImportDatabaseModal = () => {
     onCancel: () => {
       console.log('cancel');
     },
-    title: 'Import Units',
+    title: 'Import',
     body: (
       <div>
         <div
@@ -89,7 +87,7 @@ const ImportDatabaseModal = () => {
           setOpen(true);
         }}
       >
-        + Import Units
+        Import Database
       </Button>
       {modal}
     </>

@@ -50,7 +50,7 @@ const NewEncounterTemplateModal = () => {
   return (
     <>
       <Button
-        color="secondary"
+        color="primary"
         onClick={() => {
           setOpen(true);
         }}

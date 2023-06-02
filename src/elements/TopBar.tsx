@@ -23,6 +23,7 @@ const InnerRoot = styled.div<Object>(() => {
     justifyContent: 'space-between',
     alignItems: 'center',
     minHeight: '43px',
+    whiteSpace: 'pre',
   };
 });
 

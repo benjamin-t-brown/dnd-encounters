@@ -8,11 +8,18 @@ import FlexWrapCard from 'elements/FlexWrapCard';
 import FlexWrapCardDateTime from 'elements/FlexWrapCardDateTime';
 import StandardLayout from 'elements/StandardLayout';
 import TopBar from 'elements/TopBar';
-import { useDatabase, useGlobalConfirm, usePageReRender } from 'hooks';
+import {
+  setLSRoute,
+  useDatabase,
+  useGlobalConfirm,
+  usePageReRender,
+} from 'hooks';
 import React from 'react';
 import { getColors } from 'style';
 import styled from 'styled-components';
 import { PageProps, sortByDate } from 'utils';
+import VSpace from 'elements/VSpace';
+import DatabaseManagementBar from 'components/DatabaseManagementBar';
 
 const InnerRoot = styled.div<Object>(() => {
   return {
@@ -32,6 +39,9 @@ const PartyItem = (props: { party: PartyStorage }) => {
         width: '200px',
         height: '144px',
         background: getColors().BACKGROUND3,
+      }}
+      onClick={() => {
+        setLSRoute('party-template:' + props.party.id);
       }}
     >
       <FlexWrapCardDateTime
@@ -96,10 +106,14 @@ const PartyListPage = (props: PageProps) => {
       <StandardLayout topBar>
         <TabNavigationBar />
         <InnerRoot>
-          <div>
+          <h1>Parties</h1>
+          <div
+            style={{
+              marginBottom: '16px',
+            }}
+          >
             <NewPartyTemplateModal />
           </div>
-          <h1>Parties</h1>
           <div
             style={{
               display: 'flex',
@@ -110,6 +124,13 @@ const PartyListPage = (props: PageProps) => {
               return <PartyItem key={party.id} party={party} />;
             })}
           </div>
+          <VSpace />
+          <VSpace />
+          <VSpace />
+          <VSpace />
+          <VSpace />
+          <VSpace />
+          <DatabaseManagementBar />
         </InnerRoot>
       </StandardLayout>
     </>

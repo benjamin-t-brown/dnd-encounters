@@ -1,4 +1,6 @@
 import { randomId } from 'utils';
+import DefaultDatabase from 'data/defaultDatabase';
+import { getModifier, roll } from './dice';
 
 export type Alignment =
   | 'any'
@@ -39,8 +41,11 @@ export interface UnitTemplate {
   speedFly: number;
   stats: UnitStats;
   immunities: string[];
+  resistances: string[];
+  vulnerabilities: string[];
   skills: string[];
   senses: string[];
+  savingThrows: string[];
   challenge: string;
   notes: string;
   imgUrl: string;
@@ -54,9 +59,11 @@ export interface UnitTemplate {
 
 export interface UnitInEncounter extends UnitTemplate {
   current: {
+    publicId: number;
     hp: number;
     stats: UnitStats;
     alive: boolean;
+    initiative: number;
   };
 }
 
@@ -70,15 +77,18 @@ export interface EncounterTemplate {
 export interface Encounter {
   id: string;
   templateId: string;
+  partyId: string;
   name: string;
   units: UnitInEncounter[];
   lastUpdated: number;
+  turnIndex: number;
 }
 
 export interface PartyStorage {
   id: string;
   name: string;
   partyMembers: string[];
+  partyMembersImages: string[];
   lastUpdated: number;
 }
 
@@ -101,12 +111,13 @@ export const saveEncounterDatabase = (data: EncounterDatabase) => {
 export const loadEncounterDatabase = (): EncounterDatabase => {
   const data = localStorage.getItem(getKey('data'));
   if (!data) {
-    return {
-      encounterTemplates: [],
-      encounters: [],
-      unitTemplates: [],
-      parties: [],
-    };
+    // return {
+    //   encounterTemplates: [],
+    //   encounters: [],
+    //   unitTemplates: [],
+    //   parties: [],
+    // };
+    return structuredClone(DefaultDatabase) as any;
   }
   try {
     return JSON.parse(data);
@@ -142,9 +153,12 @@ export const createUnitTemplate = (): UnitTemplate => {
     speedSwim: 10,
     speedFly: 0,
     immunities: [],
+    resistances: [],
+    vulnerabilities: [],
     skills: [],
     challenge: '0',
     senses: [],
+    savingThrows: [],
     notes: '',
     imgUrl: '',
     size: 'medium',
@@ -170,23 +184,19 @@ export const createPartyStorage = (): PartyStorage => {
     id: randomId(),
     name: '',
     partyMembers: [],
+    partyMembersImages: [],
     lastUpdated: +new Date(),
   };
 };
 
-export const createUnit = (
-  unitTemplateId: string,
-  data: EncounterDatabase
-): UnitInEncounter => {
-  const template = getUnitTemplateById(unitTemplateId, data);
-  if (!template) {
-    throw new Error('Unit template not found');
-  }
+export const createUnit = (unitTemplate: UnitTemplate): UnitInEncounter => {
   return {
-    ...template,
+    ...unitTemplate,
     current: {
-      hp: template.hp,
-      stats: { ...template.stats },
+      publicId: -1,
+      initiative: -1,
+      hp: unitTemplate.hp,
+      stats: { ...unitTemplate.stats },
       alive: true,
     },
   };
@@ -228,4 +238,45 @@ export const getPartyStorageByName = (
   return data.parties.find(
     party => party.name?.toLowerCase() === name?.toLowerCase()
   );
+};
+export const getPartyStorageById = (id: string, data: EncounterDatabase) => {
+  return data.parties.find(party => party.id === id);
+};
+
+export const createEncounter = (templateId?: string): Encounter => {
+  return {
+    id: randomId(),
+    templateId: templateId ?? '',
+    partyId: '',
+    name: '',
+    units: [],
+    lastUpdated: +new Date(),
+    turnIndex: 0,
+  };
+};
+
+export const getEncounterById = (
+  id: string,
+  data: EncounterDatabase
+): Encounter | undefined => {
+  return data.encounters.find(encounter => encounter.id === id);
+};
+export const getEncounterByName = (
+  name: string,
+  data: EncounterDatabase
+): Encounter | undefined => {
+  return data.encounters.find(
+    encounter => encounter.name?.toLowerCase() === name?.toLowerCase()
+  );
+};
+
+export const isEncounterStarted = (encounter: Encounter) => {
+  return encounter.units.some(unit => unit.current.initiative > -1);
+};
+
+export const setLSUnitTemplateFilter = (filter: string) => {
+  localStorage.setItem(getKey('unitTemplateFilter'), filter);
+};
+export const getLSUnitTemplateFilter = () => {
+  return localStorage.getItem(getKey('unitTemplateFilter')) ?? '';
 };

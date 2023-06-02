@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from './Button';
 import HSpace from './HSpace';
+import { getColors } from 'style';
 
 function PaginatedFlexWrapList<T>(props: {
   items: T[];
@@ -14,7 +15,13 @@ function PaginatedFlexWrapList<T>(props: {
   );
 
   return (
-    <div>
+    <div
+      style={{
+        background: getColors().BACKGROUND2,
+        border: '1px solid ' + getColors().TEXT_DESCRIPTION,
+        padding: '4px',
+      }}
+    >
       <div
         style={{
           display: 'flex',

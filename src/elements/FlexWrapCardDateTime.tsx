@@ -7,6 +7,7 @@ const FlexWrapCardDateTime = (props: {
   date: number;
   deleteMsg: string;
   handleDelete: () => void;
+  auxButton?: JSX.Element;
 }) => {
   const showConfirm = useGlobalConfirm();
 
@@ -29,16 +30,24 @@ const FlexWrapCardDateTime = (props: {
       >
         {new Date(props.date).toISOString()}
       </div>
-      <CornerButton
-        onClick={ev => {
-          ev.stopPropagation();
-          showConfirm(props.deleteMsg, () => {
-            props.handleDelete();
-          });
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'flex-start',
         }}
       >
-        X
-      </CornerButton>
+        {props.auxButton}
+        <CornerButton
+          onClick={ev => {
+            ev.stopPropagation();
+            showConfirm(props.deleteMsg, () => {
+              props.handleDelete();
+            });
+          }}
+        >
+          X
+        </CornerButton>
+      </div>
     </div>
   );
 };

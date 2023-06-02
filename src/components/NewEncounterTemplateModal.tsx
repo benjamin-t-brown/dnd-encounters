@@ -17,6 +17,7 @@ import {
   EncounterTemplateFormState,
   formStateToEncounterTemplate,
 } from 'data/form';
+import { MAX_HEIGHT_MODAL } from 'style';
 
 const NewEncounterTemplateModal = () => {
   const data = useDatabase();
@@ -56,7 +57,10 @@ const NewEncounterTemplateModal = () => {
     title: 'New Encounter Template',
     body: (
       <div>
-        <EncounterTemplateForm encounterTemplate={createEncounterTemplate()} />
+        <EncounterTemplateForm
+          encounterTemplate={createEncounterTemplate()}
+          maxHeight={MAX_HEIGHT_MODAL}
+        />
       </div>
     ),
   });

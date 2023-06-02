@@ -8,7 +8,9 @@ import {
   UnitTemplate,
   getUnitTemplateById,
 } from 'data/storage';
+import Button from 'elements/Button';
 import { FormCheckboxInput, FormTextInput } from 'elements/FormInputs';
+import ImagePortrait from 'elements/ImagePortrait';
 import Input from 'elements/Input';
 import InputLabel from 'elements/InputLabel';
 import { useForm } from 'hooks';
@@ -20,10 +22,11 @@ const Root = styled.div<Object>(() => {
   return {};
 });
 
-const UnitsArea = styled.div<Object>(() => {
+const UnitsArea = styled.div<{ maxHeight: number | string }>(props => {
   return {
     width: 'calc(50% - 12px)',
-    height: '400px',
+    height: props.maxHeight,
+    minHeight: '400px',
     overflow: 'auto',
     background: getColors().BACKGROUND,
     border: '1px solid ' + getColors().TEXT_DESCRIPTION,
@@ -93,24 +96,10 @@ const Unit = (props: {
               {'+'}
             </UnitMoveButton>
           ) : null}
-          <div
-            style={{
-              width: '64px',
-              height: '64px',
-              flexGrow: 0,
-              flexShrink: 0,
-              backgroundColor: 'black',
-              backgroundImage: props.unitTemplate.imgUrl
-                ? `url(${props.unitTemplate.imgUrl})`
-                : 'unset',
-              border: '1px solid ' + getColors().TEXT_DEFAULT,
-              backgroundRepeat: 'no-repeat',
-              backgroundAttachment: 'local',
-              backgroundPosition: 'center',
-              backgroundSize: 'auto 100%',
-              display: window.innerWidth < 500 ? 'none' : 'block',
-            }}
-          ></div>
+          <ImagePortrait
+            imgUrl={props.unitTemplate.imgUrl}
+            hideThreshold={500}
+          />
           <div
             style={{
               marginLeft: '16px',
@@ -171,6 +160,7 @@ const Unit = (props: {
 
 interface EncounterTemplateFormProps {
   encounterTemplate: EncounterTemplate;
+  maxHeight: number | string;
 }
 const EncounterTemplateForm = (props: EncounterTemplateFormProps) => {
   const { formState, change, reset } = useForm({
@@ -217,6 +207,21 @@ const EncounterTemplateForm = (props: EncounterTemplateFormProps) => {
               formState={formState}
               change={change}
             />
+            <Button
+              color="plain"
+              style={{
+                fontSize: '12px',
+                marginLeft: '8px',
+              }}
+              onClick={() => {
+                change(
+                  'name',
+                  formState.name + ' ' + new Date().toISOString().slice(0, 10)
+                );
+              }}
+            >
+              Insert Date
+            </Button>
             <div
               style={{
                 marginTop: '8px',
@@ -251,7 +256,7 @@ const EncounterTemplateForm = (props: EncounterTemplateFormProps) => {
               }}
             >
               <FormCheckboxInput
-                label="Only Custom Units"
+                label="Custom"
                 name="selected"
                 formState={{
                   selected: onlyCustomUnits,
@@ -269,7 +274,7 @@ const EncounterTemplateForm = (props: EncounterTemplateFormProps) => {
             justifyContent: 'space-between',
           }}
         >
-          <UnitsArea id="inside-encounter">
+          <UnitsArea id="inside-encounter" maxHeight={props.maxHeight}>
             {aggUnits.map(({ id, count }) => {
               const unitTemplate = getUnitTemplateById(id, data);
               if (!unitTemplate) {
@@ -287,7 +292,7 @@ const EncounterTemplateForm = (props: EncounterTemplateFormProps) => {
               );
             })}
           </UnitsArea>
-          <UnitsArea id="outside-encounter">
+          <UnitsArea id="outside-encounter" maxHeight={props.maxHeight}>
             {data.unitTemplates
               .filter(unitTemplate => {
                 if (unitTemplateFilter) {

@@ -1,8 +1,9 @@
 import { PartyStorage } from 'data/storage';
 import Button from 'elements/Button';
-import { FormTextInput } from 'elements/FormInputs';
+import { FormTextInput, FormTextInputFullWidth } from 'elements/FormInputs';
 import { useForm, useGlobalAlert } from 'hooks';
 import React from 'react';
+import { MAX_HEIGHT_MODAL } from 'style';
 import styled from 'styled-components';
 
 const Root = styled.div<Object>(() => {
@@ -35,46 +36,71 @@ const PartyTemplateForm = (props: PartyTemplateFormProps) => {
       <div
         style={{
           margin: '8px 0',
+          maxHeight: MAX_HEIGHT_MODAL + 'px',
+          overflow: 'auto',
         }}
       >
         {formState.partyMembers.map((partyMemberName, index) => {
           return (
             <div key={index}>
-              <FormTextInput
-                label={'Party Member Name ' + (index + 1)}
-                name={String(index)}
-                formState={formState.partyMembers}
-                change={(_, value) => {
-                  const newPartyMembers = [...formState.partyMembers];
-                  newPartyMembers[index] = value;
-                  change('partyMembers', newPartyMembers as any);
-                }}
-              />
-              <Button
-                color="secondary"
-                onClick={() => {
-                  const newPartyMembers = [...formState.partyMembers];
-                  newPartyMembers.splice(index, 1);
-                  change('partyMembers', newPartyMembers as any);
-                }}
-                style={{
-                  marginLeft: '8px',
-                }}
-              >
-                - Remove
-              </Button>
+              <div>
+                <FormTextInput
+                  label={'Party Member Name ' + (index + 1)}
+                  name={String(index)}
+                  formState={formState.partyMembers}
+                  change={(_, value) => {
+                    const newPartyMembers = [...formState.partyMembers];
+                    newPartyMembers[index] = value;
+                    change('partyMembers', newPartyMembers as any);
+                  }}
+                />
+                <Button
+                  color="plain"
+                  onClick={() => {
+                    const newPartyMembers = [...formState.partyMembers];
+                    newPartyMembers.splice(index, 1);
+                    const partyMembersImages = [
+                      ...formState.partyMembersImages,
+                    ];
+                    partyMembersImages.splice(index, 1);
+                    change('partyMembers', newPartyMembers as any);
+                    change('partyMembersImages', partyMembersImages as any);
+                  }}
+                  style={{
+                    marginLeft: '8px',
+                  }}
+                >
+                  - Remove
+                </Button>
+              </div>
+              <div>
+                <FormTextInputFullWidth
+                  label="Image"
+                  name={String(index)}
+                  formState={formState.partyMembersImages}
+                  change={(_, value) => {
+                    const newPartyMembersImages = [
+                      ...formState.partyMembersImages,
+                    ];
+                    newPartyMembersImages[index] = value;
+                    change('partyMembersImages', newPartyMembersImages as any);
+                  }}
+                />
+              </div>
             </div>
           );
         })}
         <Button
-          color="primary"
+          color="secondary"
           onClick={() => {
             const newPartyMembers = [...formState.partyMembers, ''];
             if (newPartyMembers.length > 10) {
               showAlert("Can't have more than 10 party members");
               return;
             }
+            const newPartyMembersImages = [...formState.partyMembersImages, ''];
             change('partyMembers', newPartyMembers as any);
+            change('partyMembersImages', newPartyMembersImages as any);
           }}
           style={{
             marginTop: '16px',
