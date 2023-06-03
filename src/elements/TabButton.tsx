@@ -18,7 +18,7 @@ const TabButton = styled.button<ITabButtonProps>(props => {
     background: obj[props.active ? 'active' : 'inactive'],
     color: colorsDark.TEXT_DEFAULT,
     fontFamily: 'monospace',
-    fontSize: '18px',
+    fontSize: window.innerWidth < 600 ? '12px' : '18px',
     cursor: 'pointer',
     border: '1px solid ' + colorsDark.TEXT_DEFAULT,
     borderBottom: props.active ? 'none' : '1px solid black',

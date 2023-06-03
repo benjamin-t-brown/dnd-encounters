@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Button from './Button';
 import HSpace from './HSpace';
 import { getColors } from 'style';
@@ -13,6 +13,12 @@ function PaginatedFlexWrapList<T>(props: {
     page * props.maxItemsPerPage,
     (page + 1) * props.maxItemsPerPage
   );
+
+  useEffect(() => {
+    if (page > Math.ceil(props.items.length / props.maxItemsPerPage)) {
+      setPage(0);
+    }
+  }, [page, props.items]);
 
   return (
     <div
@@ -59,7 +65,9 @@ function PaginatedFlexWrapList<T>(props: {
       <div
         style={{
           display: 'flex',
-          flexWrap: 'wrap',
+          flexWrap: window.innerWidth < 600 ? 'nowrap' : 'wrap',
+          flexDirection: window.innerWidth < 600 ? 'column' : 'row',
+          alignItems: window.innerWidth < 600 ? 'center' : 'unset',
         }}
       >
         {items.map(props.renderItem)}

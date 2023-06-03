@@ -5,7 +5,7 @@ import {
   getUnitTemplateById,
 } from 'data/storage';
 import InputLabel from 'elements/InputLabel';
-import { useForm } from 'hooks';
+import { useForm, useGlobalAlert } from 'hooks';
 import React, { useState } from 'react';
 import { getColors } from 'style';
 import styled from 'styled-components';
@@ -25,6 +25,7 @@ import {
 import HSpace from 'elements/HSpace';
 import VSpace from 'elements/VSpace';
 import { getModifier } from 'data/dice';
+import { parse } from 'data/parse';
 
 const Root = styled.div<Object>(() => {
   return {};
@@ -40,62 +41,112 @@ const UnitTemplateForm = (props: UnitTemplateFormProps) => {
     formId: 'UnitTemplateForm',
     initialValues: unitTemplateToFormState(props.unitTemplate),
   });
+  const showInfo = useGlobalAlert();
 
   const [unitTemplateToLoad, setUnitTemplateToLoad] =
     useState<UnitTemplate | null>(null);
+  const [pasteTemplate, setPasteTemplate] = useState<string>('');
 
-  const { modal, setOpen } = useModal({
-    title: 'Load Existing Unit Template',
+  const { modal: loadExistingModal, setOpen: setLoadExistingModalOpen } =
+    useModal({
+      title: 'Load Existing Unit Template',
+      onConfirm: () => {
+        if (unitTemplateToLoad) {
+          reset({
+            ...unitTemplateToFormState(unitTemplateToLoad),
+            id: randomId(),
+          });
+        }
+        setUnitTemplateToLoad(null);
+      },
+      onCancel: () => {
+        setUnitTemplateToLoad(null);
+      },
+      body: (
+        <div
+          style={{
+            minHeight: '225px',
+          }}
+        >
+          <InputLabel>Select Template</InputLabel>
+          <Select
+            options={props.data.unitTemplates
+              .sort((a, b) => {
+                return a.name.localeCompare(b.name);
+              })
+              .map(unitTemplate => {
+                return {
+                  label: unitTemplate.name,
+                  value: unitTemplate.id,
+                };
+              })}
+            styles={{
+              option: provided => ({
+                ...provided,
+                color: '#000',
+                cursor: 'pointer',
+              }),
+              control: provided => ({
+                ...provided,
+                cursor: 'pointer',
+                marginTop: '8px',
+              }),
+              singleValue: provided => {
+                return { ...provided };
+              },
+            }}
+            onChange={ev => {
+              const id = ev?.value ?? '';
+              if (id) {
+                const template = getUnitTemplateById(id, props.data);
+                if (template) {
+                  console.log('set template', id, template);
+                  setUnitTemplateToLoad(template);
+                }
+              }
+            }}
+          />
+        </div>
+      ),
+    });
+
+  const { modal: parseModal, setOpen: setParseModalOpen } = useModal({
+    title: 'Paste Template',
     onConfirm: () => {
-      if (unitTemplateToLoad) {
-        reset({
-          ...unitTemplateToFormState(unitTemplateToLoad),
-          id: randomId(),
-        });
+      if (pasteTemplate) {
+        try {
+          const unitTemplate: any = parse(pasteTemplate);
+          reset({
+            ...unitTemplateToFormState(unitTemplate),
+            id: randomId(),
+          });
+        } catch (e) {
+          console.error('Failed to parse template', e);
+          showInfo('Could not parse template.');
+        }
       }
-      setUnitTemplateToLoad(null);
+      setPasteTemplate('');
     },
     onCancel: () => {
-      setUnitTemplateToLoad(null);
+      setPasteTemplate('');
     },
     body: (
-      <div>
-        <InputLabel>Select Template</InputLabel>
-        <Select
-          options={props.data.unitTemplates
-            .sort((a, b) => {
-              return a.name.localeCompare(b.name);
-            })
-            .map(unitTemplate => {
-              return {
-                label: unitTemplate.name,
-                value: unitTemplate.id,
-              };
-            })}
-          styles={{
-            option: provided => ({
-              ...provided,
-              color: '#000',
-              cursor: 'pointer',
-            }),
-            control: provided => ({
-              ...provided,
-              cursor: 'pointer',
-              marginTop: '8px',
-            }),
-            singleValue: provided => {
-              return { ...provided };
-            },
-          }}
+      <div
+        style={{
+          minHeight: '225px',
+        }}
+      >
+        <InputLabel>Paste Template From D&D Beyond Here</InputLabel>
+        <textarea
+          value={pasteTemplate}
           onChange={ev => {
-            const id = ev?.value ?? '';
-            if (id) {
-              const template = getUnitTemplateById(id, props.data);
-              if (template) {
-                console.log('set template', id, template);
-                setUnitTemplateToLoad(template);
-              }
-            }
+            setPasteTemplate(ev.target.value);
+          }}
+          style={{
+            marginTop: '4px',
+            resize: 'none',
+            width: '100%',
+            height: '400px',
           }}
         />
       </div>
@@ -109,21 +160,24 @@ const UnitTemplateForm = (props: UnitTemplateFormProps) => {
           style={{
             margin: '24px 0',
             display: props.hideTemplateLoadButton ? 'none' : 'block',
-            // padding: '12px 0',
-            // width: '50%',
-            // borderBottom: '1px solid ' + getColors().TEXT_DESCRIPTION,
-            // display: 'flex',
-            // flexDirection: 'row',
-            // flexWrap: 'wrap',
           }}
         >
           <Button
             color="secondary"
             onClick={() => {
-              setOpen(true);
+              setLoadExistingModalOpen(true);
             }}
           >
             Load Existing Template
+          </Button>
+          <HSpace />
+          <Button
+            color="secondary"
+            onClick={() => {
+              setParseModalOpen(true);
+            }}
+          >
+            Paste Template
           </Button>
         </div>
         <div>
@@ -247,54 +301,15 @@ const UnitTemplateForm = (props: UnitTemplateFormProps) => {
             formState={formState}
             change={change}
           />
-        </div>
-        <div
-          style={{
-            width: '75%',
-          }}
-        >
-          <FormStatNumberInput
-            label="Speed"
-            name="speed"
-            formState={formState}
-            change={change}
-          />
           <HSpace />
-          <FormStatNumberInput
-            label="Speed Water"
-            name="speedSwim"
-            formState={formState}
-            change={change}
-          />
-          <HSpace />
-          <FormStatNumberInput
-            label="Speed Fly"
-            name="speedFly"
-            formState={formState}
-            change={change}
-          />
-          <HSpace />
-          <FormTextInputFullWidth
-            label="Immunities"
-            name="immunities"
-            formState={formState}
-            change={change}
-          />
-          <HSpace />
-          <FormTextInputFullWidth
-            label="Resistances"
-            name="resistances"
-            formState={formState}
-            change={change}
-          />
-          <HSpace />
-          <FormTextInputFullWidth
-            label="Vulnerabilities"
-            name="vulnerabilities"
+          <FormTextInput
+            label="CR"
+            name="challenge"
             formState={formState}
             change={change}
           />
         </div>
+
         <div
           style={{
             margin: '12px 0',
@@ -417,6 +432,60 @@ const UnitTemplateForm = (props: UnitTemplateFormProps) => {
             </div>
           </div>
         </div>
+        <div
+          style={{
+            width: '75%',
+          }}
+        >
+          <FormStatNumberInput
+            label="Speed"
+            name="speed"
+            formState={formState}
+            change={change}
+          />
+          <HSpace />
+          <FormStatNumberInput
+            label="Speed Water"
+            name="speedSwim"
+            formState={formState}
+            change={change}
+          />
+          <HSpace />
+          <FormStatNumberInput
+            label="Speed Fly"
+            name="speedFly"
+            formState={formState}
+            change={change}
+          />
+          <HSpace />
+          <FormTextInputFullWidth
+            label="Saving Throws"
+            name="savingThrows"
+            formState={formState}
+            change={change}
+          />
+          <HSpace />
+          <FormTextInputFullWidth
+            label="Immunities"
+            name="immunities"
+            formState={formState}
+            change={change}
+          />
+          <HSpace />
+          <FormTextInputFullWidth
+            label="Resistances"
+            name="resistances"
+            formState={formState}
+            change={change}
+          />
+          <HSpace />
+          <FormTextInputFullWidth
+            label="Vulnerabilities"
+            name="vulnerabilities"
+            formState={formState}
+            change={change}
+          />
+        </div>
         <div>
           <FormRte
             label="Notes"
@@ -426,7 +495,8 @@ const UnitTemplateForm = (props: UnitTemplateFormProps) => {
           />
         </div>
       </Root>
-      {modal}
+      {loadExistingModal}
+      {parseModal}
     </>
   );
 };

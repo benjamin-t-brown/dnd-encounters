@@ -59,7 +59,12 @@ const Modal = (props: ModalProps) => {
     >
       <InnerRoot maxWidth={props.maxWidth}>
         <h2>{props.title ?? 'Modal'}</h2>
-        <div>
+        <div
+          style={{
+            maxHeight: window.innerHeight - 400 + 'px',
+            overflow: 'auto',
+          }}
+        >
           {props.children}
           {props.body}
         </div>

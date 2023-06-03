@@ -6,6 +6,7 @@ const CornerButton = styled.div<Object>(() => {
     padding: '5px 10px',
     fontSize: '16px',
     color: getColors().ERROR_TEXT,
+    cursor: 'pointer',
     borderRadius: '22px',
     background: 'black',
     display: 'inline-block',

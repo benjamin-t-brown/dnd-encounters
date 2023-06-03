@@ -66,7 +66,7 @@ const NewEncounterModal = (props: { templateId?: string }) => {
     },
     title: 'New Encounter',
     body: (
-      <div>
+      <div style={{ minHeight: '300px' }}>
         <EncounterForm encounter={createEncounter(props.templateId)} />
       </div>
     ),

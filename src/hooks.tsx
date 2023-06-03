@@ -75,7 +75,9 @@ export function useForm<T>(formProps: FormProps<T>) {
         break;
       }
       case 'reset': {
-        return action.payload ?? formProps.initialValues;
+        const newState = action.payload ?? formProps.initialValues;
+        forms[formProps.formId] = newState;
+        return newState;
       }
     }
     forms[formProps.formId] = newState;

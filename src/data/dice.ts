@@ -1,3 +1,4 @@
+import { randomId } from 'utils';
 import { Encounter } from './storage';
 
 export const roll = (d: number) => {
@@ -10,9 +11,11 @@ export const getModifier = (stat: number) => {
 
 export const rollInitiative = (encounter: Encounter) => {
   encounter.units.forEach((unit, i) => {
-    unit.current.publicId = i + 1;
     if (!unit.isPlayer) {
+      unit.current.publicId = i + 1;
       unit.current.initiative = roll(20) + getModifier(unit.current.stats.DEX);
+    } else {
+      unit.current.publicId = Math.random();
     }
   });
   encounter.turnIndex = 0;

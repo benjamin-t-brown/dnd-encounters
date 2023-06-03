@@ -21,6 +21,13 @@ const NewEncounterTemplateModal = () => {
       if (formValues) {
         if (formValues.name === '' || formValues.name.length > 100) {
           showAlert('Unit Template must have a valid name.');
+          console.error(
+            'invalid name',
+            formValues,
+            formValues.name,
+            formValues.name === '',
+            formValues.name.length > 100
+          );
           return false;
         }
 

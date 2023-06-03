@@ -1,6 +1,6 @@
 [
   {
-    "id": "2kgt6i8lz",
+    "id": "4xfvzywjl",
     "name": "Aboleth",
     "hp": 135,
     "AC": 17,
@@ -11,6 +11,11 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [
+      "CON +6",
+      "INT +8",
+      "WIS +6"
+    ],
     "skills": [
       "History +12",
       "Perception +10"
@@ -35,7 +40,7 @@
     }
   },
   {
-    "id": "13pdxhe38",
+    "id": "u1ededkpb",
     "name": "Acolyte",
     "hp": 9,
     "AC": 10,
@@ -46,6 +51,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Medicine +4",
       "Religion +2"
@@ -69,7 +75,7 @@
     }
   },
   {
-    "id": "25k7sm5b0",
+    "id": "2mvh241wb",
     "name": "Adult Black Dragon",
     "hp": 195,
     "AC": 19,
@@ -82,6 +88,12 @@
     ],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [
+      "DEX +7",
+      "CON +10",
+      "WIS +6",
+      "CHA +8"
+    ],
     "skills": [
       "Perception +11",
       "Stealth +7"
@@ -107,7 +119,7 @@
     }
   },
   {
-    "id": "aksph41qp",
+    "id": "b409t469c",
     "name": "Adult Blue Dragon",
     "hp": 225,
     "AC": 19,
@@ -120,6 +132,12 @@
     ],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [
+      "DEX +5",
+      "CON +11",
+      "WIS +7",
+      "CHA +9"
+    ],
     "skills": [
       "Perception +12",
       "Stealth +5"
@@ -145,7 +163,7 @@
     }
   },
   {
-    "id": "qoshesfgr",
+    "id": "mos742ahy",
     "name": "Adult Brass Dragon",
     "hp": 172,
     "AC": 18,
@@ -158,6 +176,12 @@
     ],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [
+      "DEX +5",
+      "CON +10",
+      "WIS +6",
+      "CHA +8"
+    ],
     "skills": [
       "History +7",
       "Perception +11",
@@ -185,7 +209,7 @@
     }
   },
   {
-    "id": "7w76dthrj",
+    "id": "fasxml7an",
     "name": "Adult Bronze Dragon",
     "hp": 212,
     "AC": 19,
@@ -198,6 +222,12 @@
     ],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [
+      "DEX +5",
+      "CON +11",
+      "WIS +7",
+      "CHA +9"
+    ],
     "skills": [
       "Insight +7",
       "Perception +12",
@@ -224,7 +254,7 @@
     }
   },
   {
-    "id": "rrg5df514",
+    "id": "shuw4qjoq",
     "name": "Adult Copper Dragon",
     "hp": 184,
     "AC": 18,
@@ -237,6 +267,12 @@
     ],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [
+      "DEX +6",
+      "CON +10",
+      "WIS +7",
+      "CHA +8"
+    ],
     "skills": [
       "Deception +8",
       "Perception +12",
@@ -263,7 +299,7 @@
     }
   },
   {
-    "id": "wscm61c2a",
+    "id": "w6kfyox6v",
     "name": "Adult Gold Dragon",
     "hp": 256,
     "AC": 19,
@@ -276,6 +312,12 @@
     ],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [
+      "DEX +8",
+      "CON +13",
+      "WIS +8",
+      "CHA +13"
+    ],
     "skills": [
       "Insight +8",
       "Perception +14",
@@ -303,7 +345,7 @@
     }
   },
   {
-    "id": "vn1dxan4p",
+    "id": "vk1hceo37",
     "name": "Adult Green Dragon",
     "hp": 207,
     "AC": 19,
@@ -317,6 +359,12 @@
     ],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [
+      "DEX +6",
+      "CON +10",
+      "WIS +7",
+      "CHA +8"
+    ],
     "skills": [
       "Deception +8",
       "Insight +7",
@@ -345,7 +393,7 @@
     }
   },
   {
-    "id": "rt60e663l",
+    "id": "fyk0xqnee",
     "name": "Adult Red Dragon",
     "hp": 256,
     "AC": 19,
@@ -358,6 +406,12 @@
     ],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [
+      "DEX +6",
+      "CON +13",
+      "WIS +7",
+      "CHA +11"
+    ],
     "skills": [
       "Perception +13",
       "Stealth +6"
@@ -383,7 +437,7 @@
     }
   },
   {
-    "id": "rlblxyrsl",
+    "id": "w9wn2zpni",
     "name": "Adult Silver Dragon",
     "hp": 243,
     "AC": 19,
@@ -396,6 +450,12 @@
     ],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [
+      "DEX +5",
+      "CON +12",
+      "WIS +6",
+      "CHA +10"
+    ],
     "skills": [
       "Arcana +8",
       "History +8",
@@ -423,7 +483,7 @@
     }
   },
   {
-    "id": "2yxbwv4nv",
+    "id": "pxhcbxrca",
     "name": "Adult White Dragon",
     "hp": 200,
     "AC": 18,
@@ -436,6 +496,12 @@
     ],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [
+      "DEX +5",
+      "CON +11",
+      "WIS +6",
+      "CHA +6"
+    ],
     "skills": [
       "Perception +11",
       "Stealth +5"
@@ -461,7 +527,7 @@
     }
   },
   {
-    "id": "i552ks1or",
+    "id": "7rdoglk9e",
     "name": "Air Elemental",
     "hp": 90,
     "AC": 15,
@@ -487,6 +553,7 @@
       "and Slashing from Nonmagical Attacks"
     ],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Darkvision 60 ft.",
@@ -508,7 +575,7 @@
     }
   },
   {
-    "id": "xo2j0i1p9",
+    "id": "bnushjx7m",
     "name": "Allosaurus",
     "hp": 51,
     "AC": 13,
@@ -519,6 +586,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Perception +5"
     ],
@@ -541,7 +609,7 @@
     }
   },
   {
-    "id": "na4ho4d5q",
+    "id": "rwvte81pb",
     "name": "Ancient Black Dragon",
     "hp": 367,
     "AC": 22,
@@ -554,6 +622,12 @@
     ],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [
+      "DEX +9",
+      "CON +14",
+      "WIS +9",
+      "CHA +11"
+    ],
     "skills": [
       "Perception +16",
       "Stealth +9"
@@ -579,7 +653,7 @@
     }
   },
   {
-    "id": "30vu17sda",
+    "id": "jor00owjq",
     "name": "Ancient Blue Dragon",
     "hp": 481,
     "AC": 22,
@@ -592,6 +666,12 @@
     ],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [
+      "DEX +7",
+      "CON +15",
+      "WIS +10",
+      "CHA +12"
+    ],
     "skills": [
       "Perception +17",
       "Stealth +7"
@@ -617,7 +697,7 @@
     }
   },
   {
-    "id": "i996kf9nb",
+    "id": "1rfs6nzq5",
     "name": "Ancient Brass Dragon",
     "hp": 297,
     "AC": 20,
@@ -630,6 +710,12 @@
     ],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [
+      "DEX +6",
+      "CON +13",
+      "WIS +8",
+      "CHA +10"
+    ],
     "skills": [
       "History +9",
       "Perception +14",
@@ -657,7 +743,7 @@
     }
   },
   {
-    "id": "z9a9mxfhn",
+    "id": "h95nrb6ax",
     "name": "Ancient Bronze Dragon",
     "hp": 444,
     "AC": 22,
@@ -670,6 +756,12 @@
     ],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [
+      "DEX +7",
+      "CON +15",
+      "WIS +10",
+      "CHA +12"
+    ],
     "skills": [
       "Insight +10",
       "Perception +17",
@@ -696,7 +788,7 @@
     }
   },
   {
-    "id": "wcj65ilnv",
+    "id": "tro1ezvm4",
     "name": "Ancient Copper Dragon",
     "hp": 350,
     "AC": 21,
@@ -709,6 +801,12 @@
     ],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [
+      "DEX +8",
+      "CON +14",
+      "WIS +10",
+      "CHA +11"
+    ],
     "skills": [
       "Deception +11",
       "Perception +17",
@@ -735,7 +833,7 @@
     }
   },
   {
-    "id": "kszdpyxaw",
+    "id": "rs7xqh6hh",
     "name": "Ancient Gold Dragon",
     "hp": 546,
     "AC": 22,
@@ -748,6 +846,12 @@
     ],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [
+      "DEX +9",
+      "CON +16",
+      "WIS +10",
+      "CHA +16"
+    ],
     "skills": [
       "Insight +10",
       "Perception +17",
@@ -775,7 +879,7 @@
     }
   },
   {
-    "id": "v71giezi1",
+    "id": "u5jwxmova",
     "name": "Ancient Green Dragon",
     "hp": 385,
     "AC": 21,
@@ -789,6 +893,12 @@
     ],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [
+      "DEX +8",
+      "CON +14",
+      "WIS +10",
+      "CHA +11"
+    ],
     "skills": [
       "Deception +11",
       "Insight +10",
@@ -817,7 +927,7 @@
     }
   },
   {
-    "id": "yx6rlyf50",
+    "id": "n3g0384zh",
     "name": "Ancient Red Dragon",
     "hp": 546,
     "AC": 22,
@@ -830,6 +940,12 @@
     ],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [
+      "DEX +7",
+      "CON +16",
+      "WIS +9",
+      "CHA +13"
+    ],
     "skills": [
       "Perception +16",
       "Stealth +7"
@@ -855,7 +971,7 @@
     }
   },
   {
-    "id": "h6fa8rk8h",
+    "id": "g01r89oft",
     "name": "Ancient Silver Dragon",
     "hp": 487,
     "AC": 22,
@@ -868,6 +984,12 @@
     ],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [
+      "DEX +7",
+      "CON +16",
+      "WIS +9",
+      "CHA +13"
+    ],
     "skills": [
       "Arcana +11",
       "History +11",
@@ -895,7 +1017,7 @@
     }
   },
   {
-    "id": "d4ozbohov",
+    "id": "lkux7solm",
     "name": "Ancient White Dragon",
     "hp": 333,
     "AC": 20,
@@ -908,6 +1030,12 @@
     ],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [
+      "DEX +6",
+      "CON +14",
+      "WIS +7",
+      "CHA +8"
+    ],
     "skills": [
       "Perception +13",
       "Stealth +6"
@@ -933,7 +1061,7 @@
     }
   },
   {
-    "id": "fqjkl890h",
+    "id": "8jofpimt0",
     "name": "Androsphinx",
     "hp": 199,
     "AC": 17,
@@ -950,6 +1078,12 @@
     ],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [
+      "DEX +6",
+      "CON +11",
+      "INT +9",
+      "WIS +10"
+    ],
     "skills": [
       "Arcana +9",
       "Perception +10",
@@ -975,7 +1109,7 @@
     }
   },
   {
-    "id": "lmdfwk59w",
+    "id": "7huj5ooie",
     "name": "Animated Armor",
     "hp": 33,
     "AC": 18,
@@ -997,6 +1131,7 @@
     ],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Blindsight 60 ft.",
@@ -1018,7 +1153,7 @@
     }
   },
   {
-    "id": "xco3vgqwl",
+    "id": "n4urxxwp9",
     "name": "Ankheg",
     "hp": 39,
     "AC": 14,
@@ -1029,6 +1164,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Darkvision 60 ft.",
@@ -1051,7 +1187,7 @@
     }
   },
   {
-    "id": "bw9imqhpl",
+    "id": "1sxxnfzln",
     "name": "Ankylosaurus",
     "hp": 68,
     "AC": 15,
@@ -1062,6 +1198,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Passive Perception 11"
@@ -1082,7 +1219,7 @@
     }
   },
   {
-    "id": "lf35qwktt",
+    "id": "wtvyuls1r",
     "name": "Ape",
     "hp": 19,
     "AC": 12,
@@ -1093,6 +1230,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Athletics +5",
       "Perception +3"
@@ -1116,7 +1254,7 @@
     }
   },
   {
-    "id": "mpcb0mo8o",
+    "id": "8mqse552j",
     "name": "Archmage",
     "hp": 99,
     "AC": 12,
@@ -1127,6 +1265,10 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [
+      "INT +9",
+      "WIS +6"
+    ],
     "skills": [
       "Arcana +13",
       "History +13"
@@ -1150,7 +1292,7 @@
     }
   },
   {
-    "id": "3j4f1l4np",
+    "id": "c7or7f54a",
     "name": "Assassin",
     "hp": 78,
     "AC": 15,
@@ -1163,6 +1305,10 @@
       "Poison"
     ],
     "vulnerabilities": [],
+    "savingThrows": [
+      "DEX +6",
+      "INT +4"
+    ],
     "skills": [
       "Acrobatics +6",
       "Deception +3",
@@ -1188,7 +1334,7 @@
     }
   },
   {
-    "id": "jehgfmetw",
+    "id": "dk4m4bkzd",
     "name": "Awakened Shrub",
     "hp": 10,
     "AC": 9,
@@ -1203,6 +1349,7 @@
     "vulnerabilities": [
       "Fire"
     ],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Passive Perception 10"
@@ -1223,7 +1370,7 @@
     }
   },
   {
-    "id": "6yt3c7z28",
+    "id": "23znq0h3t",
     "name": "Awakened Tree",
     "hp": 59,
     "AC": 13,
@@ -1239,6 +1386,7 @@
     "vulnerabilities": [
       "Fire"
     ],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Passive Perception 10"
@@ -1259,7 +1407,7 @@
     }
   },
   {
-    "id": "6h5n4noq7",
+    "id": "pbti04yq2",
     "name": "Axe Beak",
     "hp": 19,
     "AC": 11,
@@ -1270,6 +1418,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Passive Perception 10"
@@ -1290,7 +1439,7 @@
     }
   },
   {
-    "id": "94e0ov269",
+    "id": "vxl0nbycu",
     "name": "Azer",
     "hp": 39,
     "AC": 17,
@@ -1305,6 +1454,9 @@
     ],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [
+      "CON +4"
+    ],
     "skills": [],
     "senses": [
       "Passive Perception 11"
@@ -1325,7 +1477,7 @@
     }
   },
   {
-    "id": "ka1pbvqip",
+    "id": "ozgv5ptta",
     "name": "Baboon",
     "hp": 3,
     "AC": 12,
@@ -1336,6 +1488,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Passive Perception 11"
@@ -1356,7 +1509,7 @@
     }
   },
   {
-    "id": "h4qemnb4y",
+    "id": "mhkoxssbl",
     "name": "Badger",
     "hp": 3,
     "AC": 10,
@@ -1367,6 +1520,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Darkvision 30 ft.",
@@ -1388,7 +1542,7 @@
     }
   },
   {
-    "id": "jb7n34tgt",
+    "id": "eweb4fynq",
     "name": "Balor",
     "hp": 262,
     "AC": 19,
@@ -1408,6 +1562,12 @@
       "and Slashing from Nonmagical Attacks"
     ],
     "vulnerabilities": [],
+    "savingThrows": [
+      "STR +14",
+      "CON +12",
+      "WIS +9",
+      "CHA +12"
+    ],
     "skills": [],
     "senses": [
       "Truesight 120 ft.",
@@ -1429,7 +1589,7 @@
     }
   },
   {
-    "id": "kr7sayv54",
+    "id": "63hplz8zv",
     "name": "Bandit",
     "hp": 11,
     "AC": 12,
@@ -1440,6 +1600,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Passive Perception 10"
@@ -1460,7 +1621,7 @@
     }
   },
   {
-    "id": "8jo2yhs4o",
+    "id": "oo4kdw7sx",
     "name": "Bandit Captain",
     "hp": 65,
     "AC": 15,
@@ -1471,6 +1632,11 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [
+      "STR +4",
+      "DEX +5",
+      "WIS +2"
+    ],
     "skills": [
       "Athletics +4",
       "Deception +4"
@@ -1494,7 +1660,7 @@
     }
   },
   {
-    "id": "pnh3aeic7",
+    "id": "ya1gxcffc",
     "name": "Banshee",
     "hp": 58,
     "AC": 12,
@@ -1525,6 +1691,10 @@
       "and Slashing from Nonmagical Attacks"
     ],
     "vulnerabilities": [],
+    "savingThrows": [
+      "WIS +2",
+      "CHA +5"
+    ],
     "skills": [],
     "senses": [
       "Darkvision 60 ft.",
@@ -1546,7 +1716,7 @@
     }
   },
   {
-    "id": "ctfcfyvkx",
+    "id": "1t03a1has",
     "name": "Barbed Devil",
     "hp": 110,
     "AC": 15,
@@ -1565,6 +1735,12 @@
       "and Slashing from Nonmagical Attacks that aren't Silvered"
     ],
     "vulnerabilities": [],
+    "savingThrows": [
+      "STR +6",
+      "CON +7",
+      "WIS +5",
+      "CHA +5"
+    ],
     "skills": [
       "Deception +5",
       "Insight +5",
@@ -1590,7 +1766,7 @@
     }
   },
   {
-    "id": "49xd6t7lk",
+    "id": "sejrbxrsv",
     "name": "Basilisk",
     "hp": 52,
     "AC": 15,
@@ -1601,6 +1777,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Darkvision 60 ft.",
@@ -1622,7 +1799,7 @@
     }
   },
   {
-    "id": "ez574ay7f",
+    "id": "w00fcws32",
     "name": "Bat",
     "hp": 1,
     "AC": 12,
@@ -1633,6 +1810,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Blindsight 60 ft.",
@@ -1654,7 +1832,7 @@
     }
   },
   {
-    "id": "5333hg5t9",
+    "id": "h0tyuyc9v",
     "name": "Bearded Devil",
     "hp": 52,
     "AC": 13,
@@ -1673,6 +1851,11 @@
       "and Slashing from Nonmagical Attacks that aren't Silvered"
     ],
     "vulnerabilities": [],
+    "savingThrows": [
+      "STR +5",
+      "CON +4",
+      "WIS +2"
+    ],
     "skills": [],
     "senses": [
       "Darkvision 120 ft.",
@@ -1694,7 +1877,7 @@
     }
   },
   {
-    "id": "mr0mkgcv4",
+    "id": "gu3fxkjyo",
     "name": "Behir",
     "hp": 168,
     "AC": 17,
@@ -1707,6 +1890,7 @@
     ],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Perception +6",
       "Stealth +7"
@@ -1731,7 +1915,7 @@
     }
   },
   {
-    "id": "7rr4v387s",
+    "id": "4ykmglefw",
     "name": "Berserker",
     "hp": 67,
     "AC": 13,
@@ -1742,6 +1926,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Passive Perception 10"
@@ -1762,7 +1947,7 @@
     }
   },
   {
-    "id": "dghsctctg",
+    "id": "j7rm5bhju",
     "name": "Black Bear",
     "hp": 19,
     "AC": 11,
@@ -1773,6 +1958,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Perception +3"
     ],
@@ -1795,7 +1981,7 @@
     }
   },
   {
-    "id": "vrb2ifsb9",
+    "id": "wfvbda78w",
     "name": "Black Dragon Wyrmling",
     "hp": 33,
     "AC": 17,
@@ -1808,6 +1994,12 @@
     ],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [
+      "DEX +4",
+      "CON +3",
+      "WIS +2",
+      "CHA +3"
+    ],
     "skills": [
       "Perception +4",
       "Stealth +4"
@@ -1833,7 +2025,7 @@
     }
   },
   {
-    "id": "9nbhokf63",
+    "id": "kgiy013q5",
     "name": "Black Pudding",
     "hp": 85,
     "AC": 7,
@@ -1855,6 +2047,7 @@
     ],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Blindsight 60 ft.",
@@ -1876,7 +2069,7 @@
     }
   },
   {
-    "id": "9x66nz9yq",
+    "id": "46uwea5cy",
     "name": "Blink Dog",
     "hp": 22,
     "AC": 13,
@@ -1887,6 +2080,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Perception +3",
       "Stealth +5"
@@ -1910,7 +2104,7 @@
     }
   },
   {
-    "id": "mjejs1ywz",
+    "id": "5ahskzjbe",
     "name": "Blood Hawk",
     "hp": 7,
     "AC": 12,
@@ -1921,6 +2115,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Perception +4"
     ],
@@ -1943,7 +2138,7 @@
     }
   },
   {
-    "id": "6qsi1wdgc",
+    "id": "pf52eamry",
     "name": "Blue Dragon Wyrmling",
     "hp": 52,
     "AC": 17,
@@ -1956,6 +2151,12 @@
     ],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [
+      "DEX +2",
+      "CON +4",
+      "WIS +2",
+      "CHA +4"
+    ],
     "skills": [
       "Perception +4",
       "Stealth +2"
@@ -1981,7 +2182,7 @@
     }
   },
   {
-    "id": "x5bbkvfx1",
+    "id": "r04zgrxnl",
     "name": "Boar",
     "hp": 11,
     "AC": 11,
@@ -1992,6 +2193,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Passive Perception 9"
@@ -2012,7 +2214,7 @@
     }
   },
   {
-    "id": "2x94exlad",
+    "id": "nwp933677",
     "name": "Bone Devil",
     "hp": 142,
     "AC": 19,
@@ -2031,6 +2233,11 @@
       "and Slashing from Nonmagical Attacks that aren't Silvered"
     ],
     "vulnerabilities": [],
+    "savingThrows": [
+      "INT +5",
+      "WIS +6",
+      "CHA +7"
+    ],
     "skills": [
       "Deception +7",
       "Insight +6"
@@ -2055,7 +2262,7 @@
     }
   },
   {
-    "id": "a9pyz3f2q",
+    "id": "atbv4hbbu",
     "name": "Brass Dragon Wyrmling",
     "hp": 16,
     "AC": 16,
@@ -2068,6 +2275,12 @@
     ],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [
+      "DEX +2",
+      "CON +3",
+      "WIS +2",
+      "CHA +3"
+    ],
     "skills": [
       "Perception +4",
       "Stealth +2"
@@ -2093,7 +2306,7 @@
     }
   },
   {
-    "id": "ntemhi266",
+    "id": "t9447k7m2",
     "name": "Bronze Dragon Wyrmling",
     "hp": 32,
     "AC": 17,
@@ -2106,6 +2319,12 @@
     ],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [
+      "DEX +2",
+      "CON +4",
+      "WIS +2",
+      "CHA +4"
+    ],
     "skills": [
       "Perception +4",
       "Stealth +2"
@@ -2131,7 +2350,7 @@
     }
   },
   {
-    "id": "jto3vjfob",
+    "id": "sh1ce6fhs",
     "name": "Brown Bear",
     "hp": 34,
     "AC": 11,
@@ -2142,6 +2361,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Perception +3"
     ],
@@ -2164,7 +2384,7 @@
     }
   },
   {
-    "id": "cg9sqzya5",
+    "id": "mseejnx9d",
     "name": "Bugbear",
     "hp": 27,
     "AC": 16,
@@ -2175,6 +2395,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Stealth +6",
       "Survival +2"
@@ -2199,7 +2420,7 @@
     }
   },
   {
-    "id": "dx0iw17hg",
+    "id": "sgvpf9au9",
     "name": "Bulette",
     "hp": 94,
     "AC": 17,
@@ -2210,6 +2431,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Perception +6"
     ],
@@ -2234,7 +2456,7 @@
     }
   },
   {
-    "id": "2q01a6ptu",
+    "id": "ad2vrnibd",
     "name": "Camel",
     "hp": 15,
     "AC": 9,
@@ -2245,6 +2467,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Passive Perception 9"
@@ -2265,7 +2488,7 @@
     }
   },
   {
-    "id": "qnnlpr53l",
+    "id": "0957gvb37",
     "name": "Cat",
     "hp": 2,
     "AC": 12,
@@ -2276,6 +2499,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Perception +3",
       "Stealth +4"
@@ -2299,7 +2523,7 @@
     }
   },
   {
-    "id": "2xn6rnrp8",
+    "id": "w87o92hqf",
     "name": "Centaur",
     "hp": 45,
     "AC": 12,
@@ -2310,6 +2534,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Athletics +6",
       "Perception +3",
@@ -2334,7 +2559,7 @@
     }
   },
   {
-    "id": "b4xa80qcu",
+    "id": "gfk3t6g0n",
     "name": "Chain Devil",
     "hp": 85,
     "AC": 16,
@@ -2353,6 +2578,11 @@
       "and Slashing from Nonmagical Attacks that aren't Silvered"
     ],
     "vulnerabilities": [],
+    "savingThrows": [
+      "CON +7",
+      "WIS +4",
+      "CHA +5"
+    ],
     "skills": [],
     "senses": [
       "Darkvision 120 ft.",
@@ -2374,7 +2604,7 @@
     }
   },
   {
-    "id": "rg2ptd3g2",
+    "id": "q7581in1u",
     "name": "Chimera",
     "hp": 114,
     "AC": 14,
@@ -2385,6 +2615,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Perception +8"
     ],
@@ -2408,7 +2639,7 @@
     }
   },
   {
-    "id": "e19wsavkv",
+    "id": "t9cfyom4g",
     "name": "Chuul",
     "hp": 93,
     "AC": 16,
@@ -2422,6 +2653,7 @@
     ],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Perception +4"
     ],
@@ -2445,7 +2677,7 @@
     }
   },
   {
-    "id": "tnimb52mr",
+    "id": "d7vxuwzz4",
     "name": "Clay Golem",
     "hp": 133,
     "AC": 14,
@@ -2468,6 +2700,7 @@
     ],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Darkvision 60 ft.",
@@ -2489,7 +2722,7 @@
     }
   },
   {
-    "id": "9y0lbdwwf",
+    "id": "7qh0snx34",
     "name": "Cloaker",
     "hp": 78,
     "AC": 14,
@@ -2500,6 +2733,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Stealth +5"
     ],
@@ -2523,7 +2757,7 @@
     }
   },
   {
-    "id": "0amm1wp9f",
+    "id": "f0ewjho55",
     "name": "Cloud Giant",
     "hp": 200,
     "AC": 14,
@@ -2534,6 +2768,11 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [
+      "CON +10",
+      "WIS +7",
+      "CHA +7"
+    ],
     "skills": [
       "Insight +7",
       "Perception +7"
@@ -2557,7 +2796,7 @@
     }
   },
   {
-    "id": "q1phvf8w3",
+    "id": "qkoxsu1bg",
     "name": "Cockatrice",
     "hp": 27,
     "AC": 11,
@@ -2568,6 +2807,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Darkvision 60 ft.",
@@ -2589,7 +2829,7 @@
     }
   },
   {
-    "id": "h8f7u9ozj",
+    "id": "eetxq86cz",
     "name": "Commoner",
     "hp": 4,
     "AC": 10,
@@ -2600,6 +2840,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Passive Perception 10"
@@ -2620,7 +2861,7 @@
     }
   },
   {
-    "id": "tlwr30xo1",
+    "id": "f41re2fl0",
     "name": "Constrictor Snake",
     "hp": 13,
     "AC": 12,
@@ -2631,6 +2872,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Blindsight 10 ft.",
@@ -2652,7 +2894,7 @@
     }
   },
   {
-    "id": "bv0szk9se",
+    "id": "tatyunhxv",
     "name": "Copper Dragon Wyrmling",
     "hp": 22,
     "AC": 16,
@@ -2665,6 +2907,12 @@
     ],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [
+      "DEX +3",
+      "CON +3",
+      "WIS +2",
+      "CHA +3"
+    ],
     "skills": [
       "Perception +4",
       "Stealth +3"
@@ -2690,7 +2938,7 @@
     }
   },
   {
-    "id": "gwua5qhl6",
+    "id": "bcpesu3ni",
     "name": "Couatl",
     "hp": 97,
     "AC": 19,
@@ -2707,6 +2955,11 @@
       "Radiant"
     ],
     "vulnerabilities": [],
+    "savingThrows": [
+      "CON +5",
+      "WIS +7",
+      "CHA +6"
+    ],
     "skills": [],
     "senses": [
       "Truesight 120 ft.",
@@ -2728,7 +2981,7 @@
     }
   },
   {
-    "id": "gnpe9z6vd",
+    "id": "bbkh48gy7",
     "name": "Crab",
     "hp": 2,
     "AC": 11,
@@ -2739,6 +2992,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Stealth +2"
     ],
@@ -2762,7 +3016,7 @@
     }
   },
   {
-    "id": "p5avgbgdl",
+    "id": "7myrrn8qj",
     "name": "Crocodile",
     "hp": 19,
     "AC": 12,
@@ -2773,6 +3027,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Stealth +2"
     ],
@@ -2795,7 +3050,7 @@
     }
   },
   {
-    "id": "3ylsf3gva",
+    "id": "vxxp75soo",
     "name": "Cult Fanatic",
     "hp": 33,
     "AC": 13,
@@ -2806,6 +3061,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Deception +4",
       "Persuasion +4",
@@ -2830,7 +3086,7 @@
     }
   },
   {
-    "id": "eqv0xi2i4",
+    "id": "xegi41a2u",
     "name": "Cultist",
     "hp": 9,
     "AC": 12,
@@ -2841,6 +3097,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Deception +2",
       "Religion +2"
@@ -2864,7 +3121,7 @@
     }
   },
   {
-    "id": "sd8yxq47d",
+    "id": "ylxvf6b48",
     "name": "Cyclops",
     "hp": 138,
     "AC": 14,
@@ -2875,6 +3132,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Passive Perception 8"
@@ -2895,7 +3153,7 @@
     }
   },
   {
-    "id": "8j22yi3jc",
+    "id": "xroysq2ma",
     "name": "Darkmantle",
     "hp": 22,
     "AC": 11,
@@ -2906,6 +3164,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Stealth +3"
     ],
@@ -2929,7 +3188,7 @@
     }
   },
   {
-    "id": "vm82e3bvr",
+    "id": "0d9zt88er",
     "name": "Death Dog",
     "hp": 39,
     "AC": 12,
@@ -2940,6 +3199,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Perception +5",
       "Stealth +4"
@@ -2964,7 +3224,7 @@
     }
   },
   {
-    "id": "1fm10cwmt",
+    "id": "7i4bljg0x",
     "name": "Deep Gnome (Svirfneblin)",
     "hp": 16,
     "AC": 15,
@@ -2975,6 +3235,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Investigation +3",
       "Perception +2",
@@ -3000,7 +3261,7 @@
     }
   },
   {
-    "id": "78n3cuqd4",
+    "id": "9028s8yl1",
     "name": "Deer",
     "hp": 4,
     "AC": 13,
@@ -3011,6 +3272,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Passive Perception 12"
@@ -3031,7 +3293,7 @@
     }
   },
   {
-    "id": "ccxqnwdfy",
+    "id": "qtc983gsi",
     "name": "Deva",
     "hp": 136,
     "AC": 17,
@@ -3050,6 +3312,10 @@
       "and Slashing from Nonmagical Attacks"
     ],
     "vulnerabilities": [],
+    "savingThrows": [
+      "WIS +9",
+      "CHA +9"
+    ],
     "skills": [
       "Insight +9",
       "Perception +9"
@@ -3074,7 +3340,7 @@
     }
   },
   {
-    "id": "aup84pnua",
+    "id": "hukpyyo1b",
     "name": "Dire Wolf",
     "hp": 37,
     "AC": 14,
@@ -3085,6 +3351,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Perception +3",
       "Stealth +4"
@@ -3108,7 +3375,7 @@
     }
   },
   {
-    "id": "m5utydvru",
+    "id": "7kdtqre6h",
     "name": "Djinni",
     "hp": 161,
     "AC": 17,
@@ -3122,6 +3389,11 @@
     ],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [
+      "DEX +6",
+      "WIS +7",
+      "CHA +9"
+    ],
     "skills": [],
     "senses": [
       "Darkvision 120 ft.",
@@ -3143,7 +3415,7 @@
     }
   },
   {
-    "id": "cragv6ndh",
+    "id": "7jb5a2v52",
     "name": "Doppelganger",
     "hp": 52,
     "AC": 14,
@@ -3156,6 +3428,7 @@
     ],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Deception +6",
       "Insight +3"
@@ -3180,7 +3453,7 @@
     }
   },
   {
-    "id": "33roqmdlb",
+    "id": "turxe95oo",
     "name": "Draft Horse",
     "hp": 19,
     "AC": 10,
@@ -3191,6 +3464,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Passive Perception 10"
@@ -3211,7 +3485,7 @@
     }
   },
   {
-    "id": "7pfp8cju3",
+    "id": "futj3ihe0",
     "name": "Dragon Turtle",
     "hp": 341,
     "AC": 20,
@@ -3224,6 +3498,11 @@
       "Fire"
     ],
     "vulnerabilities": [],
+    "savingThrows": [
+      "DEX +6",
+      "CON +11",
+      "WIS +7"
+    ],
     "skills": [],
     "senses": [
       "Darkvision 120 ft.",
@@ -3245,7 +3524,7 @@
     }
   },
   {
-    "id": "x0jyi22of",
+    "id": "5fmxvbs7t",
     "name": "Dretch",
     "hp": 18,
     "AC": 11,
@@ -3263,6 +3542,7 @@
       "Lightning"
     ],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Darkvision 60 ft.",
@@ -3284,7 +3564,7 @@
     }
   },
   {
-    "id": "vtxpp2sbf",
+    "id": "paepckq4b",
     "name": "Drider",
     "hp": 123,
     "AC": 19,
@@ -3295,6 +3575,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Perception +5",
       "Stealth +9"
@@ -3319,7 +3600,7 @@
     }
   },
   {
-    "id": "g9pluhtat",
+    "id": "962a117x6",
     "name": "Drow",
     "hp": 13,
     "AC": 15,
@@ -3330,6 +3611,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Perception +2",
       "Stealth +4"
@@ -3354,7 +3636,7 @@
     }
   },
   {
-    "id": "u5tl161ym",
+    "id": "c88v8ydic",
     "name": "Druid",
     "hp": 27,
     "AC": 11,
@@ -3365,6 +3647,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Medicine +4",
       "Nature +3",
@@ -3389,7 +3672,7 @@
     }
   },
   {
-    "id": "lrd1wv4uj",
+    "id": "z763ud29s",
     "name": "Dryad",
     "hp": 22,
     "AC": 11,
@@ -3400,6 +3683,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Perception +4",
       "Stealth +5"
@@ -3424,7 +3708,7 @@
     }
   },
   {
-    "id": "jah1opfap",
+    "id": "4coo656pq",
     "name": "Duergar",
     "hp": 26,
     "AC": 16,
@@ -3437,6 +3721,7 @@
       "Poison"
     ],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Darkvision 120 ft.",
@@ -3458,7 +3743,7 @@
     }
   },
   {
-    "id": "6n4b6bfwy",
+    "id": "4g3m7wmbu",
     "name": "Dust Mephit",
     "hp": 17,
     "AC": 12,
@@ -3474,6 +3759,7 @@
     "vulnerabilities": [
       "Fire"
     ],
+    "savingThrows": [],
     "skills": [
       "Perception +2",
       "Stealth +4"
@@ -3498,7 +3784,7 @@
     }
   },
   {
-    "id": "ipiyc8yh1",
+    "id": "5iavhrtcc",
     "name": "Eagle",
     "hp": 3,
     "AC": 12,
@@ -3509,6 +3795,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Perception +4"
     ],
@@ -3531,7 +3818,7 @@
     }
   },
   {
-    "id": "pi6s5zxmj",
+    "id": "tjlshh3yz",
     "name": "Earth Elemental",
     "hp": 126,
     "AC": 17,
@@ -3555,6 +3842,7 @@
     "vulnerabilities": [
       "Thunder"
     ],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Darkvision 60 ft.",
@@ -3577,7 +3865,7 @@
     }
   },
   {
-    "id": "zluvhkn0d",
+    "id": "ab5hgylec",
     "name": "Efreeti",
     "hp": 200,
     "AC": 17,
@@ -3590,6 +3878,11 @@
     ],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [
+      "INT +7",
+      "WIS +6",
+      "CHA +7"
+    ],
     "skills": [],
     "senses": [
       "Darkvision 120 ft.",
@@ -3611,7 +3904,7 @@
     }
   },
   {
-    "id": "mihavtu8m",
+    "id": "0vs46ejwh",
     "name": "Elephant",
     "hp": 76,
     "AC": 12,
@@ -3622,6 +3915,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Passive Perception 10"
@@ -3642,7 +3936,7 @@
     }
   },
   {
-    "id": "pwk7qawmj",
+    "id": "2mw0rxh55",
     "name": "Elk",
     "hp": 13,
     "AC": 10,
@@ -3653,6 +3947,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Passive Perception 10"
@@ -3673,7 +3968,7 @@
     }
   },
   {
-    "id": "6stsi3uuq",
+    "id": "mttk7zre8",
     "name": "Erinyes",
     "hp": 153,
     "AC": 18,
@@ -3692,6 +3987,12 @@
       "and Slashing from Nonmagical Attacks that aren't Silvered"
     ],
     "vulnerabilities": [],
+    "savingThrows": [
+      "DEX +7",
+      "CON +8",
+      "WIS +6",
+      "CHA +8"
+    ],
     "skills": [],
     "senses": [
       "Truesight 120 ft.",
@@ -3713,7 +4014,7 @@
     }
   },
   {
-    "id": "3rwfd4hx5",
+    "id": "qxi05on00",
     "name": "Ettercap",
     "hp": 44,
     "AC": 13,
@@ -3724,6 +4025,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Perception +3",
       "Stealth +4",
@@ -3749,7 +4051,7 @@
     }
   },
   {
-    "id": "3hb002jil",
+    "id": "xp6excndl",
     "name": "Ettin",
     "hp": 85,
     "AC": 12,
@@ -3760,6 +4062,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Perception +4"
     ],
@@ -3783,7 +4086,7 @@
     }
   },
   {
-    "id": "7up89uxmm",
+    "id": "q564482cy",
     "name": "Fire Elemental",
     "hp": 102,
     "AC": 13,
@@ -3809,6 +4112,7 @@
       "and Slashing from Nonmagical Attacks"
     ],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Darkvision 60 ft.",
@@ -3830,7 +4134,7 @@
     }
   },
   {
-    "id": "kvun5cttw",
+    "id": "suqjvg618",
     "name": "Fire Giant",
     "hp": 162,
     "AC": 18,
@@ -3843,6 +4147,11 @@
     ],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [
+      "DEX +3",
+      "CON +10",
+      "CHA +5"
+    ],
     "skills": [
       "Athletics +11",
       "Perception +6"
@@ -3866,7 +4175,7 @@
     }
   },
   {
-    "id": "e69ntvcmr",
+    "id": "zd04wbusy",
     "name": "Flameskull",
     "hp": 40,
     "AC": 13,
@@ -3890,6 +4199,7 @@
       "Piercing"
     ],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Arcana +5",
       "Perception +2"
@@ -3914,7 +4224,7 @@
     }
   },
   {
-    "id": "yazyu3oew",
+    "id": "8br6650me",
     "name": "Flesh Golem",
     "hp": 93,
     "AC": 9,
@@ -3936,6 +4246,7 @@
     ],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Darkvision 60 ft.",
@@ -3957,7 +4268,7 @@
     }
   },
   {
-    "id": "gxg214vb9",
+    "id": "ybt8nux9s",
     "name": "Flying Snake",
     "hp": 5,
     "AC": 14,
@@ -3968,6 +4279,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Blindsight 10 ft.",
@@ -3989,7 +4301,7 @@
     }
   },
   {
-    "id": "j2iwblukn",
+    "id": "iy9tcs5pk",
     "name": "Flying Sword",
     "hp": 17,
     "AC": 17,
@@ -4010,6 +4322,9 @@
     ],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [
+      "DEX +4"
+    ],
     "skills": [],
     "senses": [
       "Blindsight 60 ft.",
@@ -4031,7 +4346,7 @@
     }
   },
   {
-    "id": "15up65hfn",
+    "id": "x6ceiz0fu",
     "name": "Frog",
     "hp": 1,
     "AC": 11,
@@ -4042,6 +4357,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Perception +1",
       "Stealth +3"
@@ -4066,7 +4382,7 @@
     }
   },
   {
-    "id": "4tz31epl5",
+    "id": "gatfsiohq",
     "name": "Frost Giant",
     "hp": 138,
     "AC": 15,
@@ -4079,6 +4395,11 @@
     ],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [
+      "CON +8",
+      "WIS +3",
+      "CHA +4"
+    ],
     "skills": [
       "Athletics +9",
       "Perception +3"
@@ -4102,7 +4423,7 @@
     }
   },
   {
-    "id": "vefmz9plu",
+    "id": "zcityl7b0",
     "name": "Gargoyle",
     "hp": 52,
     "AC": 15,
@@ -4122,6 +4443,7 @@
       "and Slashing from Nonmagical Attacks that aren't Adamantine"
     ],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Darkvision 60 ft.",
@@ -4143,7 +4465,7 @@
     }
   },
   {
-    "id": "rbycitxwr",
+    "id": "b05f0pptf",
     "name": "Gelatinous Cube",
     "hp": 84,
     "AC": 6,
@@ -4161,6 +4483,7 @@
     ],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Blindsight 60 ft.",
@@ -4182,7 +4505,7 @@
     }
   },
   {
-    "id": "kebu3jw9g",
+    "id": "2jnqiezdm",
     "name": "Ghast",
     "hp": 36,
     "AC": 13,
@@ -4200,6 +4523,7 @@
       "Necrotic"
     ],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Darkvision 60 ft.",
@@ -4221,7 +4545,7 @@
     }
   },
   {
-    "id": "8fh02q835",
+    "id": "vrwmmmn84",
     "name": "Ghost",
     "hp": 45,
     "AC": 11,
@@ -4252,6 +4576,7 @@
       "and Slashing from Nonmagical Attacks"
     ],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Darkvision 60 ft.",
@@ -4273,7 +4598,7 @@
     }
   },
   {
-    "id": "i6fnfu9nm",
+    "id": "r46wrmpgj",
     "name": "Ghoul",
     "hp": 22,
     "AC": 12,
@@ -4289,6 +4614,7 @@
     ],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Darkvision 60 ft.",
@@ -4310,7 +4636,7 @@
     }
   },
   {
-    "id": "x5ftcia4g",
+    "id": "jvof28dnu",
     "name": "Giant Ape",
     "hp": 157,
     "AC": 12,
@@ -4321,6 +4647,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Athletics +9",
       "Perception +4"
@@ -4344,7 +4671,7 @@
     }
   },
   {
-    "id": "m8ilxgrfc",
+    "id": "x20pm6522",
     "name": "Giant Badger",
     "hp": 13,
     "AC": 10,
@@ -4355,6 +4682,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Darkvision 30 ft.",
@@ -4376,7 +4704,7 @@
     }
   },
   {
-    "id": "4tgj7vtdu",
+    "id": "0r9ciupyf",
     "name": "Giant Bat",
     "hp": 22,
     "AC": 13,
@@ -4387,6 +4715,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Blindsight 60 ft.",
@@ -4408,7 +4737,7 @@
     }
   },
   {
-    "id": "rle8yvogu",
+    "id": "3y768uwos",
     "name": "Giant Boar",
     "hp": 42,
     "AC": 12,
@@ -4419,6 +4748,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Passive Perception 8"
@@ -4439,7 +4769,7 @@
     }
   },
   {
-    "id": "fkwd6ssi6",
+    "id": "3p639ckgn",
     "name": "Giant Centipede",
     "hp": 4,
     "AC": 13,
@@ -4450,6 +4780,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Blindsight 30 ft.",
@@ -4471,7 +4802,7 @@
     }
   },
   {
-    "id": "qof4w41jz",
+    "id": "f1mxm00wg",
     "name": "Giant Constrictor Snake",
     "hp": 60,
     "AC": 12,
@@ -4482,6 +4813,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Perception +2"
     ],
@@ -4505,7 +4837,7 @@
     }
   },
   {
-    "id": "3ckulvijc",
+    "id": "blu46unar",
     "name": "Giant Crab",
     "hp": 13,
     "AC": 15,
@@ -4516,6 +4848,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Stealth +4"
     ],
@@ -4539,7 +4872,7 @@
     }
   },
   {
-    "id": "xo4c1lzry",
+    "id": "l32y3usfh",
     "name": "Giant Crocodile",
     "hp": 85,
     "AC": 14,
@@ -4550,6 +4883,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Stealth +5"
     ],
@@ -4572,7 +4906,7 @@
     }
   },
   {
-    "id": "3hs5fmz67",
+    "id": "1t77nwwhv",
     "name": "Giant Eagle",
     "hp": 26,
     "AC": 13,
@@ -4583,6 +4917,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Perception +4"
     ],
@@ -4605,7 +4940,7 @@
     }
   },
   {
-    "id": "f0le4hz3n",
+    "id": "llenyirif",
     "name": "Giant Elk",
     "hp": 42,
     "AC": 14,
@@ -4616,6 +4951,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Perception +4"
     ],
@@ -4638,7 +4974,7 @@
     }
   },
   {
-    "id": "diahfu271",
+    "id": "lkt2w3cdr",
     "name": "Giant Fire Beetle",
     "hp": 4,
     "AC": 13,
@@ -4649,6 +4985,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Blindsight 30 ft.",
@@ -4670,7 +5007,7 @@
     }
   },
   {
-    "id": "9qxwt4wp6",
+    "id": "vca6snp0v",
     "name": "Giant Frog",
     "hp": 18,
     "AC": 11,
@@ -4681,6 +5018,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Perception +2",
       "Stealth +3"
@@ -4705,7 +5043,7 @@
     }
   },
   {
-    "id": "4qnmia0p4",
+    "id": "c14ktm147",
     "name": "Giant Goat",
     "hp": 19,
     "AC": 11,
@@ -4716,6 +5054,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Passive Perception 11"
@@ -4736,7 +5075,7 @@
     }
   },
   {
-    "id": "nr3n327yl",
+    "id": "g3nmw8pti",
     "name": "Giant Hyena",
     "hp": 45,
     "AC": 12,
@@ -4747,6 +5086,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Perception +3"
     ],
@@ -4769,7 +5109,7 @@
     }
   },
   {
-    "id": "vnl9gbo3g",
+    "id": "mp1ce3n6l",
     "name": "Giant Lizard",
     "hp": 19,
     "AC": 12,
@@ -4780,6 +5120,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Darkvision 30 ft.",
@@ -4801,7 +5142,7 @@
     }
   },
   {
-    "id": "sxdiieoa6",
+    "id": "3jqjobx5z",
     "name": "Giant Octopus",
     "hp": 52,
     "AC": 11,
@@ -4812,6 +5153,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Perception +4",
       "Stealth +5"
@@ -4836,7 +5178,7 @@
     }
   },
   {
-    "id": "53dt2ah0j",
+    "id": "gampgcd16",
     "name": "Giant Owl",
     "hp": 19,
     "AC": 12,
@@ -4847,6 +5189,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Perception +5",
       "Stealth +4"
@@ -4871,7 +5214,7 @@
     }
   },
   {
-    "id": "fv32w3o8o",
+    "id": "ln8w8jyel",
     "name": "Giant Poisonous Snake",
     "hp": 11,
     "AC": 14,
@@ -4882,6 +5225,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Perception +2"
     ],
@@ -4905,7 +5249,7 @@
     }
   },
   {
-    "id": "aqah2l0g0",
+    "id": "jkrnnltm3",
     "name": "Giant Rat",
     "hp": 7,
     "AC": 12,
@@ -4916,6 +5260,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Darkvision 60 ft.",
@@ -4937,7 +5282,7 @@
     }
   },
   {
-    "id": "pi43xvtgn",
+    "id": "pmq4i3u1w",
     "name": "Giant Scorpion",
     "hp": 52,
     "AC": 15,
@@ -4948,6 +5293,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Blindsight 60 ft.",
@@ -4969,7 +5315,7 @@
     }
   },
   {
-    "id": "jl1ua68l0",
+    "id": "sh8ktagr2",
     "name": "Giant Sea Horse",
     "hp": 16,
     "AC": 13,
@@ -4980,6 +5326,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Passive Perception 11"
@@ -5000,7 +5347,7 @@
     }
   },
   {
-    "id": "sn1nwgcc2",
+    "id": "86fi8e6j5",
     "name": "Giant Shark",
     "hp": 126,
     "AC": 13,
@@ -5011,6 +5358,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Perception +3"
     ],
@@ -5034,7 +5382,7 @@
     }
   },
   {
-    "id": "s1sscwz1h",
+    "id": "liqhjade3",
     "name": "Giant Spider",
     "hp": 26,
     "AC": 14,
@@ -5045,6 +5393,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Stealth +7"
     ],
@@ -5069,7 +5418,7 @@
     }
   },
   {
-    "id": "i5q2h7kof",
+    "id": "o5zypj7ar",
     "name": "Giant Toad",
     "hp": 39,
     "AC": 11,
@@ -5080,6 +5429,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Darkvision 30 ft.",
@@ -5101,7 +5451,7 @@
     }
   },
   {
-    "id": "lhjphn9nm",
+    "id": "qxr6888el",
     "name": "Giant Vulture",
     "hp": 22,
     "AC": 10,
@@ -5112,6 +5462,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Perception +3"
     ],
@@ -5134,7 +5485,7 @@
     }
   },
   {
-    "id": "us5jdei0p",
+    "id": "i7qotzdgj",
     "name": "Giant Wasp",
     "hp": 13,
     "AC": 12,
@@ -5145,6 +5496,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Passive Perception 10"
@@ -5165,7 +5517,7 @@
     }
   },
   {
-    "id": "ge9p98akx",
+    "id": "5imvdc9nw",
     "name": "Giant Weasel",
     "hp": 9,
     "AC": 13,
@@ -5176,6 +5528,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Perception +3",
       "Stealth +5"
@@ -5200,7 +5553,7 @@
     }
   },
   {
-    "id": "lo29vqd4s",
+    "id": "lioo89ac3",
     "name": "Giant Wolf Spider",
     "hp": 11,
     "AC": 13,
@@ -5211,6 +5564,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Perception +3",
       "Stealth +7"
@@ -5236,7 +5590,7 @@
     }
   },
   {
-    "id": "q0jwuqkhm",
+    "id": "6fo0r08y7",
     "name": "Gibbering Mouther",
     "hp": 67,
     "AC": 9,
@@ -5249,6 +5603,7 @@
     ],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Darkvision 60 ft.",
@@ -5270,7 +5625,7 @@
     }
   },
   {
-    "id": "wub8s0sxv",
+    "id": "yz5jlmsxt",
     "name": "Glabrezu",
     "hp": 157,
     "AC": 17,
@@ -5290,6 +5645,12 @@
       "and Slashing from Nonmagical Attacks"
     ],
     "vulnerabilities": [],
+    "savingThrows": [
+      "STR +9",
+      "CON +9",
+      "WIS +7",
+      "CHA +7"
+    ],
     "skills": [],
     "senses": [
       "Truesight 120 ft.",
@@ -5311,7 +5672,7 @@
     }
   },
   {
-    "id": "yut8iw1u3",
+    "id": "da9azqf00",
     "name": "Gladiator",
     "hp": 112,
     "AC": 16,
@@ -5322,6 +5683,11 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [
+      "STR +7",
+      "DEX +5",
+      "CON +6"
+    ],
     "skills": [
       "Athletics +10",
       "Intimidation +5"
@@ -5345,7 +5711,7 @@
     }
   },
   {
-    "id": "d2dfeqzx9",
+    "id": "a4h3qmi5s",
     "name": "Gnoll",
     "hp": 22,
     "AC": 15,
@@ -5356,6 +5722,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Darkvision 60 ft.",
@@ -5377,7 +5744,7 @@
     }
   },
   {
-    "id": "l86shfx7t",
+    "id": "m7g1h4lb0",
     "name": "Goat",
     "hp": 4,
     "AC": 10,
@@ -5388,6 +5755,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Passive Perception 10"
@@ -5408,7 +5776,7 @@
     }
   },
   {
-    "id": "yzsfid34a",
+    "id": "bgm8uecgs",
     "name": "Goblin",
     "hp": 7,
     "AC": 15,
@@ -5419,6 +5787,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Stealth +6"
     ],
@@ -5442,7 +5811,7 @@
     }
   },
   {
-    "id": "a7l352gj9",
+    "id": "hs7ljxsvd",
     "name": "Gold Dragon Wyrmling",
     "hp": 60,
     "AC": 17,
@@ -5455,6 +5824,12 @@
     ],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [
+      "DEX +4",
+      "CON +5",
+      "WIS +2",
+      "CHA +5"
+    ],
     "skills": [
       "Perception +4",
       "Stealth +4"
@@ -5480,7 +5855,7 @@
     }
   },
   {
-    "id": "fmuyq189m",
+    "id": "ruq4amhbg",
     "name": "Gorgon",
     "hp": 114,
     "AC": 19,
@@ -5493,6 +5868,7 @@
     ],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Perception +4"
     ],
@@ -5516,7 +5892,7 @@
     }
   },
   {
-    "id": "20ggqufxf",
+    "id": "9e29cnvih",
     "name": "Gray Ooze",
     "hp": 22,
     "AC": 8,
@@ -5538,6 +5914,7 @@
       "Fire"
     ],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Stealth +2"
     ],
@@ -5561,7 +5938,7 @@
     }
   },
   {
-    "id": "can89p53s",
+    "id": "htu8e2ksx",
     "name": "Green Dragon Wyrmling",
     "hp": 38,
     "AC": 17,
@@ -5575,6 +5952,12 @@
     ],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [
+      "DEX +3",
+      "CON +3",
+      "WIS +2",
+      "CHA +3"
+    ],
     "skills": [
       "Perception +4",
       "Stealth +3"
@@ -5600,7 +5983,7 @@
     }
   },
   {
-    "id": "c2kwukqa8",
+    "id": "pheqidlgx",
     "name": "Green Hag",
     "hp": 82,
     "AC": 17,
@@ -5611,6 +5994,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Arcana +3",
       "Deception +4",
@@ -5637,7 +6021,7 @@
     }
   },
   {
-    "id": "9dkhon6kx",
+    "id": "wj5lcgc15",
     "name": "Grick",
     "hp": 27,
     "AC": 14,
@@ -5652,6 +6036,7 @@
       "and Slashing from Nonmagical Attacks"
     ],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Darkvision 60 ft.",
@@ -5673,7 +6058,7 @@
     }
   },
   {
-    "id": "3gfbosxko",
+    "id": "vyhp1lq62",
     "name": "Griffon",
     "hp": 59,
     "AC": 12,
@@ -5684,6 +6069,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Perception +5"
     ],
@@ -5707,7 +6093,7 @@
     }
   },
   {
-    "id": "3db16ej8t",
+    "id": "q85bfpf0j",
     "name": "Grimlock",
     "hp": 11,
     "AC": 11,
@@ -5720,6 +6106,7 @@
     ],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Athletics +5",
       "Perception +3",
@@ -5745,7 +6132,7 @@
     }
   },
   {
-    "id": "k8glpnsy0",
+    "id": "c3wysvpsu",
     "name": "Guard",
     "hp": 11,
     "AC": 16,
@@ -5756,6 +6143,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Perception +2"
     ],
@@ -5778,7 +6166,7 @@
     }
   },
   {
-    "id": "r6ckcm21r",
+    "id": "0saiqkvrp",
     "name": "Guardian Naga",
     "hp": 127,
     "AC": 18,
@@ -5793,6 +6181,13 @@
     ],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [
+      "DEX +8",
+      "CON +7",
+      "INT +7",
+      "WIS +8",
+      "CHA +8"
+    ],
     "skills": [],
     "senses": [
       "Darkvision 60 ft.",
@@ -5814,7 +6209,7 @@
     }
   },
   {
-    "id": "ghmfyo2qn",
+    "id": "v2mvnitwr",
     "name": "Gynosphinx",
     "hp": 136,
     "AC": 17,
@@ -5833,6 +6228,7 @@
       "and Slashing from Nonmagical Attacks"
     ],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Arcana +12",
       "History +12",
@@ -5859,7 +6255,7 @@
     }
   },
   {
-    "id": "luy24zilf",
+    "id": "pjeu0kjdw",
     "name": "Half-Red Dragon Veteran",
     "hp": 65,
     "AC": 18,
@@ -5872,6 +6268,7 @@
       "Fire"
     ],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Athletics +5",
       "Perception +2"
@@ -5897,7 +6294,7 @@
     }
   },
   {
-    "id": "xj01b32nq",
+    "id": "8nj28k8nw",
     "name": "Harpy",
     "hp": 38,
     "AC": 11,
@@ -5908,6 +6305,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Passive Perception 10"
@@ -5928,7 +6326,7 @@
     }
   },
   {
-    "id": "s767nkig7",
+    "id": "yy6mt7usx",
     "name": "Hawk",
     "hp": 1,
     "AC": 13,
@@ -5939,6 +6337,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Perception +4"
     ],
@@ -5961,7 +6360,7 @@
     }
   },
   {
-    "id": "tk1rxxa7s",
+    "id": "xwmuodni8",
     "name": "Hell Hound",
     "hp": 45,
     "AC": 15,
@@ -5974,6 +6373,7 @@
     ],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Perception +5"
     ],
@@ -5997,7 +6397,7 @@
     }
   },
   {
-    "id": "927ghwdm7",
+    "id": "5uif4w6jf",
     "name": "Hezrou",
     "hp": 136,
     "AC": 16,
@@ -6017,6 +6417,11 @@
       "and Slashing from Nonmagical Attacks"
     ],
     "vulnerabilities": [],
+    "savingThrows": [
+      "STR +7",
+      "CON +8",
+      "WIS +4"
+    ],
     "skills": [],
     "senses": [
       "Darkvision 120 ft.",
@@ -6038,7 +6443,7 @@
     }
   },
   {
-    "id": "p75a10fki",
+    "id": "b4u28anzt",
     "name": "Hill Giant",
     "hp": 105,
     "AC": 13,
@@ -6049,6 +6454,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Perception +2"
     ],
@@ -6071,7 +6477,7 @@
     }
   },
   {
-    "id": "hep462c9j",
+    "id": "wofojh1h6",
     "name": "Hippogriff",
     "hp": 19,
     "AC": 11,
@@ -6082,6 +6488,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Perception +5"
     ],
@@ -6104,7 +6511,7 @@
     }
   },
   {
-    "id": "vraet6dds",
+    "id": "jjle3krj4",
     "name": "Hobgoblin",
     "hp": 11,
     "AC": 18,
@@ -6115,6 +6522,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Darkvision 60 ft.",
@@ -6136,7 +6544,7 @@
     }
   },
   {
-    "id": "gimus53aj",
+    "id": "p1mywv1i2",
     "name": "Homunculus",
     "hp": 5,
     "AC": 13,
@@ -6151,6 +6559,7 @@
     ],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Darkvision 60 ft.",
@@ -6172,7 +6581,7 @@
     }
   },
   {
-    "id": "vc7ezlog8",
+    "id": "7xghgn6yu",
     "name": "Horned Devil",
     "hp": 148,
     "AC": 18,
@@ -6191,6 +6600,12 @@
       "and Slashing from Nonmagical Attacks that aren't Silvered"
     ],
     "vulnerabilities": [],
+    "savingThrows": [
+      "STR +10",
+      "DEX +7",
+      "WIS +7",
+      "CHA +7"
+    ],
     "skills": [],
     "senses": [
       "Darkvision 120 ft.",
@@ -6212,7 +6627,7 @@
     }
   },
   {
-    "id": "z1033vhty",
+    "id": "lz0q9vb8n",
     "name": "Hunter Shark",
     "hp": 45,
     "AC": 12,
@@ -6223,6 +6638,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Perception +2"
     ],
@@ -6246,7 +6662,7 @@
     }
   },
   {
-    "id": "qu1eembfn",
+    "id": "m6n08l9pt",
     "name": "Hydra",
     "hp": 172,
     "AC": 15,
@@ -6257,6 +6673,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Perception +6"
     ],
@@ -6280,7 +6697,7 @@
     }
   },
   {
-    "id": "nasigo25j",
+    "id": "766l17ezj",
     "name": "Hyena",
     "hp": 5,
     "AC": 11,
@@ -6291,6 +6708,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Perception +3"
     ],
@@ -6313,7 +6731,7 @@
     }
   },
   {
-    "id": "2lescjbip",
+    "id": "mktpjigsv",
     "name": "Ice Devil",
     "hp": 180,
     "AC": 18,
@@ -6333,6 +6751,12 @@
       "and Slashing from Nonmagical Attacks that aren't Silvered"
     ],
     "vulnerabilities": [],
+    "savingThrows": [
+      "DEX +7",
+      "CON +9",
+      "WIS +7",
+      "CHA +9"
+    ],
     "skills": [],
     "senses": [
       "Blindsight 60 ft.",
@@ -6355,7 +6779,7 @@
     }
   },
   {
-    "id": "7sgwvd56i",
+    "id": "9wfak8b9g",
     "name": "Ice Mephit",
     "hp": 21,
     "AC": 11,
@@ -6373,6 +6797,7 @@
       "Bludgeoning",
       "Fire"
     ],
+    "savingThrows": [],
     "skills": [
       "Perception +2",
       "Stealth +3"
@@ -6397,7 +6822,7 @@
     }
   },
   {
-    "id": "3okl177ip",
+    "id": "2pal0c9yn",
     "name": "Imp",
     "hp": 10,
     "AC": 13,
@@ -6416,6 +6841,7 @@
       "and Slashing from Nonmagical Attacks that aren't Silvered"
     ],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Deception +4",
       "Insight +3",
@@ -6442,7 +6868,7 @@
     }
   },
   {
-    "id": "1y8mwan64",
+    "id": "1qpmqjwnj",
     "name": "Invisible Stalker",
     "hp": 104,
     "AC": 14,
@@ -6467,6 +6893,7 @@
       "and Slashing from Nonmagical Attacks"
     ],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Perception +8",
       "Stealth +10"
@@ -6491,7 +6918,7 @@
     }
   },
   {
-    "id": "fp7wahea0",
+    "id": "nzgr3dotz",
     "name": "Iron Golem",
     "hp": 210,
     "AC": 20,
@@ -6514,6 +6941,7 @@
     ],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Darkvision 120 ft.",
@@ -6535,7 +6963,7 @@
     }
   },
   {
-    "id": "d3270gjvp",
+    "id": "pasl5ef0d",
     "name": "Jackal",
     "hp": 3,
     "AC": 12,
@@ -6546,6 +6974,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Perception +3"
     ],
@@ -6568,7 +6997,7 @@
     }
   },
   {
-    "id": "1gzzprigf",
+    "id": "ksj4uw71v",
     "name": "Killer Whale",
     "hp": 90,
     "AC": 12,
@@ -6579,6 +7008,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Perception +3"
     ],
@@ -6602,7 +7032,7 @@
     }
   },
   {
-    "id": "6ypjy7chx",
+    "id": "edwo3fb0e",
     "name": "Knight",
     "hp": 52,
     "AC": 18,
@@ -6613,6 +7043,10 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [
+      "CON +4",
+      "WIS +2"
+    ],
     "skills": [],
     "senses": [
       "Passive Perception 10"
@@ -6633,7 +7067,7 @@
     }
   },
   {
-    "id": "sepgb4e90",
+    "id": "g3ctd7zqm",
     "name": "Kobold",
     "hp": 5,
     "AC": 12,
@@ -6644,6 +7078,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Darkvision 60 ft.",
@@ -6665,7 +7100,7 @@
     }
   },
   {
-    "id": "nybp5cuvt",
+    "id": "21y9innfo",
     "name": "Kraken",
     "hp": 472,
     "AC": 18,
@@ -6682,6 +7117,13 @@
     ],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [
+      "STR +17",
+      "DEX +7",
+      "CON +14",
+      "INT +13",
+      "WIS +11"
+    ],
     "skills": [],
     "senses": [
       "Truesight 120 ft.",
@@ -6703,7 +7145,7 @@
     }
   },
   {
-    "id": "iu19a60by",
+    "id": "tnzouksio",
     "name": "Lamia",
     "hp": 97,
     "AC": 13,
@@ -6714,6 +7156,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Deception +7",
       "Insight +4",
@@ -6739,7 +7182,7 @@
     }
   },
   {
-    "id": "9q1gci2p0",
+    "id": "jdixgkfda",
     "name": "Lemure",
     "hp": 13,
     "AC": 7,
@@ -6758,6 +7201,7 @@
       "Cold"
     ],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Darkvision 120 ft.",
@@ -6779,7 +7223,7 @@
     }
   },
   {
-    "id": "qdb0x9uau",
+    "id": "h3x7c6a91",
     "name": "Lich",
     "hp": 135,
     "AC": 17,
@@ -6803,6 +7247,11 @@
       "Necrotic"
     ],
     "vulnerabilities": [],
+    "savingThrows": [
+      "CON +10",
+      "INT +12",
+      "WIS +9"
+    ],
     "skills": [
       "Arcana +18",
       "History +12",
@@ -6829,7 +7278,7 @@
     }
   },
   {
-    "id": "ttajhuotk",
+    "id": "1wbvh6qn1",
     "name": "Lion",
     "hp": 26,
     "AC": 12,
@@ -6840,6 +7289,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Perception +3",
       "Stealth +6"
@@ -6863,7 +7313,7 @@
     }
   },
   {
-    "id": "l5vmnkp8m",
+    "id": "cruo7q909",
     "name": "Lizard",
     "hp": 2,
     "AC": 10,
@@ -6874,6 +7324,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Darkvision 30 ft.",
@@ -6895,7 +7346,7 @@
     }
   },
   {
-    "id": "yyhgibymi",
+    "id": "iiqaqt18p",
     "name": "Lizardfolk",
     "hp": 22,
     "AC": 15,
@@ -6906,6 +7357,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Perception +3",
       "Stealth +2",
@@ -6930,7 +7382,7 @@
     }
   },
   {
-    "id": "ocahupwnr",
+    "id": "4ircaz5ll",
     "name": "Mage",
     "hp": 40,
     "AC": 12,
@@ -6941,6 +7393,10 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [
+      "INT +6",
+      "WIS +4"
+    ],
     "skills": [
       "Arcana +6",
       "History +6"
@@ -6964,7 +7420,7 @@
     }
   },
   {
-    "id": "6xm0cr0l0",
+    "id": "410i6oius",
     "name": "Magma Mephit",
     "hp": 22,
     "AC": 11,
@@ -6981,6 +7437,7 @@
     "vulnerabilities": [
       "Cold"
     ],
+    "savingThrows": [],
     "skills": [
       "Stealth +3"
     ],
@@ -7004,7 +7461,7 @@
     }
   },
   {
-    "id": "op49occhw",
+    "id": "8ubp12wgp",
     "name": "Magmin",
     "hp": 9,
     "AC": 14,
@@ -7021,6 +7478,7 @@
       "and Slashing from Nonmagical Attacks"
     ],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Darkvision 60 ft.",
@@ -7042,7 +7500,7 @@
     }
   },
   {
-    "id": "xm3mizpx4",
+    "id": "bt1qzsso6",
     "name": "Mammoth",
     "hp": 126,
     "AC": 13,
@@ -7053,6 +7511,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Passive Perception 10"
@@ -7073,7 +7532,7 @@
     }
   },
   {
-    "id": "vgf77ukh2",
+    "id": "9k50vib4c",
     "name": "Manticore",
     "hp": 68,
     "AC": 14,
@@ -7084,6 +7543,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Darkvision 60 ft.",
@@ -7105,7 +7565,7 @@
     }
   },
   {
-    "id": "5u0kembfc",
+    "id": "7udhdw6ls",
     "name": "Marilith",
     "hp": 189,
     "AC": 18,
@@ -7125,6 +7585,12 @@
       "and Slashing from Nonmagical Attacks"
     ],
     "vulnerabilities": [],
+    "savingThrows": [
+      "STR +9",
+      "CON +10",
+      "WIS +8",
+      "CHA +10"
+    ],
     "skills": [],
     "senses": [
       "Truesight 120 ft.",
@@ -7146,7 +7612,7 @@
     }
   },
   {
-    "id": "5l6ftyxqu",
+    "id": "xrvpe24fw",
     "name": "Mastiff",
     "hp": 5,
     "AC": 12,
@@ -7157,6 +7623,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Perception +3"
     ],
@@ -7179,7 +7646,7 @@
     }
   },
   {
-    "id": "a7442qsmp",
+    "id": "6mpfwmimi",
     "name": "Medusa",
     "hp": 127,
     "AC": 15,
@@ -7190,6 +7657,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Deception +5",
       "Insight +4",
@@ -7216,7 +7684,7 @@
     }
   },
   {
-    "id": "u4gebnv89",
+    "id": "xbfmhjjyc",
     "name": "Merfolk",
     "hp": 11,
     "AC": 11,
@@ -7227,6 +7695,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Perception +2"
     ],
@@ -7249,7 +7718,7 @@
     }
   },
   {
-    "id": "hn9ukpqx9",
+    "id": "1zz9z4xb4",
     "name": "Merrow",
     "hp": 45,
     "AC": 13,
@@ -7260,6 +7729,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Darkvision 60 ft.",
@@ -7281,7 +7751,7 @@
     }
   },
   {
-    "id": "mkw98q7st",
+    "id": "g9ibkh0jt",
     "name": "Mimic",
     "hp": 58,
     "AC": 12,
@@ -7295,6 +7765,7 @@
     ],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Stealth +5"
     ],
@@ -7318,7 +7789,7 @@
     }
   },
   {
-    "id": "q67axbz55",
+    "id": "iohnzrn2f",
     "name": "Minotaur",
     "hp": 76,
     "AC": 14,
@@ -7329,6 +7800,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Perception +7"
     ],
@@ -7352,7 +7824,7 @@
     }
   },
   {
-    "id": "1sqknaihl",
+    "id": "fa9wh2s3d",
     "name": "Minotaur Skeleton",
     "hp": 67,
     "AC": 12,
@@ -7369,6 +7841,7 @@
     "vulnerabilities": [
       "Bludgeoning"
     ],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Darkvision 60 ft.",
@@ -7390,7 +7863,7 @@
     }
   },
   {
-    "id": "ueys89mfm",
+    "id": "zlewp28zl",
     "name": "Mule",
     "hp": 11,
     "AC": 10,
@@ -7401,6 +7874,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Passive Perception 10"
@@ -7421,7 +7895,7 @@
     }
   },
   {
-    "id": "gisyywjz5",
+    "id": "gjqll46p2",
     "name": "Mummy",
     "hp": 58,
     "AC": 11,
@@ -7446,6 +7920,9 @@
     "vulnerabilities": [
       "Fire"
     ],
+    "savingThrows": [
+      "WIS +2"
+    ],
     "skills": [],
     "senses": [
       "Darkvision 60 ft.",
@@ -7467,7 +7944,7 @@
     }
   },
   {
-    "id": "5r7fdtkcx",
+    "id": "vehk4up4a",
     "name": "Mummy Lord",
     "hp": 97,
     "AC": 17,
@@ -7489,6 +7966,12 @@
     "resistances": [],
     "vulnerabilities": [
       "Fire"
+    ],
+    "savingThrows": [
+      "CON +8",
+      "INT +5",
+      "WIS +9",
+      "CHA +8"
     ],
     "skills": [
       "History +5",
@@ -7514,7 +7997,7 @@
     }
   },
   {
-    "id": "b92y4owao",
+    "id": "cficiz2ih",
     "name": "Nalfeshnee",
     "hp": 184,
     "AC": 18,
@@ -7534,6 +8017,12 @@
       "and Slashing from Nonmagical Attacks"
     ],
     "vulnerabilities": [],
+    "savingThrows": [
+      "CON +11",
+      "INT +9",
+      "WIS +6",
+      "CHA +7"
+    ],
     "skills": [],
     "senses": [
       "Truesight 120 ft.",
@@ -7555,7 +8044,7 @@
     }
   },
   {
-    "id": "sy2okko4z",
+    "id": "d3d9dsckp",
     "name": "Night Hag",
     "hp": 112,
     "AC": 17,
@@ -7573,6 +8062,7 @@
       "and Slashing from Nonmagical Attacks that aren't Silvered"
     ],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Deception +7",
       "Insight +6",
@@ -7599,7 +8089,7 @@
     }
   },
   {
-    "id": "4rqwe7q9j",
+    "id": "rhfp8p4xr",
     "name": "Nightmare",
     "hp": 68,
     "AC": 13,
@@ -7612,6 +8102,7 @@
     ],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Passive Perception 11"
@@ -7632,7 +8123,7 @@
     }
   },
   {
-    "id": "4w1jw02jy",
+    "id": "l47yfya7e",
     "name": "Noble",
     "hp": 9,
     "AC": 15,
@@ -7643,6 +8134,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Deception +5",
       "Insight +4",
@@ -7667,7 +8159,7 @@
     }
   },
   {
-    "id": "190y0wvzr",
+    "id": "wc7upihlw",
     "name": "Nothic",
     "hp": 45,
     "AC": 15,
@@ -7678,6 +8170,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Arcana +3",
       "Insight +4",
@@ -7704,7 +8197,7 @@
     }
   },
   {
-    "id": "3w24d7dp7",
+    "id": "mk12qdd7j",
     "name": "Ochre Jelly",
     "hp": 45,
     "AC": 8,
@@ -7726,6 +8219,7 @@
       "Acid"
     ],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Blindsight 60 ft.",
@@ -7747,7 +8241,7 @@
     }
   },
   {
-    "id": "bbwx42mn2",
+    "id": "lknx1mbyu",
     "name": "Octopus",
     "hp": 3,
     "AC": 12,
@@ -7758,6 +8252,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Perception +2",
       "Stealth +4"
@@ -7782,7 +8277,7 @@
     }
   },
   {
-    "id": "mym29jjpf",
+    "id": "efk5j304m",
     "name": "Ogre",
     "hp": 59,
     "AC": 11,
@@ -7793,6 +8288,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Darkvision 60 ft.",
@@ -7814,7 +8310,7 @@
     }
   },
   {
-    "id": "6xb8kub8m",
+    "id": "tz1937s4v",
     "name": "Ogre Zombie",
     "hp": 85,
     "AC": 8,
@@ -7828,6 +8324,9 @@
     ],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [
+      "WIS +0"
+    ],
     "skills": [],
     "senses": [
       "Darkvision 60 ft.",
@@ -7849,7 +8348,7 @@
     }
   },
   {
-    "id": "pff84ocbq",
+    "id": "o4uhmxnf0",
     "name": "Oni",
     "hp": 110,
     "AC": 16,
@@ -7860,6 +8359,12 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [
+      "DEX +3",
+      "CON +6",
+      "WIS +4",
+      "CHA +5"
+    ],
     "skills": [
       "Arcana +5",
       "Deception +8",
@@ -7885,7 +8390,7 @@
     }
   },
   {
-    "id": "586lec683",
+    "id": "4zqizz5bm",
     "name": "Orc",
     "hp": 15,
     "AC": 13,
@@ -7896,6 +8401,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Intimidation +2"
     ],
@@ -7919,7 +8425,7 @@
     }
   },
   {
-    "id": "vwpfdwzd8",
+    "id": "ipqyujiln",
     "name": "Otyugh",
     "hp": 114,
     "AC": 14,
@@ -7930,6 +8436,9 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [
+      "CON +7"
+    ],
     "skills": [],
     "senses": [
       "Darkvision 120 ft.",
@@ -7951,7 +8460,7 @@
     }
   },
   {
-    "id": "ohs1ejhxz",
+    "id": "tpcd6jhb6",
     "name": "Owl",
     "hp": 1,
     "AC": 11,
@@ -7962,6 +8471,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Perception +3",
       "Stealth +3"
@@ -7986,7 +8496,7 @@
     }
   },
   {
-    "id": "jmmuv3v8q",
+    "id": "d9oiuhgbj",
     "name": "Owlbear",
     "hp": 59,
     "AC": 13,
@@ -7997,6 +8507,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Perception +3"
     ],
@@ -8020,7 +8531,7 @@
     }
   },
   {
-    "id": "ls7yv9130",
+    "id": "4pgamm553",
     "name": "Panther",
     "hp": 13,
     "AC": 12,
@@ -8031,6 +8542,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Perception +4",
       "Stealth +6"
@@ -8054,7 +8566,7 @@
     }
   },
   {
-    "id": "e5cz8liwq",
+    "id": "jixp3dgrw",
     "name": "Pegasus",
     "hp": 59,
     "AC": 12,
@@ -8065,6 +8577,11 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [
+      "DEX +4",
+      "WIS +4",
+      "CHA +3"
+    ],
     "skills": [
       "Perception +6"
     ],
@@ -8087,7 +8604,7 @@
     }
   },
   {
-    "id": "z4ayh4hv8",
+    "id": "trvn388zy",
     "name": "Phase Spider",
     "hp": 32,
     "AC": 13,
@@ -8098,6 +8615,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Stealth +6"
     ],
@@ -8121,7 +8639,7 @@
     }
   },
   {
-    "id": "dq9fvh9ne",
+    "id": "ok893h5x4",
     "name": "Pit Fiend",
     "hp": 300,
     "AC": 19,
@@ -8140,6 +8658,11 @@
       "and Slashing from Nonmagical Attacks that aren't Silvered"
     ],
     "vulnerabilities": [],
+    "savingThrows": [
+      "DEX +8",
+      "CON +13",
+      "WIS +10"
+    ],
     "skills": [],
     "senses": [
       "Truesight 120 ft.",
@@ -8161,7 +8684,7 @@
     }
   },
   {
-    "id": "5cirynrbn",
+    "id": "6aqr3mo4e",
     "name": "Planetar",
     "hp": 200,
     "AC": 19,
@@ -8180,6 +8703,11 @@
       "and Slashing from Nonmagical Attacks"
     ],
     "vulnerabilities": [],
+    "savingThrows": [
+      "CON +12",
+      "WIS +11",
+      "CHA +12"
+    ],
     "skills": [
       "Perception +11"
     ],
@@ -8203,7 +8731,7 @@
     }
   },
   {
-    "id": "35xezu7zk",
+    "id": "57hizhfju",
     "name": "Plesiosaurus",
     "hp": 68,
     "AC": 13,
@@ -8214,6 +8742,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Perception +3",
       "Stealth +4"
@@ -8237,7 +8766,7 @@
     }
   },
   {
-    "id": "lv9r3ydtd",
+    "id": "3wyg96fj1",
     "name": "Poisonous Snake",
     "hp": 2,
     "AC": 13,
@@ -8248,6 +8777,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Blindsight 10 ft.",
@@ -8269,7 +8799,7 @@
     }
   },
   {
-    "id": "vy7w6zt6o",
+    "id": "4ti9ucy7n",
     "name": "Polar Bear",
     "hp": 42,
     "AC": 12,
@@ -8280,6 +8810,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Perception +3"
     ],
@@ -8302,7 +8833,7 @@
     }
   },
   {
-    "id": "ve2kl6lg2",
+    "id": "wu06xmgji",
     "name": "Pony",
     "hp": 11,
     "AC": 10,
@@ -8313,6 +8844,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Passive Perception 10"
@@ -8333,7 +8865,7 @@
     }
   },
   {
-    "id": "arhb2v3x0",
+    "id": "qdfg3frwl",
     "name": "Priest",
     "hp": 27,
     "AC": 13,
@@ -8344,6 +8876,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Medicine +7",
       "Persuasion +3",
@@ -8368,7 +8901,7 @@
     }
   },
   {
-    "id": "o6oiqrcfw",
+    "id": "hils7jntn",
     "name": "Pseudodragon",
     "hp": 7,
     "AC": 13,
@@ -8379,6 +8912,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Perception +3",
       "Stealth +4"
@@ -8404,7 +8938,7 @@
     }
   },
   {
-    "id": "j5f58dpwj",
+    "id": "wb2fbd49c",
     "name": "Pteranodon",
     "hp": 13,
     "AC": 13,
@@ -8415,6 +8949,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Passive Perception 11"
@@ -8435,7 +8970,7 @@
     }
   },
   {
-    "id": "8jy25oirz",
+    "id": "l69r1mofk",
     "name": "Purple Worm",
     "hp": 247,
     "AC": 18,
@@ -8446,6 +8981,10 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [
+      "CON +11",
+      "WIS +4"
+    ],
     "skills": [],
     "senses": [
       "Blindsight 30 ft.",
@@ -8468,7 +9007,7 @@
     }
   },
   {
-    "id": "w1j77xsmo",
+    "id": "fn6ouh9n2",
     "name": "Quasit",
     "hp": 7,
     "AC": 13,
@@ -8488,6 +9027,7 @@
       "and Slashing from Nonmagical Attacks"
     ],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Stealth +5"
     ],
@@ -8511,7 +9051,7 @@
     }
   },
   {
-    "id": "8wjiiqvai",
+    "id": "g7zqchsfd",
     "name": "Quipper",
     "hp": 1,
     "AC": 13,
@@ -8522,6 +9062,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Darkvision 60 ft.",
@@ -8543,7 +9084,7 @@
     }
   },
   {
-    "id": "l6abbal43",
+    "id": "max8cvs45",
     "name": "Rakshasa",
     "hp": 110,
     "AC": 16,
@@ -8560,6 +9101,7 @@
     "vulnerabilities": [
       "Piercing from Magic Weapons Wielded by Good Creatures"
     ],
+    "savingThrows": [],
     "skills": [
       "Deception +10",
       "Insight +8"
@@ -8584,7 +9126,7 @@
     }
   },
   {
-    "id": "eggvquss9",
+    "id": "odw0aaldk",
     "name": "Rat",
     "hp": 1,
     "AC": 10,
@@ -8595,6 +9137,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Darkvision 30 ft.",
@@ -8616,7 +9159,7 @@
     }
   },
   {
-    "id": "df697ek0x",
+    "id": "u2k76udns",
     "name": "Raven",
     "hp": 1,
     "AC": 12,
@@ -8627,6 +9170,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Perception +3"
     ],
@@ -8649,7 +9193,7 @@
     }
   },
   {
-    "id": "ax19lnf68",
+    "id": "ie4i1j93j",
     "name": "Red Dragon Wyrmling",
     "hp": 75,
     "AC": 17,
@@ -8662,6 +9206,12 @@
     ],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [
+      "DEX +2",
+      "CON +5",
+      "WIS +2",
+      "CHA +4"
+    ],
     "skills": [
       "Perception +4",
       "Stealth +2"
@@ -8687,7 +9237,7 @@
     }
   },
   {
-    "id": "rm41w1or2",
+    "id": "oh06zgtr6",
     "name": "Reef Shark",
     "hp": 22,
     "AC": 12,
@@ -8698,6 +9248,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Perception +2"
     ],
@@ -8721,7 +9272,7 @@
     }
   },
   {
-    "id": "84sfpt5qw",
+    "id": "agm8sk2xy",
     "name": "Remorhaz",
     "hp": 195,
     "AC": 17,
@@ -8735,6 +9286,7 @@
     ],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Darkvision 60 ft.",
@@ -8757,7 +9309,7 @@
     }
   },
   {
-    "id": "paim6u4rs",
+    "id": "wyc4ih8wj",
     "name": "Rhinoceros",
     "hp": 45,
     "AC": 11,
@@ -8768,6 +9320,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Passive Perception 11"
@@ -8788,7 +9341,7 @@
     }
   },
   {
-    "id": "5m7lwwjzp",
+    "id": "azicpp8bb",
     "name": "Riding Horse",
     "hp": 13,
     "AC": 10,
@@ -8799,6 +9352,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Passive Perception 10"
@@ -8819,7 +9373,7 @@
     }
   },
   {
-    "id": "xkf9a7150",
+    "id": "t8qfhu372",
     "name": "Roc",
     "hp": 248,
     "AC": 15,
@@ -8830,6 +9384,12 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [
+      "DEX +4",
+      "CON +9",
+      "WIS +4",
+      "CHA +3"
+    ],
     "skills": [
       "Perception +4"
     ],
@@ -8852,7 +9412,7 @@
     }
   },
   {
-    "id": "rwdcbu90s",
+    "id": "qdkhnog3b",
     "name": "Roper",
     "hp": 93,
     "AC": 20,
@@ -8863,6 +9423,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Perception +6",
       "Stealth +5"
@@ -8887,7 +9448,7 @@
     }
   },
   {
-    "id": "ytfajh6mn",
+    "id": "hnvwi0w2o",
     "name": "Rug of Smothering",
     "hp": 33,
     "AC": 12,
@@ -8908,6 +9469,7 @@
     ],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Blindsight 60 ft.",
@@ -8929,7 +9491,7 @@
     }
   },
   {
-    "id": "xsbyhy6la",
+    "id": "pkf038a5m",
     "name": "Rust Monster",
     "hp": 27,
     "AC": 14,
@@ -8940,6 +9502,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Darkvision 60 ft.",
@@ -8961,7 +9524,7 @@
     }
   },
   {
-    "id": "n7hkzfqyv",
+    "id": "x82kcxxxv",
     "name": "Saber-Toothed Tiger",
     "hp": 52,
     "AC": 12,
@@ -8972,6 +9535,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Perception +3",
       "Stealth +6"
@@ -8995,7 +9559,7 @@
     }
   },
   {
-    "id": "ai70ud6nq",
+    "id": "n9ljjel2t",
     "name": "Sahuagin",
     "hp": 22,
     "AC": 12,
@@ -9006,6 +9570,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Perception +5"
     ],
@@ -9029,7 +9594,7 @@
     }
   },
   {
-    "id": "ivdnjte29",
+    "id": "82zq8mmqq",
     "name": "Salamander",
     "hp": 90,
     "AC": 15,
@@ -9048,6 +9613,7 @@
     "vulnerabilities": [
       "Cold"
     ],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Darkvision 60 ft.",
@@ -9069,7 +9635,7 @@
     }
   },
   {
-    "id": "r5zer96f4",
+    "id": "alq9jx2e8",
     "name": "Satyr",
     "hp": 31,
     "AC": 14,
@@ -9080,6 +9646,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Perception +2",
       "Performance +6",
@@ -9104,7 +9671,7 @@
     }
   },
   {
-    "id": "0e0sju20w",
+    "id": "iodvmym9t",
     "name": "Scorpion",
     "hp": 1,
     "AC": 11,
@@ -9115,6 +9682,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Blindsight 10 ft.",
@@ -9136,7 +9704,7 @@
     }
   },
   {
-    "id": "h4vzo35a9",
+    "id": "95atgje8b",
     "name": "Scout",
     "hp": 16,
     "AC": 13,
@@ -9147,6 +9715,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Nature +4",
       "Perception +5",
@@ -9172,7 +9741,7 @@
     }
   },
   {
-    "id": "a1t3pntzo",
+    "id": "3zoy7klwd",
     "name": "Sea Hag",
     "hp": 52,
     "AC": 14,
@@ -9183,6 +9752,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Darkvision 60 ft.",
@@ -9204,7 +9774,7 @@
     }
   },
   {
-    "id": "4n8n315w7",
+    "id": "08wo3c5pg",
     "name": "Sea Horse",
     "hp": 1,
     "AC": 11,
@@ -9215,6 +9785,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Passive Perception 10"
@@ -9235,7 +9806,7 @@
     }
   },
   {
-    "id": "m8gk18ty4",
+    "id": "4z4h2yxmd",
     "name": "Shadow",
     "hp": 16,
     "AC": 12,
@@ -9267,6 +9838,7 @@
     "vulnerabilities": [
       "Radiant"
     ],
+    "savingThrows": [],
     "skills": [
       "Stealth +4"
     ],
@@ -9290,7 +9862,7 @@
     }
   },
   {
-    "id": "zax08jvf9",
+    "id": "pf3zwtixi",
     "name": "Shambling Mound",
     "hp": 136,
     "AC": 15,
@@ -9309,6 +9881,7 @@
       "Fire"
     ],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Stealth +2"
     ],
@@ -9332,7 +9905,7 @@
     }
   },
   {
-    "id": "fpxefvupr",
+    "id": "rea7qugb0",
     "name": "Shield Guardian",
     "hp": 142,
     "AC": 17,
@@ -9350,6 +9923,7 @@
     ],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Blindsight 10 ft.",
@@ -9372,7 +9946,7 @@
     }
   },
   {
-    "id": "monmrs8m0",
+    "id": "52bccxlu4",
     "name": "Shrieker",
     "hp": 13,
     "AC": 5,
@@ -9387,6 +9961,7 @@
     ],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Blindsight 30 ft.",
@@ -9408,7 +9983,7 @@
     }
   },
   {
-    "id": "3feqyjdpi",
+    "id": "e86fkhpxo",
     "name": "Silver Dragon Wyrmling",
     "hp": 45,
     "AC": 17,
@@ -9421,6 +9996,12 @@
     ],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [
+      "DEX +2",
+      "CON +5",
+      "WIS +2",
+      "CHA +4"
+    ],
     "skills": [
       "Perception +4",
       "Stealth +2"
@@ -9446,7 +10027,7 @@
     }
   },
   {
-    "id": "s5gi37lyn",
+    "id": "5hfcgqalh",
     "name": "Skeleton",
     "hp": 13,
     "AC": 13,
@@ -9463,6 +10044,7 @@
     "vulnerabilities": [
       "Bludgeoning"
     ],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Darkvision 60 ft.",
@@ -9484,7 +10066,7 @@
     }
   },
   {
-    "id": "57tt587cz",
+    "id": "1hgjeezmd",
     "name": "Solar",
     "hp": 243,
     "AC": 21,
@@ -9506,6 +10088,11 @@
       "and Slashing from Nonmagical Attacks"
     ],
     "vulnerabilities": [],
+    "savingThrows": [
+      "INT +14",
+      "WIS +14",
+      "CHA +17"
+    ],
     "skills": [
       "Perception +14"
     ],
@@ -9529,7 +10116,7 @@
     }
   },
   {
-    "id": "4k5g3s3f2",
+    "id": "246ne0934",
     "name": "Spectator",
     "hp": 39,
     "AC": 14,
@@ -9542,6 +10129,7 @@
     ],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Perception +6"
     ],
@@ -9565,7 +10153,7 @@
     }
   },
   {
-    "id": "s4stst0yn",
+    "id": "jfelniln1",
     "name": "Specter",
     "hp": 22,
     "AC": 12,
@@ -9596,6 +10184,7 @@
       "and Slashing from Nonmagical Attacks"
     ],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Darkvision 60 ft.",
@@ -9617,7 +10206,7 @@
     }
   },
   {
-    "id": "fal03upqr",
+    "id": "o2401zsk9",
     "name": "Spider",
     "hp": 1,
     "AC": 12,
@@ -9628,6 +10217,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Stealth +4"
     ],
@@ -9651,7 +10241,7 @@
     }
   },
   {
-    "id": "ke8u3xucn",
+    "id": "de5av7fhu",
     "name": "Spirit Naga",
     "hp": 75,
     "AC": 15,
@@ -9666,6 +10256,12 @@
     ],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [
+      "DEX +6",
+      "CON +5",
+      "WIS +5",
+      "CHA +6"
+    ],
     "skills": [],
     "senses": [
       "Darkvision 60 ft.",
@@ -9687,7 +10283,7 @@
     }
   },
   {
-    "id": "p176yzc5a",
+    "id": "9gaacjk7y",
     "name": "Sprite",
     "hp": 2,
     "AC": 15,
@@ -9698,6 +10294,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Perception +3",
       "Stealth +8"
@@ -9721,7 +10318,7 @@
     }
   },
   {
-    "id": "dtasd8wcs",
+    "id": "vb64kh47p",
     "name": "Spy",
     "hp": 27,
     "AC": 12,
@@ -9732,6 +10329,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Deception +5",
       "Insight +4",
@@ -9760,7 +10358,7 @@
     }
   },
   {
-    "id": "wh58m6dni",
+    "id": "wmc624959",
     "name": "Steam Mephit",
     "hp": 21,
     "AC": 10,
@@ -9775,6 +10373,7 @@
     ],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Darkvision 60 ft.",
@@ -9796,7 +10395,7 @@
     }
   },
   {
-    "id": "ndahkefel",
+    "id": "aw4l9vzau",
     "name": "Stirge",
     "hp": 2,
     "AC": 14,
@@ -9807,6 +10406,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Darkvision 60 ft.",
@@ -9828,7 +10428,7 @@
     }
   },
   {
-    "id": "lxsdmmknx",
+    "id": "571rxcv1e",
     "name": "Stone Giant",
     "hp": 126,
     "AC": 17,
@@ -9839,6 +10439,11 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [
+      "DEX +5",
+      "CON +8",
+      "WIS +4"
+    ],
     "skills": [
       "Athletics +12",
       "Perception +4"
@@ -9863,7 +10468,7 @@
     }
   },
   {
-    "id": "n0yju0u26",
+    "id": "i8y79i4zk",
     "name": "Stone Golem",
     "hp": 178,
     "AC": 17,
@@ -9885,6 +10490,7 @@
     ],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Darkvision 120 ft.",
@@ -9906,7 +10512,7 @@
     }
   },
   {
-    "id": "8c8lvdyat",
+    "id": "gxv30zqk4",
     "name": "Storm Giant",
     "hp": 230,
     "AC": 16,
@@ -9922,6 +10528,12 @@
       "Cold"
     ],
     "vulnerabilities": [],
+    "savingThrows": [
+      "STR +14",
+      "CON +10",
+      "WIS +9",
+      "CHA +9"
+    ],
     "skills": [
       "Arcana +8",
       "Athletics +14",
@@ -9947,7 +10559,7 @@
     }
   },
   {
-    "id": "l4zj61eqs",
+    "id": "ovdvo1j1h",
     "name": "Succubus/Incubus",
     "hp": 66,
     "AC": 15,
@@ -9965,6 +10577,7 @@
       "and Slashing from Nonmagical Attacks"
     ],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Deception +9",
       "Insight +5",
@@ -9992,7 +10605,7 @@
     }
   },
   {
-    "id": "hpa5hvgjx",
+    "id": "zwpp8ni38",
     "name": "Swarm of Bats",
     "hp": 22,
     "AC": 12,
@@ -10016,6 +10629,7 @@
       "Slashing"
     ],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Blindsight 60 ft.",
@@ -10037,7 +10651,7 @@
     }
   },
   {
-    "id": "js3gkkvst",
+    "id": "391p5rwun",
     "name": "Swarm of Insects",
     "hp": 22,
     "AC": 12,
@@ -10061,6 +10675,7 @@
       "Slashing"
     ],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Blindsight 10 ft.",
@@ -10082,7 +10697,7 @@
     }
   },
   {
-    "id": "pfyxjybl0",
+    "id": "jvf3tta1z",
     "name": "Swarm of Poisonous Snakes",
     "hp": 36,
     "AC": 14,
@@ -10106,6 +10721,7 @@
       "Slashing"
     ],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Blindsight 10 ft.",
@@ -10127,7 +10743,7 @@
     }
   },
   {
-    "id": "omrr4wzk9",
+    "id": "d2lkudjr9",
     "name": "Swarm of Quippers",
     "hp": 28,
     "AC": 13,
@@ -10151,6 +10767,7 @@
       "Slashing"
     ],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Darkvision 60 ft.",
@@ -10172,7 +10789,7 @@
     }
   },
   {
-    "id": "zrxqldjvy",
+    "id": "naoalsqot",
     "name": "Swarm of Rats",
     "hp": 24,
     "AC": 10,
@@ -10196,6 +10813,7 @@
       "Slashing"
     ],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Darkvision 30 ft.",
@@ -10217,7 +10835,7 @@
     }
   },
   {
-    "id": "37p86g04j",
+    "id": "v85ofzg6u",
     "name": "Swarm of Ravens",
     "hp": 24,
     "AC": 12,
@@ -10241,6 +10859,7 @@
       "Slashing"
     ],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Perception +5"
     ],
@@ -10263,7 +10882,7 @@
     }
   },
   {
-    "id": "7olihfbpt",
+    "id": "46efbouqt",
     "name": "Tarrasque",
     "hp": 676,
     "AC": 25,
@@ -10283,6 +10902,11 @@
     ],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [
+      "INT +5",
+      "WIS +9",
+      "CHA +9"
+    ],
     "skills": [],
     "senses": [
       "Blindsight 120 ft.",
@@ -10304,7 +10928,7 @@
     }
   },
   {
-    "id": "i0x4o4wj4",
+    "id": "co2tkzaaj",
     "name": "Thug",
     "hp": 32,
     "AC": 11,
@@ -10315,6 +10939,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Intimidation +2"
     ],
@@ -10337,7 +10962,7 @@
     }
   },
   {
-    "id": "szqmrat25",
+    "id": "htom0fm37",
     "name": "Tiger",
     "hp": 37,
     "AC": 12,
@@ -10348,6 +10973,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Perception +3",
       "Stealth +6"
@@ -10372,7 +10998,7 @@
     }
   },
   {
-    "id": "5vtchwmpd",
+    "id": "jgeixp4sl",
     "name": "Treant",
     "hp": 138,
     "AC": 16,
@@ -10388,6 +11014,7 @@
     "vulnerabilities": [
       "Fire"
     ],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Passive Perception 13"
@@ -10408,7 +11035,7 @@
     }
   },
   {
-    "id": "0iq8jz1qo",
+    "id": "jea978b2j",
     "name": "Tribal Warrior",
     "hp": 11,
     "AC": 12,
@@ -10419,6 +11046,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Passive Perception 10"
@@ -10439,7 +11067,7 @@
     }
   },
   {
-    "id": "kdecdi9g4",
+    "id": "sdhui9qvg",
     "name": "Triceratops",
     "hp": 95,
     "AC": 13,
@@ -10450,6 +11078,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Passive Perception 10"
@@ -10470,7 +11099,7 @@
     }
   },
   {
-    "id": "z7yv3vg57",
+    "id": "jhm6j3psj",
     "name": "Troll",
     "hp": 84,
     "AC": 15,
@@ -10481,6 +11110,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Perception +2"
     ],
@@ -10504,7 +11134,7 @@
     }
   },
   {
-    "id": "wuig7q6md",
+    "id": "f31vfbxtk",
     "name": "Twig Blight",
     "hp": 4,
     "AC": 13,
@@ -10520,6 +11150,7 @@
     "vulnerabilities": [
       "Fire"
     ],
+    "savingThrows": [],
     "skills": [
       "Stealth +3"
     ],
@@ -10543,7 +11174,7 @@
     }
   },
   {
-    "id": "5oc7xocvg",
+    "id": "6n5rcjt76",
     "name": "Tyrannosaurus Rex",
     "hp": 136,
     "AC": 13,
@@ -10554,6 +11185,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Perception +4"
     ],
@@ -10576,7 +11208,7 @@
     }
   },
   {
-    "id": "hqmmuntlb",
+    "id": "bcvl30pdg",
     "name": "Unicorn",
     "hp": 67,
     "AC": 12,
@@ -10592,6 +11224,7 @@
     ],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Darkvision 60 ft.",
@@ -10613,7 +11246,7 @@
     }
   },
   {
-    "id": "iyauwhxzi",
+    "id": "9bgueswnd",
     "name": "Vampire",
     "hp": 144,
     "AC": 16,
@@ -10628,6 +11261,11 @@
       "and Slashing from Nonmagical Attacks"
     ],
     "vulnerabilities": [],
+    "savingThrows": [
+      "DEX +9",
+      "WIS +7",
+      "CHA +9"
+    ],
     "skills": [
       "Perception +7",
       "Stealth +9"
@@ -10652,7 +11290,7 @@
     }
   },
   {
-    "id": "42ijjka40",
+    "id": "rf8p1jbmn",
     "name": "Vampire Spawn",
     "hp": 82,
     "AC": 15,
@@ -10667,6 +11305,10 @@
       "and Slashing from Nonmagical Attacks"
     ],
     "vulnerabilities": [],
+    "savingThrows": [
+      "DEX +6",
+      "WIS +3"
+    ],
     "skills": [
       "Perception +3",
       "Stealth +6"
@@ -10691,7 +11333,7 @@
     }
   },
   {
-    "id": "pkk08mvcw",
+    "id": "utfh5lxlm",
     "name": "Veteran",
     "hp": 58,
     "AC": 17,
@@ -10702,6 +11344,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Athletics +5",
       "Perception +2"
@@ -10725,7 +11368,7 @@
     }
   },
   {
-    "id": "4efdpxans",
+    "id": "ucx849yyk",
     "name": "Violet Fungus",
     "hp": 18,
     "AC": 5,
@@ -10740,6 +11383,7 @@
     ],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Blindsight 30 ft.",
@@ -10761,7 +11405,7 @@
     }
   },
   {
-    "id": "7opqlr06l",
+    "id": "mrcv0gvra",
     "name": "Vrock",
     "hp": 104,
     "AC": 15,
@@ -10781,6 +11425,11 @@
       "and Slashing from Nonmagical Attacks"
     ],
     "vulnerabilities": [],
+    "savingThrows": [
+      "DEX +5",
+      "WIS +4",
+      "CHA +2"
+    ],
     "skills": [],
     "senses": [
       "Darkvision 120 ft.",
@@ -10802,7 +11451,7 @@
     }
   },
   {
-    "id": "pe7z2e8pt",
+    "id": "3rhv56fkl",
     "name": "Vulture",
     "hp": 5,
     "AC": 10,
@@ -10813,6 +11462,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Perception +3"
     ],
@@ -10835,7 +11485,7 @@
     }
   },
   {
-    "id": "ctud24opd",
+    "id": "2fiqv4isu",
     "name": "Warhorse",
     "hp": 19,
     "AC": 11,
@@ -10846,6 +11496,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Passive Perception 11"
@@ -10866,7 +11517,7 @@
     }
   },
   {
-    "id": "z0ubtro6p",
+    "id": "9r7h152ki",
     "name": "Warhorse Skeleton",
     "hp": 22,
     "AC": 13,
@@ -10883,6 +11534,7 @@
     "vulnerabilities": [
       "Bludgeoning"
     ],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Darkvision 60 ft.",
@@ -10904,7 +11556,7 @@
     }
   },
   {
-    "id": "xpyiqlx3h",
+    "id": "d5pb8dlzw",
     "name": "Water Elemental",
     "hp": 114,
     "AC": 14,
@@ -10929,6 +11581,7 @@
       "and Slashing from Nonmagical Attacks"
     ],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Darkvision 60 ft.",
@@ -10950,7 +11603,7 @@
     }
   },
   {
-    "id": "2xfzj5rkf",
+    "id": "sas95fczj",
     "name": "Weasel",
     "hp": 1,
     "AC": 13,
@@ -10961,6 +11614,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Perception +3",
       "Stealth +5"
@@ -10984,7 +11638,7 @@
     }
   },
   {
-    "id": "cp3dvfw9m",
+    "id": "e2r44g5fb",
     "name": "Werebear",
     "hp": 135,
     "AC": 10,
@@ -10999,6 +11653,7 @@
     ],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Perception +7"
     ],
@@ -11021,7 +11676,7 @@
     }
   },
   {
-    "id": "xqtoo3xmh",
+    "id": "czeot8nwj",
     "name": "Wereboar",
     "hp": 78,
     "AC": 10,
@@ -11036,6 +11691,7 @@
     ],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Perception +2"
     ],
@@ -11058,7 +11714,7 @@
     }
   },
   {
-    "id": "yjam0c61n",
+    "id": "wntgotvec",
     "name": "Wererat",
     "hp": 33,
     "AC": 12,
@@ -11073,6 +11729,7 @@
     ],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Perception +2",
       "Stealth +4"
@@ -11097,7 +11754,7 @@
     }
   },
   {
-    "id": "x4803e0r7",
+    "id": "e71tkw5u1",
     "name": "Weretiger",
     "hp": 120,
     "AC": 12,
@@ -11112,6 +11769,7 @@
     ],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Perception +5",
       "Stealth +4"
@@ -11136,7 +11794,7 @@
     }
   },
   {
-    "id": "1xaep3oba",
+    "id": "jb3an1311",
     "name": "Werewolf",
     "hp": 58,
     "AC": 11,
@@ -11151,6 +11809,7 @@
     ],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Perception +4",
       "Stealth +3"
@@ -11174,7 +11833,7 @@
     }
   },
   {
-    "id": "re3dfh9f9",
+    "id": "cdoler0hf",
     "name": "White Dragon Wyrmling",
     "hp": 32,
     "AC": 16,
@@ -11187,6 +11846,12 @@
     ],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [
+      "DEX +2",
+      "CON +4",
+      "WIS +2",
+      "CHA +2"
+    ],
     "skills": [
       "Perception +4",
       "Stealth +2"
@@ -11212,7 +11877,7 @@
     }
   },
   {
-    "id": "zbs8fzj76",
+    "id": "mzndhk2mo",
     "name": "Wight",
     "hp": 45,
     "AC": 14,
@@ -11231,6 +11896,7 @@
       "and Slashing from Nonmagical Attacks that aren't Silvered"
     ],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Perception +3",
       "Stealth +4"
@@ -11255,7 +11921,7 @@
     }
   },
   {
-    "id": "nr5nx5rqa",
+    "id": "2j2npi5vo",
     "name": "Will-o'-Wisp",
     "hp": 22,
     "AC": 19,
@@ -11284,6 +11950,7 @@
       "and Slashing from Nonmagical Attacks"
     ],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Darkvision 120 ft.",
@@ -11305,7 +11972,7 @@
     }
   },
   {
-    "id": "vb9e9cvpl",
+    "id": "vadfjbk3l",
     "name": "Winter Wolf",
     "hp": 75,
     "AC": 13,
@@ -11318,6 +11985,7 @@
     ],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Perception +5",
       "Stealth +3"
@@ -11341,7 +12009,7 @@
     }
   },
   {
-    "id": "quqogwrn8",
+    "id": "goei6535y",
     "name": "Wolf",
     "hp": 11,
     "AC": 13,
@@ -11352,6 +12020,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Perception +3",
       "Stealth +4"
@@ -11375,7 +12044,7 @@
     }
   },
   {
-    "id": "zwho70lxf",
+    "id": "p7hfx11h6",
     "name": "Worg",
     "hp": 26,
     "AC": 13,
@@ -11386,6 +12055,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Perception +4"
     ],
@@ -11409,7 +12079,7 @@
     }
   },
   {
-    "id": "nusa3bz8h",
+    "id": "vw256jmim",
     "name": "Wraith",
     "hp": 67,
     "AC": 13,
@@ -11439,6 +12109,7 @@
       "and Slashing from Nonmagical Attacks that aren't Silvered"
     ],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [],
     "senses": [
       "Darkvision 60 ft.",
@@ -11460,7 +12131,7 @@
     }
   },
   {
-    "id": "f8ap3v381",
+    "id": "54dge9up3",
     "name": "Wyvern",
     "hp": 110,
     "AC": 13,
@@ -11471,6 +12142,7 @@
     "immunities": [],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Perception +4"
     ],
@@ -11494,7 +12166,7 @@
     }
   },
   {
-    "id": "jwanoqbja",
+    "id": "w73zxkd38",
     "name": "Xorn",
     "hp": 73,
     "AC": 19,
@@ -11507,6 +12179,7 @@
       "Piercing and Slashing from Nonmagical Attacks that aren't Adamantine"
     ],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Perception +6",
       "Stealth +3"
@@ -11532,7 +12205,7 @@
     }
   },
   {
-    "id": "g5dv54yba",
+    "id": "e36p3hkj0",
     "name": "Yeti",
     "hp": 51,
     "AC": 12,
@@ -11545,6 +12218,7 @@
     ],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [],
     "skills": [
       "Perception +3",
       "Stealth +3"
@@ -11569,7 +12243,7 @@
     }
   },
   {
-    "id": "mqwuwgo21",
+    "id": "a7p78filq",
     "name": "Young Black Dragon",
     "hp": 127,
     "AC": 18,
@@ -11582,6 +12256,12 @@
     ],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [
+      "DEX +5",
+      "CON +6",
+      "WIS +3",
+      "CHA +5"
+    ],
     "skills": [
       "Perception +6",
       "Stealth +5"
@@ -11607,7 +12287,7 @@
     }
   },
   {
-    "id": "256qecft9",
+    "id": "bitq9dw4o",
     "name": "Young Blue Dragon",
     "hp": 152,
     "AC": 18,
@@ -11620,6 +12300,12 @@
     ],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [
+      "DEX +4",
+      "CON +8",
+      "WIS +5",
+      "CHA +7"
+    ],
     "skills": [
       "Perception +9",
       "Stealth +4"
@@ -11645,7 +12331,7 @@
     }
   },
   {
-    "id": "zme3z2gms",
+    "id": "jsrb6cm5b",
     "name": "Young Brass Dragon",
     "hp": 110,
     "AC": 17,
@@ -11658,6 +12344,12 @@
     ],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [
+      "DEX +3",
+      "CON +6",
+      "WIS +3",
+      "CHA +5"
+    ],
     "skills": [
       "Perception +6",
       "Persuasion +5",
@@ -11684,7 +12376,7 @@
     }
   },
   {
-    "id": "qwtw86i1d",
+    "id": "ietd4q9zu",
     "name": "Young Bronze Dragon",
     "hp": 142,
     "AC": 18,
@@ -11697,6 +12389,12 @@
     ],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [
+      "DEX +3",
+      "CON +7",
+      "WIS +4",
+      "CHA +6"
+    ],
     "skills": [
       "Insight +4",
       "Perception +7",
@@ -11723,7 +12421,7 @@
     }
   },
   {
-    "id": "u97ee5efr",
+    "id": "1hp4jxqj8",
     "name": "Young Copper Dragon",
     "hp": 119,
     "AC": 17,
@@ -11736,6 +12434,12 @@
     ],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [
+      "DEX +4",
+      "CON +6",
+      "WIS +4",
+      "CHA +5"
+    ],
     "skills": [
       "Deception +5",
       "Perception +7",
@@ -11762,7 +12466,7 @@
     }
   },
   {
-    "id": "hqzxgcv33",
+    "id": "xb2zf7vj4",
     "name": "Young Gold Dragon",
     "hp": 178,
     "AC": 18,
@@ -11775,6 +12479,12 @@
     ],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [
+      "DEX +6",
+      "CON +9",
+      "WIS +5",
+      "CHA +9"
+    ],
     "skills": [
       "Insight +5",
       "Perception +9",
@@ -11802,7 +12512,7 @@
     }
   },
   {
-    "id": "lsgr465n4",
+    "id": "caq6hh2p2",
     "name": "Young Green Dragon",
     "hp": 136,
     "AC": 18,
@@ -11816,6 +12526,12 @@
     ],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [
+      "DEX +4",
+      "CON +6",
+      "WIS +4",
+      "CHA +5"
+    ],
     "skills": [
       "Deception +5",
       "Perception +7",
@@ -11842,7 +12558,7 @@
     }
   },
   {
-    "id": "74ssc76pk",
+    "id": "fugs83zc4",
     "name": "Young Red Dragon",
     "hp": 178,
     "AC": 18,
@@ -11855,6 +12571,12 @@
     ],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [
+      "DEX +4",
+      "CON +9",
+      "WIS +4",
+      "CHA +8"
+    ],
     "skills": [
       "Perception +8",
       "Stealth +4"
@@ -11880,7 +12602,7 @@
     }
   },
   {
-    "id": "i2cmv8tuo",
+    "id": "ygq05w8ex",
     "name": "Young Silver Dragon",
     "hp": 168,
     "AC": 18,
@@ -11893,6 +12615,12 @@
     ],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [
+      "DEX +4",
+      "CON +9",
+      "WIS +4",
+      "CHA +8"
+    ],
     "skills": [
       "Arcana +6",
       "History +6",
@@ -11920,7 +12648,7 @@
     }
   },
   {
-    "id": "mr73npv0z",
+    "id": "oqycysieb",
     "name": "Young White Dragon",
     "hp": 133,
     "AC": 17,
@@ -11933,6 +12661,12 @@
     ],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [
+      "DEX +3",
+      "CON +7",
+      "WIS +3",
+      "CHA +4"
+    ],
     "skills": [
       "Perception +6",
       "Stealth +3"
@@ -11958,7 +12692,7 @@
     }
   },
   {
-    "id": "605qkp6fd",
+    "id": "yee2bryn1",
     "name": "Zombie",
     "hp": 22,
     "AC": 8,
@@ -11972,6 +12706,9 @@
     ],
     "resistances": [],
     "vulnerabilities": [],
+    "savingThrows": [
+      "WIS +0"
+    ],
     "skills": [],
     "senses": [
       "Darkvision 60 ft.",

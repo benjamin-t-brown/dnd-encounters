@@ -26,7 +26,10 @@ import {
   EncounterTemplate,
   createEncounterTemplate,
   createUnitTemplate,
+  getEncounterById,
+  getEncounterTemplateById,
   getLSUnitTemplateFilter,
+  getPartyStorageById,
   getUnitTemplateById,
   getUnitTemplateByName,
   saveEncounterDatabase,
@@ -185,7 +188,7 @@ const EncounterItem = (props: { encounter: Encounter }) => {
     <FlexWrapCard
       style={{
         width: '300px',
-        height: '144px',
+        height: '114px',
         background: getColors().BACKGROUND3,
       }}
       onClick={() => {
@@ -226,11 +229,25 @@ const EncounterItem = (props: { encounter: Encounter }) => {
         {props.encounter.name}
       </h3>
       <div>
-        {props.encounter.units.map((unit, i) => {
+        <p
+          style={{
+            marginLeft: '8px',
+          }}
+        >
+          Encounter:{' '}
+          <i>
+            {getEncounterTemplateById(props.encounter.templateId, data)?.name}
+          </i>
+          <br />
+          Party:{' '}
+          <i>{getPartyStorageById(props.encounter.partyId, data)?.name}</i>
+        </p>
+
+        {/* {props.encounter.units.map((unit, i) => {
           if (unit) {
             return (
               <div
-                key={unit.id}
+                key={unit.id + i}
                 style={{
                   marginLeft: '4px',
                 }}
@@ -250,7 +267,7 @@ const EncounterItem = (props: { encounter: Encounter }) => {
               </div>
             );
           }
-        })}
+        })} */}
       </div>
     </FlexWrapCard>
   );
@@ -307,15 +324,6 @@ const EncounterListPage = (props: PageProps) => {
                 );
               }}
             />
-            {/* {encounterTemplates.sort(sortByDate).map(encounterTemplate => {
-              return (
-                <EncounterItem
-                  key={encounterTemplate.id}
-                  encounterTemplate={encounterTemplate}
-                  setDefaultTemplateId={setDefaultTemplateId}
-                />
-              );
-            })} */}
           </div>
           <VSpace />
           <VSpace />

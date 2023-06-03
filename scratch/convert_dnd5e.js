@@ -101,7 +101,7 @@ const splitArr = str => {
 };
 
 const main = () => {
-  const data = fs.readFileSync('./dnd5e.json', 'utf8');
+  const data = fs.readFileSync(__dirname + '/dnd5e.json', 'utf8');
   const json = JSON.parse(data);
   const output = json.map(unit => {
     return {
@@ -116,6 +116,7 @@ const main = () => {
       immunities: findImmunities(unit),
       resistances: findResistances(unit),
       vulnerabilities: findVulnerabilities(unit),
+      savingThrows: splitArr(unit['Saving Throws']),
       skills: splitArr(unit['Skills']),
       senses: splitArr(unit['Senses']),
       challenge: unit['Challenge'],
@@ -134,6 +135,6 @@ const main = () => {
       },
     };
   });
-  fs.writeFileSync('./dnd5e_converted.json', JSON.stringify(output, null, 2));
+  fs.writeFileSync(__dirname + '/dnd5e_converted.json', JSON.stringify(output, null, 2));
 };
 main();

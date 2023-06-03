@@ -1,4 +1,5 @@
 import MDEditor from '@uiw/react-md-editor';
+import AddUnitToEncounterModal from 'components/AddUnitToEncounterModal';
 import DiceRoller from 'components/DiceRoller';
 import EditEncounterHpModal from 'components/EditEncounterHpModal';
 import TabNavigationBar from 'components/TabNavigationBar';
@@ -14,6 +15,7 @@ import {
 import Button from 'elements/Button';
 import CardTitle from 'elements/CardTitle';
 import CardTitleZone from 'elements/CardTitleZone';
+import CornerButton from 'elements/CornerButton';
 import {
   FormStatNumberInput,
   FormTextInput,
@@ -56,6 +58,8 @@ const EncounterUnit = (props: {
 }) => {
   const unit = props.unit;
   const render = usePageReRender();
+  const showConfirm = useGlobalConfirm();
+  const data = useDatabase();
 
   const change = (name: string, value: number) => {
     unit.current[name] = value;
@@ -77,129 +81,160 @@ const EncounterUnit = (props: {
   const isDowned = props.unit.current.hp <= 0;
 
   return (
-    <div
-      onClick={props.onClick}
-      style={{
-        display: 'flex',
-        alignItems: 'center',
-        background: isDowned
-          ? '#111'
-          : props.isActive
-          ? getColors().BACKGROUND3
-          : getColors().BACKGROUND2,
-        border:
-          '1px solid ' +
-          (props.isActive ? getColors().TEXT_DEFAULT : getColors().SECONDARY),
-        borderRadius: '4px',
-        padding: '4px',
-        // filter: props.unit.current.hp <= 0 ? 'grayscale(100%)' : undefined,
-      }}
-    >
+    <div>
       <div
         style={{
-          width: '30px',
-          textAlign: 'center',
-          // minHeight: '20px',
-          padding: '8px',
-          marginRight: '8px',
-          fontSize: '18px',
-          border: '1px solid white',
-          borderRadius: '20px',
+          display: 'flex',
+          justifyContent: 'flex-end',
+          height: '0px',
         }}
       >
-        {unit.isPlayer ? (
-          '?'
-        ) : (
-          <span
-            style={
-              {
-                // color: getColors().PRIMARY,
-              }
-            }
-          >
-            {unit.current.publicId ?? '?'}
-          </span>
-        )}
-      </div>
-      <div>
-        <div
+        <CornerButton
           style={{
-            display: 'flex',
-            flexDirection: 'column',
-            flexShrink: 0,
-            width: '40px',
+            height: '20px',
+            transform: 'translate(-1px, 1px)',
+          }}
+          onClick={ev => {
+            ev.preventDefault();
+            showConfirm(
+              'Are you sure you wish to remove this unit: ' + unit.name,
+              () => {
+                props.encounter.units = props.encounter.units.filter(
+                  u => u !== unit
+                );
+                saveEncounterDatabase(data);
+                render();
+              }
+            );
           }}
         >
-          <Button
-            color="plain"
-            style={{
-              fontSize: '12px',
-            }}
-            onClick={ev => {
-              ev.stopPropagation();
-              handleMoveIndex(-1);
-              render();
-            }}
-          >
-            up
-          </Button>
-          <Button
-            color="plain"
-            style={{
-              fontSize: '12px',
-            }}
-            onClick={ev => {
-              ev.stopPropagation();
-              handleMoveIndex(+1);
-              render();
-            }}
-          >
-            dn
-          </Button>
-        </div>
+          X
+        </CornerButton>
       </div>
-      <HSpace />
-      <ImagePortrait
-        imgUrl={props.unit.imgUrl}
-        hideThreshold={-1}
+      <div
+        onClick={props.onClick}
         style={{
-          filter: isDowned ? 'grayscale(100%)' : undefined,
+          display: 'flex',
+          alignItems: 'center',
+          background: isDowned
+            ? '#111'
+            : props.isActive
+            ? getColors().BACKGROUND3
+            : getColors().BACKGROUND2,
+          border:
+            '1px solid ' +
+            (props.isActive ? getColors().TEXT_DEFAULT : getColors().SECONDARY),
+          borderRadius: '4px',
+          padding: '4px',
+          // filter: props.unit.current.hp <= 0 ? 'grayscale(100%)' : undefined,
         }}
-      />
-      <HSpace />
-      <div>
-        <span>{props.unit.name}</span>
-        <div>
-          <FormStatNumberInput
-            label="Initiative"
-            name="initiative"
-            formState={{
-              initiative: unit.current.initiative ?? '',
-            }}
-            change={change}
-          />
-          <span
-            style={{
-              display: 'inline-block',
-            }}
-          >
-            <div
-              style={{
-                color: getColors().TEXT_DESCRIPTION,
-                textAlign: 'center',
-              }}
+      >
+        <div
+          style={{
+            width: '30px',
+            textAlign: 'center',
+            // minHeight: '20px',
+            padding: '8px',
+            marginRight: '8px',
+            fontSize: '18px',
+            border: '1px solid white',
+            borderRadius: '20px',
+          }}
+        >
+          {unit.isPlayer ? (
+            '?'
+          ) : (
+            <span
+              style={
+                {
+                  // color: getColors().PRIMARY,
+                }
+              }
             >
-              HP
-            </div>
-            <EditEncounterHpModal unit={props.unit} />
-          </span>
+              {unit.current.publicId ?? '?'}
+            </span>
+          )}
+        </div>
+        <div>
           <div
             style={{
-              width: '100%',
-              maxWidth: '138px',
+              display: 'flex',
+              flexDirection: 'column',
+              flexShrink: 0,
+              width: '40px',
             }}
           >
-            <PctBar pct={unit.current.hp / unit.hp} height={'8px'} />
+            <Button
+              color="plain"
+              style={{
+                fontSize: '12px',
+              }}
+              onClick={ev => {
+                ev.stopPropagation();
+                handleMoveIndex(-1);
+                render();
+              }}
+            >
+              up
+            </Button>
+            <Button
+              color="plain"
+              style={{
+                fontSize: '12px',
+              }}
+              onClick={ev => {
+                ev.stopPropagation();
+                handleMoveIndex(+1);
+                render();
+              }}
+            >
+              dn
+            </Button>
+          </div>
+        </div>
+        <HSpace />
+        <ImagePortrait
+          imgUrl={props.unit.imgUrl}
+          hideThreshold={-1}
+          style={{
+            filter: isDowned ? 'grayscale(100%)' : undefined,
+          }}
+        />
+        <HSpace />
+        <div>
+          <span>{props.unit.name}</span>
+          <div>
+            <FormStatNumberInput
+              label="Initiative"
+              name="initiative"
+              formState={{
+                initiative: unit.current.initiative ?? '',
+              }}
+              change={change}
+            />
+            <span
+              style={{
+                display: 'inline-block',
+              }}
+            >
+              <div
+                style={{
+                  color: getColors().TEXT_DESCRIPTION,
+                  textAlign: 'center',
+                }}
+              >
+                HP
+              </div>
+              <EditEncounterHpModal unit={props.unit} />
+            </span>
+            <div
+              style={{
+                width: '100%',
+                maxWidth: '138px',
+              }}
+            >
+              <PctBar pct={unit.current.hp / unit.hp} height={'8px'} />
+            </div>
           </div>
         </div>
       </div>
@@ -413,6 +448,14 @@ const UnitInfo = (props: { unit: UnitInEncounter }) => {
       </div>
       <div>
         <FormTextInputFullWidth
+          label="Saving Throws"
+          name="savingThrows"
+          formState={props.unit}
+          change={change}
+          disabled
+        />
+        <HSpace />
+        <FormTextInputFullWidth
           label="Immunities"
           name="immunities"
           formState={props.unit}
@@ -438,7 +481,7 @@ const UnitInfo = (props: { unit: UnitInEncounter }) => {
       </div>
       <div
         style={{
-          margin: '16px',
+          margin: '16px 0px',
         }}
       >
         <MDEditor.Markdown
@@ -541,8 +584,8 @@ const RunEncounterPage = () => {
           <div
             style={{
               display: 'flex',
-              marginBottom: '8px',
-              // justifyContent: 'space-between',
+              marginBottom: window.innerWidth < 600 ? '0px' : '8px',
+              flexDirection: window.innerWidth < 600 ? 'column' : 'row',
             }}
           >
             <div
@@ -580,6 +623,7 @@ const RunEncounterPage = () => {
                 >
                   Sort By Initv
                 </Button>
+                <AddUnitToEncounterModal encounter={encounter} />
               </div>
               {/* <div>
 
@@ -587,7 +631,7 @@ const RunEncounterPage = () => {
             </div>
             <div
               style={{
-                marginLeft: '8px',
+                marginLeft: window.innerWidth < 600 ? '0px' : '8px',
               }}
             >
               <DiceRoller />
@@ -596,6 +640,8 @@ const RunEncounterPage = () => {
           <div
             style={{
               display: 'flex',
+              flexDirection: window.innerWidth < 600 ? 'column' : 'row',
+              alignItems: window.innerWidth < 600 ? 'center' : 'flex-start',
             }}
           >
             <div
@@ -648,7 +694,11 @@ const RunEncounterPage = () => {
             </div>
             <div
               style={{
-                width: MAX_WIDTH - 355 - 32 + 'px',
+                width:
+                  window.innerWidth < 600
+                    ? 'unset'
+                    : MAX_WIDTH - 355 - 32 + 'px',
+                marginTop: window.innerWidth < 600 ? '8px' : '0px',
               }}
             >
               <UnitInfo unit={selectedUnit} />

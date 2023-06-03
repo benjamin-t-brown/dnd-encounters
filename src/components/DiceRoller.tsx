@@ -13,6 +13,8 @@ const Root = styled.div<Object>(() => {
     border: '1px solid ' + getColors().TEXT_DESCRIPTION,
     display: 'flex',
     alignItems: 'center',
+    flexWrap: 'wrap',
+    flexDirection: window.innerWidth < 600 ? 'column' : 'row',
   };
 });
 
@@ -40,7 +42,7 @@ const RollResult = (props: {
   return (
     <span
       style={{
-        fontSize: props.minimal ? 'unset' : '24px',
+        fontSize: props.minimal ? 'unset' : '20px',
         width: props.minimal ? 'unset' : '250px',
         textAlign: props.minimal ? 'left' : 'center',
         display: 'inline-block',
@@ -53,7 +55,7 @@ const RollResult = (props: {
           <span
             style={{
               color: getColors().SUCCESS_TEXT,
-              width: '50px',
+              width: '45px',
               display: 'inline-block',
             }}
           >
@@ -121,18 +123,24 @@ const DiceRoller = () => {
   };
 
   return (
-    <Root>
+    <Root id="dice-roller">
       <div
-        style={{
-          width: '40%',
-        }}
+        style={
+          {
+            // width: '40%',
+          }
+        }
       >
-        <div>
+        <div
+          style={{
+            minWidth: '168px',
+          }}
+        >
           {diceValues.map(diceValue => {
             return (
               <React.Fragment key={diceValue}>
                 <Button
-                  color="primary"
+                  color={diceValue === 20 ? 'secondary' : 'primary'}
                   key={diceValue}
                   onClick={() => {
                     handleDiceClick(diceValue);
@@ -229,7 +237,7 @@ const DiceRoller = () => {
             background: 'black',
             padding: '4px 8px',
             height: '80px',
-            width: '228px',
+            width: '195px',
             overflow: 'auto',
             border: '1px solid ' + getColors().TEXT_DESCRIPTION,
           }}
