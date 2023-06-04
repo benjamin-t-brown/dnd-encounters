@@ -60,7 +60,7 @@ const Modal = (props: ModalProps) => {
         <h2>{props.title ?? 'Modal'}</h2>
         <div
           style={{
-            maxHeight: window.innerHeight - 400 + 'px',
+            maxHeight: window.innerHeight - 200 + 'px',
             overflow: 'auto',
           }}
         >

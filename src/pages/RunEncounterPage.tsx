@@ -244,6 +244,7 @@ const EncounterUnit = (props: {
 const UnitInfo = (props: { unit: UnitInEncounter }) => {
   const change = () => void 0;
   const formState = props.unit.stats;
+  const render = usePageReRender();
 
   return (
     <div
@@ -419,6 +420,19 @@ const UnitInfo = (props: { unit: UnitInEncounter }) => {
               getModifier(formState.CHA)}
           </div>
         </div>
+      </div>
+      <div>
+        <FormTextInputFullWidth
+          label="Status"
+          name="status"
+          formState={{
+            status: props.unit.current.status ?? '',
+          }}
+          change={(key, value) => {
+            props.unit.current[key] = value;
+            render();
+          }}
+        />
       </div>
       <div>
         <FormStatNumberInput

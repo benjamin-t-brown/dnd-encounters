@@ -64,6 +64,7 @@ export interface UnitInEncounter extends UnitTemplate {
     stats: UnitStats;
     alive: boolean;
     initiative: number;
+    status: string;
   };
 }
 
@@ -200,6 +201,7 @@ export const createUnit = (unitTemplate: UnitTemplate): UnitInEncounter => {
       hp: unitTemplate.hp,
       stats: { ...unitTemplate.stats },
       alive: true,
+      status: '',
     },
   };
 };
