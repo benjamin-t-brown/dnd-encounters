@@ -27,9 +27,7 @@ const ImportDatabaseModal = () => {
         reader.readAsText(file);
       }
     },
-    onCancel: () => {
-      console.log('cancel');
-    },
+    onCancel: () => {},
     title: 'Import',
     body: (
       <div>

@@ -30,7 +30,6 @@ const NewEncounterTemplateModal = () => {
         'EncounterTemplateForm'
       );
       if (formValues) {
-        console.log('confirm', formValues);
         if (formValues.name === '' || formValues.name.length > 100) {
           showAlert('Encounter Template must have a valid name.');
           return false;
@@ -51,9 +50,7 @@ const NewEncounterTemplateModal = () => {
         }
       }
     },
-    onCancel: () => {
-      console.log('cancel');
-    },
+    onCancel: () => {},
     title: 'New Encounter Template',
     body: (
       <div>

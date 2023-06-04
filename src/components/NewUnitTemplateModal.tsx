@@ -31,7 +31,6 @@ const NewEncounterTemplateModal = () => {
           return false;
         }
 
-        console.log('confirm', formValues);
         const unitTemplate = formStateToUnitTemplate(formValues);
         const existingTemplate = getUnitTemplateByName(unitTemplate.name, data);
         if (existingTemplate) {
@@ -43,9 +42,7 @@ const NewEncounterTemplateModal = () => {
         }
       }
     },
-    onCancel: () => {
-      console.log('cancel');
-    },
+    onCancel: () => {},
     title: 'New Unit Template',
     body: (
       <div>

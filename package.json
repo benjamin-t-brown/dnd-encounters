@@ -8,8 +8,9 @@
     "test:prod": "vitest run",
     "start": "vite serve src --config ./vite.config.ts",
     "start:dev": "yarn start",
+    "start:prod": "yarn build && http-server dist",
     "build": "yarn clean && vite build src --config ./vite.config.ts",
-    "clean": "rm -rf dist/release/*.js"
+    "clean": "rm -rf dist"
   },
   "author": "",
   "license": "ISC",
@@ -31,6 +32,7 @@
     "eslint-plugin-react": "^7.32.2",
     "happy-dom": "^8.9.0",
     "html-minifier": "^4.0.0",
+    "http-server": "^14.1.1",
     "prettier": "^2.8.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

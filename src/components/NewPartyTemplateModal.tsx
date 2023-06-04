@@ -26,7 +26,6 @@ const NewPartyTemplateModal = () => {
     onConfirm: () => {
       const formValues = getFormValues<PartyStorage>('PartyTemplateForm');
       if (formValues) {
-        console.log('confirm', formValues);
         if (formValues.name === '' || formValues.name.length > 100) {
           showAlert('Party must have a valid name.');
           return false;
@@ -54,9 +53,7 @@ const NewPartyTemplateModal = () => {
         render();
       }
     },
-    onCancel: () => {
-      console.log('cancel');
-    },
+    onCancel: () => {},
     title: 'New Party',
     maxWidth: String(MAX_WIDTH / 2) + 'px',
     body: (

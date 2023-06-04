@@ -239,6 +239,7 @@ const DiceRoller = () => {
             height: '80px',
             width: '195px',
             overflow: 'auto',
+            fontSize: '14px',
             border: '1px solid ' + getColors().TEXT_DESCRIPTION,
           }}
         >

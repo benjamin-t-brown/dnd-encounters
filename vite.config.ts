@@ -35,7 +35,7 @@ export default defineConfig((...args) => {
     ],
     root: '.',
     base: '/',
-    publicDir: path.resolve(__dirname, '/public/'),
+    publicDir: rootPath + 'public',
     build: {
       outDir: rootPath + 'dist',
       assetsDir: 'release',

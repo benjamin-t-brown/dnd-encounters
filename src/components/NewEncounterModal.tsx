@@ -1,7 +1,9 @@
 import {
   createEncounter,
   createEncounterTemplate,
+  getEncounterTemplateById,
   getEncounterTemplateByName,
+  getUnitTemplateById,
   saveEncounterDatabase,
 } from 'data/storage';
 import {
@@ -34,7 +36,6 @@ const NewEncounterModal = (props: { templateId?: string }) => {
     onConfirm: () => {
       const formValues = getFormValues<EncounterFormState>('EncounterForm');
       if (formValues) {
-        console.log('confirm', formValues);
         if (formValues.name === '' || formValues.name.length > 100) {
           showAlert('Encounter must have a valid name.');
           return false;
@@ -61,13 +62,17 @@ const NewEncounterModal = (props: { templateId?: string }) => {
         }
       }
     },
-    onCancel: () => {
-      console.log('cancel');
-    },
+    onCancel: () => {},
     title: 'New Encounter',
     body: (
       <div style={{ minHeight: '300px' }}>
-        <EncounterForm encounter={createEncounter(props.templateId)} />
+        <EncounterForm
+          encounter={createEncounter(
+            props.templateId
+              ? getEncounterTemplateById(props.templateId, data)
+              : undefined
+          )}
+        />
       </div>
     ),
     maxWidth: String(MAX_WIDTH / 2),

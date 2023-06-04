@@ -93,7 +93,6 @@ const EditEncounterTemplatePage = () => {
                     return false;
                   }
 
-                  console.log('confirm', formValues);
                   const newEncounterTemplate =
                     formStateToEncounterTemplate(formValues);
                   Object.assign(encounterTemplate, newEncounterTemplate);

@@ -1,9 +1,10 @@
 import { PartyStorage } from 'data/storage';
 import Button from 'elements/Button';
 import { FormTextInput, FormTextInputFullWidth } from 'elements/FormInputs';
+import ImagePortrait from 'elements/ImagePortrait';
 import { useForm, useGlobalAlert } from 'hooks';
 import React from 'react';
-import { MAX_HEIGHT_MODAL } from 'style';
+import { MAX_HEIGHT_MODAL, getColors } from 'style';
 import styled from 'styled-components';
 
 const Root = styled.div<Object>(() => {
@@ -32,12 +33,24 @@ const PartyTemplateForm = (props: PartyTemplateFormProps) => {
           formState={formState}
           change={change}
         />
+        <br />
+        <br />
+        <ImagePortrait imgUrl={formState.imgUrl} hideThreshold={-1} />
+        <br />
+        <FormTextInputFullWidth
+          label="Image"
+          name="imgUrl"
+          formState={formState}
+          change={change}
+        />
       </div>
       <div
         style={{
           margin: '8px 0',
-          maxHeight: MAX_HEIGHT_MODAL + 'px',
+          // maxHeight: MAX_HEIGHT_MODAL + 'px',
           overflow: 'auto',
+          paddingTop: '8px',
+          borderTop: '1px solid ' + getColors().TEXT_DESCRIPTION,
         }}
       >
         {formState.partyMembers.map((partyMemberName, index) => {
@@ -77,7 +90,7 @@ const PartyTemplateForm = (props: PartyTemplateFormProps) => {
                 <FormTextInputFullWidth
                   label="Image"
                   name={String(index)}
-                  formState={formState.partyMembersImages}
+                  formState={formState.partyMembersImages ?? []}
                   change={(_, value) => {
                     const newPartyMembersImages = [
                       ...formState.partyMembersImages,
@@ -94,10 +107,10 @@ const PartyTemplateForm = (props: PartyTemplateFormProps) => {
           color="secondary"
           onClick={() => {
             const newPartyMembers = [...formState.partyMembers, ''];
-            if (newPartyMembers.length > 10) {
-              showAlert("Can't have more than 10 party members");
-              return;
-            }
+            // if (newPartyMembers.length > 10) {
+            //   showAlert("Can't have more than 10 party members");
+            //   return;
+            // }
             const newPartyMembersImages = [...formState.partyMembersImages, ''];
             change('partyMembers', newPartyMembers as any);
             change('partyMembersImages', newPartyMembersImages as any);

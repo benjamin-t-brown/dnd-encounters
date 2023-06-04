@@ -90,7 +90,6 @@ const EditUnitTemplatePage = () => {
                     return false;
                   }
 
-                  console.log('confirm', formValues);
                   const newUnitTemplate = formStateToUnitTemplate(formValues);
                   Object.assign(unitTemplate, newUnitTemplate);
                   saveEncounterDatabase(data);

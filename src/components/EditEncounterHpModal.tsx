@@ -38,9 +38,7 @@ const EditEncounterHpModal = (props: { unit: UnitInEncounter }) => {
       setNextHp(nextHp);
       render();
     },
-    onCancel: () => {
-      console.log('cancel');
-    },
+    onCancel: () => {},
     title: 'Edit HP',
     body: (
       <div>

@@ -28,7 +28,6 @@ const AddUnitToEncounterModal = (props: { encounter: Encounter }) => {
 
   const { modal, setOpen } = useModal({
     onConfirm: () => {
-      console.log('cancel');
       if (unitTemplate) {
         for (let i = 0; i < amount; i++) {
           const unit = createUnit(unitTemplate);
@@ -80,7 +79,6 @@ const AddUnitToEncounterModal = (props: { encounter: Encounter }) => {
             if (id) {
               const template = getUnitTemplateById(id, data);
               if (template) {
-                console.log('set template', id, template);
                 setUnitTemplate(template);
               }
             }

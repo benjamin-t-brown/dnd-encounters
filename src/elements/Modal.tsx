@@ -47,7 +47,6 @@ export interface ModalProps extends React.PropsWithChildren {
 }
 
 const Modal = (props: ModalProps) => {
-  console.log('MODAL MAX', props.maxWidth);
   return (
     <Root
       style={{

@@ -73,12 +73,9 @@ const TabNavigationBar = () => {
 
   useEffect(() => {
     if (savedTab !== route && isEditRoute(route)) {
-      console.log('Set saved', route);
       setSavedTab(route);
     }
   }, [route, savedTab]);
-
-  console.log('SAVED TAB', savedTab, route);
 
   return (
     <Root>

@@ -63,7 +63,6 @@ const EncounterUnit = (props: {
 
   const change = (name: string, value: number) => {
     unit.current[name] = value;
-    console.log('SET VALUE', name, value);
     render();
   };
 
@@ -525,8 +524,6 @@ const RunEncounterPage = () => {
   const [selectedUnit, setSelectedUnit] = React.useState<UnitInEncounter>(
     encounter.units[0]
   );
-
-  console.log('UNIT', selectedUnit);
 
   const handleOrderByInitiative = () => {
     encounter.units.sort((a, b) => {

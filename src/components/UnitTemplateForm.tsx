@@ -26,9 +26,12 @@ import HSpace from 'elements/HSpace';
 import VSpace from 'elements/VSpace';
 import { getModifier } from 'data/dice';
 import { parse } from 'data/parse';
+import ImagePortrait from 'elements/ImagePortrait';
 
 const Root = styled.div<Object>(() => {
-  return {};
+  return {
+    marginRight: '8px',
+  };
 });
 
 interface UnitTemplateFormProps {
@@ -49,7 +52,7 @@ const UnitTemplateForm = (props: UnitTemplateFormProps) => {
 
   const { modal: loadExistingModal, setOpen: setLoadExistingModalOpen } =
     useModal({
-      title: 'Load Existing Unit Template',
+      title: 'Apply Existing Unit Template',
       onConfirm: () => {
         if (unitTemplateToLoad) {
           reset({
@@ -100,7 +103,6 @@ const UnitTemplateForm = (props: UnitTemplateFormProps) => {
               if (id) {
                 const template = getUnitTemplateById(id, props.data);
                 if (template) {
-                  console.log('set template', id, template);
                   setUnitTemplateToLoad(template);
                 }
               }
@@ -168,7 +170,7 @@ const UnitTemplateForm = (props: UnitTemplateFormProps) => {
               setLoadExistingModalOpen(true);
             }}
           >
-            Load Existing Template
+            Apply Existing Template
           </Button>
           <HSpace />
           <Button
@@ -181,6 +183,8 @@ const UnitTemplateForm = (props: UnitTemplateFormProps) => {
           </Button>
         </div>
         <div>
+          <ImagePortrait imgUrl={formState.imgUrl} hideThreshold={-1} />
+          <br />
           <FormTextInputFullWidth
             label="Image"
             name="imgUrl"

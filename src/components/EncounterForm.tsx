@@ -23,8 +23,6 @@ const EncounterForm = (props: EncounterFormProps) => {
   });
   const data = useDatabase();
 
-  console.log('RENDER FORM', props.encounter, formState);
-
   const templateOptions = data.encounterTemplates.sort(sortByDate).map(t => {
     return {
       label: t.name,

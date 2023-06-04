@@ -76,10 +76,6 @@ export const parse = text => {
   const speedLine = findLineContentThatStartsWith(lines, 'Speed');
   const speedParts = speedLine.split(',');
   const speed = parseInt(speedParts[0]);
-  console.log(
-    'spd',
-    speedParts.find(s => s.toLowerCase().includes('fly'))?.slice(3) ?? '0'
-  );
   const speedSwim = parseInt(
     speedParts.find(s => s.toLowerCase().includes('swim'))?.slice(4 + 1) ?? '20'
   );
@@ -136,6 +132,5 @@ export const parse = text => {
     lastUpdated: +new Date(),
   };
 
-  // console.log(JSON.stringify(unit, null, 2));
   return unit;
 };

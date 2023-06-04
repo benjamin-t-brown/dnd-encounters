@@ -103,7 +103,6 @@ const EditPartyTemplatePage = () => {
                     }
                   }
 
-                  console.log('confirm', formValues);
                   const newPartyTemplate = formValues;
                   Object.assign(partyTemplate, newPartyTemplate);
                   saveEncounterDatabase(data);

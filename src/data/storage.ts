@@ -87,6 +87,7 @@ export interface Encounter {
 export interface PartyStorage {
   id: string;
   name: string;
+  imgUrl: string;
   partyMembers: string[];
   partyMembersImages: string[];
   lastUpdated: number;
@@ -183,6 +184,7 @@ export const createPartyStorage = (): PartyStorage => {
   return {
     id: randomId(),
     name: '',
+    imgUrl: 'https://img.icons8.com/?size=512&id=104704&format=png',
     partyMembers: [],
     partyMembersImages: [],
     lastUpdated: +new Date(),
@@ -243,12 +245,12 @@ export const getPartyStorageById = (id: string, data: EncounterDatabase) => {
   return data.parties.find(party => party.id === id);
 };
 
-export const createEncounter = (templateId?: string): Encounter => {
+export const createEncounter = (template?: EncounterTemplate): Encounter => {
   return {
     id: randomId(),
-    templateId: templateId ?? '',
+    templateId: template?.id ?? '',
     partyId: '',
-    name: '',
+    name: template ? 'Enc: ' + template.name : '',
     units: [],
     lastUpdated: +new Date(),
     turnIndex: 0,
