@@ -34,7 +34,7 @@ export default defineConfig((...args) => {
       CustomHmr(),
     ],
     root: '.',
-    base: '/',
+    base: '/dnd-encounters/',
     publicDir: rootPath + 'public',
     build: {
       outDir: rootPath + 'dist',
