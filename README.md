@@ -1,4 +1,4 @@
-This is a tool to help a Dungeon Master run D&D Beyond encounters.
+This is a tool to help a Dungeon Master run D&D encounters.
 
 The app is deployed here: 
 
