@@ -19,7 +19,9 @@ import { getColors } from 'style';
 import styled from 'styled-components';
 
 const Root = styled.div<Object>(() => {
-  return {};
+  return {
+    width: 'calc(100% - 2px)',
+  };
 });
 
 const UnitsArea = styled.div<{ maxHeight: number | string }>(props => {
@@ -119,6 +121,8 @@ const Unit = (props: {
           style={{
             display: 'flex',
             alignItems: 'center',
+            marginLeft: '8px',
+            flexShrink: '0'
           }}
         >
           {props.count > 0 ? <div>{props.count}</div> : null}

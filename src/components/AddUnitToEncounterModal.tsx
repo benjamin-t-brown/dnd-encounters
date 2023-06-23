@@ -44,7 +44,7 @@ const AddUnitToEncounterModal = (props: { encounter: Encounter }) => {
     body: (
       <div
         style={{
-          minHeight: '225px',
+          minHeight: '375px',
         }}
       >
         <InputLabel>Select Template</InputLabel>
@@ -83,6 +83,7 @@ const AddUnitToEncounterModal = (props: { encounter: Encounter }) => {
               }
             }
           }}
+          
         />
         <br />
         <FormStatNumberInput

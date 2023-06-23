@@ -56,7 +56,7 @@ const NewEncounterTemplateModal = () => {
       <div>
         <EncounterTemplateForm
           encounterTemplate={createEncounterTemplate()}
-          maxHeight={MAX_HEIGHT_MODAL}
+          maxHeight={MAX_HEIGHT_MODAL - 100}
         />
       </div>
     ),
