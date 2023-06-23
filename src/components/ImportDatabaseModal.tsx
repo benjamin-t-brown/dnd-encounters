@@ -1,7 +1,7 @@
 import { DataContext } from 'App';
 import { saveEncounterDatabase } from 'data/storage';
 import Button from 'elements/Button';
-import { useModal } from 'hooks';
+import { useGlobalAlert, useModal } from 'hooks';
 import React from 'react';
 import { getColors } from 'style';
 
@@ -19,6 +19,7 @@ const ImportDatabaseModal = () => {
             const parsedData = JSON.parse(e.target?.result as string);
             // data.unitTemplates = parsedData
             saveEncounterDatabase(parsedData);
+            window.location.reload();
           } catch (e) {
             console.error('Error during import', e);
             alert('Failed to import data');

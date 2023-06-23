@@ -60,7 +60,7 @@ const EditEncounterTemplatePage = () => {
       <StandardLayout topBar>
         <TabNavigationBar />
         <InnerRoot>
-          <h1>Encounter Template</h1>
+          <h1>Encounter Template: {encounterTemplate.name}</h1>
           <EncounterTemplateForm
             encounterTemplate={encounterTemplate}
             maxHeight={window.innerHeight - 500}

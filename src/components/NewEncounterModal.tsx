@@ -82,12 +82,12 @@ const NewEncounterModal = (props: { templateId?: string }) => {
     <>
       <Button
         id="new-encounter-modal"
-        color="primary"
+        color="secondary"
         onClick={() => {
           setOpen(true);
         }}
       >
-        + Create Encounter
+        + Run Encounter
       </Button>
       {modal}
     </>

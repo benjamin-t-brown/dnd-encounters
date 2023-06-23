@@ -37,7 +37,7 @@ const PartyItem = (props: { party: PartyStorage }) => {
     <FlexWrapCard
       style={{
         width: '200px',
-        height: '144px',
+        height: '164px',
         background: getColors().BACKGROUND3,
       }}
       onClick={() => {
@@ -84,7 +84,7 @@ const PartyItem = (props: { party: PartyStorage }) => {
                 marginLeft: '4px',
               }}
             >
-              - {partyMemberName}
+              {i < 4 ? '- ' + partyMemberName : '- ...more'}
             </div>
           );
         })}

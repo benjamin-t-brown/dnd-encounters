@@ -57,7 +57,7 @@ const EditUnitTemplatePage = () => {
       <StandardLayout topBar>
         <TabNavigationBar />
         <InnerRoot>
-          <h1>Unit Template</h1>
+          <h1>Unit Template: {unitTemplate.name}</h1>
           <UnitTemplateForm
             unitTemplate={unitTemplate}
             data={data}
@@ -91,6 +91,7 @@ const EditUnitTemplatePage = () => {
                   }
 
                   const newUnitTemplate = formStateToUnitTemplate(formValues);
+                  newUnitTemplate.isCustom = true;
                   Object.assign(unitTemplate, newUnitTemplate);
                   saveEncounterDatabase(data);
                   showAlert('Successfully saved unit template.');

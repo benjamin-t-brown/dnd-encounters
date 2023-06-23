@@ -52,11 +52,12 @@ const UnitTemplateForm = (props: UnitTemplateFormProps) => {
 
   const { modal: loadExistingModal, setOpen: setLoadExistingModalOpen } =
     useModal({
-      title: 'Apply Existing Unit Template',
+      title: 'Search Templates',
       onConfirm: () => {
         if (unitTemplateToLoad) {
           reset({
             ...unitTemplateToFormState(unitTemplateToLoad),
+            isCustom: true,
             id: randomId(),
           });
         }
@@ -165,12 +166,12 @@ const UnitTemplateForm = (props: UnitTemplateFormProps) => {
           }}
         >
           <Button
-            color="secondary"
+            color="primary"
             onClick={() => {
               setLoadExistingModalOpen(true);
             }}
           >
-            Apply Existing Template
+            Search Templates
           </Button>
           <HSpace />
           <Button

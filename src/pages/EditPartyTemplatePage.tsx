@@ -57,7 +57,7 @@ const EditPartyTemplatePage = () => {
       <StandardLayout topBar>
         <TabNavigationBar />
         <InnerRoot>
-          <h1>Party Template</h1>
+          <h1>Party Template: {partyTemplate.name}</h1>
           <PartyTemplateForm
             partyTemplate={partyTemplate}
             // maxHeight={window.innerHeight - 500}
