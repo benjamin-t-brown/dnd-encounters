@@ -2,6 +2,7 @@ import MDEditor from '@uiw/react-md-editor';
 import AddUnitToEncounterModal from 'components/AddUnitToEncounterModal';
 import DiceRoller from 'components/DiceRoller';
 import EditEncounterHpModal from 'components/EditEncounterHpModal';
+import EditUnitPublicIdModal from 'components/EditUnitPublicIdModal';
 import TabNavigationBar from 'components/TabNavigationBar';
 import { getModifier, rollInitiative } from 'data/dice';
 import {
@@ -140,19 +141,7 @@ const EncounterUnit = (props: {
             borderRadius: '20px',
           }}
         >
-          {unit.isPlayer ? (
-            '?'
-          ) : (
-            <span
-              style={
-                {
-                  // color: getColors().PRIMARY,
-                }
-              }
-            >
-              {unit.current.publicId ?? '?'}
-            </span>
-          )}
+          {unit.isPlayer ? '?' : <EditUnitPublicIdModal unit={props.unit} />}
         </div>
         <div>
           <div
