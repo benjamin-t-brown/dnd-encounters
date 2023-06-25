@@ -5,7 +5,7 @@ import ImagePortrait from 'elements/ImagePortrait';
 import InputLabel from 'elements/InputLabel';
 import VSpace from 'elements/VSpace';
 import { useModal, usePageReRender } from 'hooks';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { MAX_WIDTH, getColors } from 'style';
 
 const getNextHpColor = (nextHp: number, currentHp: number) => {
@@ -59,6 +59,7 @@ const EditEncounterHpModal = (props: { unit: UnitInEncounter }) => {
         <div
           style={{
             display: 'flex',
+            justifyContent: 'center',
             alignItems: 'center',
             background: getColors().BACKGROUND,
             padding: '16px',
@@ -111,6 +112,7 @@ const EditEncounterHpModal = (props: { unit: UnitInEncounter }) => {
               <input
                 type="text"
                 value={modifyBy}
+                id="edit-hp-modal-input"
                 onChange={ev => {
                   const nextModifyBy = ev.target.value;
                   const nextModifyByInt = parseInt(nextModifyBy);
@@ -174,6 +176,15 @@ const EditEncounterHpModal = (props: { unit: UnitInEncounter }) => {
     ),
     maxWidth: MAX_WIDTH / 2 + 'px',
   });
+
+  // useEffect(() => {
+  //   if (modal) {
+  //     const elem = document.getElementById('edit-hp-modal-input');
+  //     if (elem && nextValue === props.value) {
+  //       (elem as any).select();
+  //     }
+  //   }
+  // }, [modal, nextValue, props.value]);
 
   return (
     <>

@@ -6,6 +6,7 @@ export interface IButtonProps {
   flex?: boolean;
   center?: boolean;
   disabled?: boolean;
+  fullWidth?: boolean;
 }
 const Button = styled.button<IButtonProps>(props => {
   const obj = {
@@ -37,6 +38,9 @@ const Button = styled.button<IButtonProps>(props => {
     ret.opacity = '0.8';
     ret.filter = 'grayscale(0.5)';
     ret.cursor = 'default';
+  }
+  if (props.fullWidth) {
+    ret.width = '100%';
   }
 
   return ret;

@@ -83,7 +83,6 @@ const AddUnitToEncounterModal = (props: { encounter: Encounter }) => {
               }
             }
           }}
-          
         />
         <br />
         <FormStatNumberInput
@@ -102,6 +101,7 @@ const AddUnitToEncounterModal = (props: { encounter: Encounter }) => {
   return (
     <>
       <Button
+        fullWidth
         color="plain"
         onClick={ev => {
           ev.stopPropagation();

@@ -4,63 +4,48 @@ import HSpace from 'elements/HSpace';
 import ImagePortrait from 'elements/ImagePortrait';
 import InputLabel from 'elements/InputLabel';
 import VSpace from 'elements/VSpace';
-import { useModal, usePageReRender } from 'hooks';
-import React from 'react';
+import { useKeyboardEventListener, useModal, usePageReRender } from 'hooks';
+import React, { useEffect } from 'react';
 import { MAX_WIDTH, getColors } from 'style';
 
-const EditUnitPublicIdModal = (props: { unit: UnitInEncounter }) => {
-  const [id, setId] = React.useState(String(props.unit.current.publicId));
+const EditInputModal = (props: {
+  label: string;
+  value: string;
+  buttonLabel: string;
+  onConfirm: (v: string) => void;
+  inputType?: 'text' | 'number';
+  style: React.CSSProperties;
+}) => {
+  const [nextValue, setNextValue] = React.useState(String(props.value));
   const render = usePageReRender();
 
   const { modal, setOpen } = useModal({
     onConfirm: () => {
-      props.unit.current.publicId = id as any;
+      props.onConfirm(nextValue);
       render();
     },
     onCancel: () => {},
-    title: 'Edit Id',
+    title: 'Edit ' + props.label,
     body: (
       <div>
         <div
           style={{
-            margin: '16px 0px',
-          }}
-        >
-          Now Editing Id for{' '}
-          <span
-            style={{
-              color: getColors().SUCCESS_TEXT,
-            }}
-          >
-            {props.unit.name}
-          </span>
-        </div>
-        <div
-          style={{
             display: 'flex',
-            alignItems: 'center',
             justifyContent: 'center',
+            alignItems: 'center',
             background: getColors().BACKGROUND,
             padding: '16px',
             border: '1px solid ' + getColors().TEXT_DESCRIPTION,
           }}
         >
-          <ImagePortrait
-            imgUrl={props.unit.imgUrl}
-            hideThreshold={-1}
-            style={{
-              width: '48px',
-              height: '48px',
-            }}
-          />
-          <HSpace />
           <div>
-            <InputLabel>Id</InputLabel>
+            <InputLabel>{props.label}</InputLabel>
             <input
-              type="text"
-              value={id}
+              id="edit-input-modal-input"
+              type={props.inputType || 'text'}
+              value={nextValue}
               onChange={ev => {
-                setId(ev.target.value);
+                setNextValue(ev.target.value);
               }}
               autoFocus={true}
               style={{
@@ -76,19 +61,29 @@ const EditUnitPublicIdModal = (props: { unit: UnitInEncounter }) => {
     maxWidth: MAX_WIDTH / 2 + 'px',
   });
 
+  useEffect(() => {
+    if (modal) {
+      const elem = document.getElementById('edit-input-modal-input');
+      if (elem && nextValue === props.value) {
+        (elem as any).select();
+      }
+    }
+  }, [modal, nextValue, props.value]);
+
   return (
     <>
       <button
+        style={props.style}
         onClick={ev => {
           ev.stopPropagation();
           setOpen(true);
         }}
       >
-        {props.unit.current.publicId}
+        {props.buttonLabel}
       </button>
       {modal}
     </>
   );
 };
 
-export default EditUnitPublicIdModal;
+export default EditInputModal;

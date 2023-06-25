@@ -1,6 +1,7 @@
 import Modal from 'elements/Modal';
 import { ModalProps } from 'elements/Modal';
 import React, {
+  KeyboardEventHandler,
   useCallback,
   useContext,
   useEffect,
@@ -18,6 +19,24 @@ export const useReRender = () => {
 
 export const useModal = (modalProps: Partial<ModalProps>) => {
   const [open, setOpen] = useState(false);
+
+  useKeyboardEventListener(
+    ev => {
+      if (open) {
+        if (ev.key === 'Enter') {
+          const shouldClose = modalProps.onConfirm?.();
+          if (shouldClose === true || shouldClose === undefined) {
+            setOpen(false);
+          }
+        }
+        if (ev.key === 'Escape') {
+          setOpen(false);
+          modalProps.onCancel?.();
+        }
+      }
+    },
+    [open, modalProps]
+  );
 
   return {
     open,
@@ -138,4 +157,21 @@ export const useGlobalConfirm = () => {
   return (msg: string, cb: () => void) => {
     (window as any).showConfirmModal(msg, cb);
   };
+};
+
+export const useKeyboardEventListener = (
+  cb: KeyboardEventHandler,
+  captures?: any[]
+) => {
+  useEffect(() => {
+    const handleKeyDown = (ev: KeyboardEvent) => {
+      if (!ev.repeat) {
+        cb(ev as any);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, captures);
 };

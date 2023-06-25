@@ -17,6 +17,7 @@ import Button from 'elements/Button';
 import CardTitle from 'elements/CardTitle';
 import CardTitleZone from 'elements/CardTitleZone';
 import CornerButton from 'elements/CornerButton';
+import { Dropdown, DropdownSection } from 'elements/Dropdown';
 import {
   FormStatNumberInput,
   FormTextInput,
@@ -35,7 +36,7 @@ import {
   useLSRoute,
   usePageReRender,
 } from 'hooks';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { MAX_WIDTH, getColors } from 'style';
 import styled from 'styled-components';
 
@@ -55,7 +56,9 @@ const EncounterUnit = (props: {
   unit: UnitInEncounter;
   encounter: Encounter;
   isActive: boolean;
+  isSmall: boolean;
   onClick: () => void;
+  style?: React.CSSProperties;
 }) => {
   const unit = props.unit;
   const render = usePageReRender();
@@ -80,8 +83,75 @@ const EncounterUnit = (props: {
 
   const isDowned = props.unit.current.hp <= 0;
 
+  const rootStyle = {
+    display: 'flex',
+    alignItems: 'center',
+    background: isDowned
+      ? '#111'
+      : props.isActive
+      ? getColors().BACKGROUND3
+      : getColors().BACKGROUND2,
+    border:
+      '1px solid ' +
+      (props.isActive ? getColors().TEXT_DEFAULT : getColors().SECONDARY),
+    borderRadius: '4px',
+    padding: '4px',
+    // filter: props.unit.current.hp <= 0 ? 'grayscale(100%)' : undefined,
+  };
+
+  if (props.isSmall) {
+    return (
+      <div style={rootStyle}>
+        <div
+          style={{
+            width: '30px',
+            textAlign: 'center',
+            // minHeight: '20px',
+            padding: '8px',
+            marginRight: '8px',
+            fontSize: '18px',
+            border: '1px solid white',
+            borderRadius: '20px',
+          }}
+        >
+          {unit.isPlayer ? '?' : <EditUnitPublicIdModal unit={props.unit} />}
+        </div>
+        <span>{props.unit.name}</span>
+        <div
+          style={{
+            width: '100%',
+            display: 'flex',
+            justifyContent: 'flex-end',
+            alignItems: 'center',
+          }}
+        >
+          <div>
+            {/* <div
+              style={{
+                color: getColors().TEXT_DESCRIPTION,
+                textAlign: 'center',
+                marginRight: '8px',
+              }}
+            >
+              HP
+            </div> */}
+            <EditEncounterHpModal unit={props.unit} />
+            <div
+              style={{
+                width: '100%',
+                maxWidth: '138px',
+              }}
+            >
+              <PctBar pct={unit.current.hp / unit.hp} height={'8px'} />
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
-    <div>
+    <div style={props.style}>
       <div
         style={{
           display: 'flex',
@@ -234,13 +304,10 @@ const UnitInfo = (props: { unit: UnitInEncounter }) => {
   const change = () => void 0;
   const formState = props.unit.stats;
   const render = usePageReRender();
+  const [notesFirst, setNotesFirst] = useState(false);
 
-  return (
-    <div
-      style={{
-        padding: '4px 8px',
-      }}
-    >
+  const StatsInfo = (
+    <>
       <div
         style={{
           display: 'flex',
@@ -481,20 +548,48 @@ const UnitInfo = (props: { unit: UnitInEncounter }) => {
           disabled
         />
       </div>
-      <div
+    </>
+  );
+
+  const StatsNotes = (
+    <div
+      style={{
+        margin: '16px 0px',
+      }}
+    >
+      <MDEditor.Markdown
+        source={props.unit.notes ?? ''}
+        style={{ whiteSpace: 'pre-wrap', padding: '8px' }}
+        // wrapperElement={{
+        //   'data-color-mode': 'light',
+        // }}
+      />
+    </div>
+  );
+
+  return (
+    <>
+      <Button
+        color="secondary"
+        onClick={() => {
+          setNotesFirst(!notesFirst);
+        }}
         style={{
-          margin: '16px 0px',
+          marginLeft: '8px',
         }}
       >
-        <MDEditor.Markdown
-          source={props.unit.notes ?? ''}
-          style={{ whiteSpace: 'pre-wrap', padding: '8px' }}
-          // wrapperElement={{
-          //   'data-color-mode': 'light',
-          // }}
-        />
+        View {notesFirst ? 'Stats' : 'Notes'}
+      </Button>
+      <div
+        style={{
+          padding: '4px 8px',
+        }}
+      >
+        {notesFirst ? StatsNotes : null}
+        {StatsInfo}
+        {!notesFirst ? StatsNotes : null}
       </div>
-    </div>
+    </>
   );
 };
 
@@ -505,6 +600,7 @@ const RunEncounterPage = () => {
   const data = useDatabase();
   const render = usePageReRender();
   const [, encounterId] = route?.split(':') ?? [];
+  const [showAll, setShowAll] = React.useState(true);
 
   useEffect(() => {
     saveEncounterDatabase(data);
@@ -579,22 +675,28 @@ const RunEncounterPage = () => {
       </TopBar>
       <StandardLayout topBar>
         <TabNavigationBar />
-        <h3>Encounter: {encounter.name}</h3>
-        <InnerRoot>
-          <div
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+          }}
+        >
+          <Dropdown
+            buttonText="..."
             style={{
-              display: 'flex',
-              marginBottom: window.innerWidth < 600 ? '0px' : '8px',
-              flexDirection: window.innerWidth < 600 ? 'column' : 'row',
+              marginRight: '8px',
             }}
           >
             <div
               style={{
-                width: '355px',
+                display: 'flex',
+                justifyContent: 'flex-start',
+                flexDirection: 'column',
               }}
             >
-              <div>
+              <DropdownSection>
                 <Button
+                  fullWidth
                   color="secondary"
                   onClick={() => {
                     if (isEncounterStarted(encounter)) {
@@ -611,29 +713,37 @@ const RunEncounterPage = () => {
                     }
                   }}
                 >
-                  Roll Initv
+                  Roll Initiative
                 </Button>
-                <HSpace />
+              </DropdownSection>
+              <DropdownSection>
                 <Button
+                  fullWidth
                   color="secondary"
                   onClick={() => {
                     handleOrderByInitiative();
                     render();
                   }}
                 >
-                  Sort By Initv
+                  Sort By Initiative
                 </Button>
+              </DropdownSection>
+              <DropdownSection>
                 <AddUnitToEncounterModal encounter={encounter} />
-              </div>
-              {/* <div>
-
-              </div> */}
+              </DropdownSection>
             </div>
-            <div
-              style={{
-                marginLeft: window.innerWidth < 600 ? '0px' : '8px',
-              }}
-            >
+          </Dropdown>
+          <h3>Encounter: {encounter.name}</h3>
+        </div>
+        <InnerRoot>
+          <div
+            style={{
+              display: 'flex',
+              marginBottom: window.innerWidth < 600 ? '0px' : '8px',
+              flexDirection: window.innerWidth < 600 ? 'column' : 'row',
+            }}
+          >
+            <div>
               <DiceRoller />
             </div>
           </div>
@@ -665,7 +775,12 @@ const RunEncounterPage = () => {
                 >
                   - Prev Turn
                 </Button>
-                {/* <HSpace /> */}
+                <Button
+                  color={showAll ? 'primary' : 'plain'}
+                  onClick={() => setShowAll(!showAll)}
+                >
+                  All
+                </Button>
                 <Button
                   color="plain"
                   onClick={() => {
@@ -677,17 +792,32 @@ const RunEncounterPage = () => {
                 </Button>
               </div>
               {encounter.units.map((unit, i) => {
+                const isActive = encounter.turnIndex === i;
                 return (
                   <EncounterUnit
                     key={i + '-' + unit.current.publicId}
                     unit={unit}
                     encounter={encounter}
-                    isActive={encounter.turnIndex === i}
+                    isActive={isActive}
+                    isSmall={showAll ? false : !isActive}
                     onClick={() => {
                       if (!unit.isPlayer) {
                         setSelectedUnit(unit);
                       }
                     }}
+                    // style={{
+                    //   transition: 'transform 0.2s, height 0.2s',
+                    //   transform: showAll
+                    //     ? 'scale(1)'
+                    //     : isActive
+                    //     ? 'scale(1)'
+                    //     : 'scale(0)',
+                    //   height: showAll
+                    //     ? 'inherit'
+                    //     : isActive
+                    //     ? 'inherit'
+                    //     : '0px',
+                    // }}
                   />
                 );
               })}
