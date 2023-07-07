@@ -116,6 +116,7 @@ export interface EncounterTemplateFormState {
   id: string;
   name: string;
   units: string[];
+  campaign: string;
 }
 
 export const encounterTemplateToFormState = (
@@ -125,6 +126,7 @@ export const encounterTemplateToFormState = (
     id: t.id,
     name: t.name,
     units: t.units.slice(),
+    campaign: t.campaign ?? '',
   };
 };
 
@@ -136,6 +138,7 @@ export const formStateToEncounterTemplate = (
     name: state.name,
     units: state.units.slice(),
     lastUpdated: +new Date(),
+    campaign: state.campaign,
   };
 };
 
@@ -144,6 +147,7 @@ export interface EncounterFormState {
   name: string;
   templateId: string;
   partyId: string;
+  campaign: string;
 }
 
 export const encounterToFormState = (
@@ -154,6 +158,7 @@ export const encounterToFormState = (
     name: encounter.name,
     templateId: encounter.templateId,
     partyId: encounter.partyId,
+    campaign: encounter.campaign ?? '',
   };
 };
 

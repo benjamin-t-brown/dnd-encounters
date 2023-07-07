@@ -51,6 +51,7 @@ import DatabaseManagementBar from 'components/DatabaseManagementBar';
 import VSpace from 'elements/VSpace';
 import NewEncounterModal from 'components/NewEncounterModal';
 import PaginatedFlexWrapList from 'elements/PaginatedFlexWrapList';
+import { FormTextInput } from 'elements/FormInputs';
 
 const InnerRoot = styled.div<Object>(() => {
   return {
@@ -66,7 +67,6 @@ const EncounterTemplateItem = (props: {
 }) => {
   const data = useDatabase();
   const render = usePageReRender();
-
   const aggUnits = createAggStringList(props.encounterTemplate.units).map(
     ({ id, count }) => {
       const unitTemplate = getUnitTemplateById(id, data);
@@ -87,7 +87,7 @@ const EncounterTemplateItem = (props: {
     <FlexWrapCard
       style={{
         width: '300px',
-        height: '144px',
+        height: '160px',
         background: getColors().BACKGROUND2,
       }}
       onClick={() => {
@@ -116,7 +116,7 @@ const EncounterTemplateItem = (props: {
         auxButton={
           <>
             <Button
-              color="plain"
+              color="primary"
               style={{
                 fontSize: '12px',
                 padding: '2px 8px',
@@ -136,6 +136,15 @@ const EncounterTemplateItem = (props: {
           </>
         }
       />
+      <div
+        style={{
+          marginLeft: '14px',
+          color: getColors().ERROR_TEXT,
+          marginBottom: '4px',
+        }}
+      >
+        {props.encounterTemplate.campaign || '(no campaign)'}
+      </div>
       <h3
         style={{
           // textAlign: 'center',
@@ -149,6 +158,7 @@ const EncounterTemplateItem = (props: {
       >
         {props.encounterTemplate.name}
       </h3>
+
       <div>
         {aggUnits.map(({ unitTemplate, count }, i) => {
           if (unitTemplate) {
@@ -188,7 +198,7 @@ const EncounterItem = (props: { encounter: Encounter }) => {
     <FlexWrapCard
       style={{
         width: '300px',
-        height: '114px',
+        height: '132px',
         background: getColors().BACKGROUND3,
       }}
       onClick={() => {
@@ -215,9 +225,16 @@ const EncounterItem = (props: { encounter: Encounter }) => {
           }
         }}
       />
+      <div
+        style={{
+          color: getColors().ERROR_TEXT,
+          marginBottom: '4px',
+        }}
+      >
+        {props.encounter.campaign || '(no campaign)'}
+      </div>
       <h3
         style={{
-          // textAlign: 'center',
           margin: '4px 0px',
           whiteSpace: 'pre',
           width: '100%',
@@ -277,6 +294,9 @@ const EncounterListPage = (props: PageProps) => {
   const encounterTemplates = props.data.encounterTemplates;
   const [defaultTemplateId, setDefaultTemplateId] = useState('');
 
+  const [encounterTemplatesFilter, setEncounterTemplatesFilter] = useState('');
+  const [encountersFilter, setEncountersFilter] = useState('');
+
   return (
     <>
       <TopBar>
@@ -299,8 +319,48 @@ const EncounterListPage = (props: PageProps) => {
             <HSpace />
           </div>
           <div style={{}}>
+            <div>
+              <FormTextInput
+                label="Filter"
+                name="filter"
+                formState={{
+                  filter: encounterTemplatesFilter,
+                }}
+                change={(_, value) => {
+                  setEncounterTemplatesFilter(value);
+                }}
+              />
+              <HSpace />
+              <Button
+                color={'plain'}
+                onClick={() => {
+                  setEncounterTemplatesFilter('');
+                }}
+              >
+                Clear
+              </Button>
+            </div>
             <PaginatedFlexWrapList
-              items={encounterTemplates.sort(sortByDate)}
+              items={encounterTemplates
+                .filter(encounterTemplate => {
+                  if (encounterTemplatesFilter) {
+                    return (
+                      (encounterTemplate.campaign ?? '')
+                        .toLowerCase()
+                        .includes(encounterTemplatesFilter.toLowerCase()) ||
+                      encounterTemplate.name
+                        .toLowerCase()
+                        .includes(encounterTemplatesFilter.toLowerCase()) ||
+                      encounterTemplate.units.some(unitId => {
+                        return getUnitTemplateById(unitId, props.data)
+                          ?.name.toLowerCase()
+                          .includes(encounterTemplatesFilter.toLowerCase());
+                      })
+                    );
+                  }
+                  return true;
+                })
+                .sort(sortByDate)}
               maxItemsPerPage={20}
               renderItem={encounterTemplate => {
                 return (
@@ -315,8 +375,48 @@ const EncounterListPage = (props: PageProps) => {
           </div>
           <h1>Run Encounters</h1>
           <div style={{}}>
+            <div>
+              <FormTextInput
+                label="Filter"
+                name="filter"
+                formState={{
+                  filter: encountersFilter,
+                }}
+                change={(_, value) => {
+                  setEncountersFilter(value);
+                }}
+              />
+              <HSpace />
+              <Button
+                color={'plain'}
+                onClick={() => {
+                  setEncountersFilter('');
+                }}
+              >
+                Clear
+              </Button>
+            </div>
             <PaginatedFlexWrapList
-              items={props.data.encounters.sort(sortByDate)}
+              items={props.data.encounters
+                .filter(encounter => {
+                  if (encountersFilter) {
+                    return (
+                      encounter.name
+                        .toLowerCase()
+                        .includes(encountersFilter.toLowerCase()) ||
+                      encounter.campaign
+                        ?.toLowerCase()
+                        .includes(encountersFilter.toLowerCase()) ||
+                      encounter.units.some(unit =>
+                        unit?.name
+                          .toLowerCase()
+                          .includes(encountersFilter.toLowerCase())
+                      )
+                    );
+                  }
+                  return true;
+                })
+                .sort(sortByDate)}
               maxItemsPerPage={20}
               renderItem={encounter => {
                 return (

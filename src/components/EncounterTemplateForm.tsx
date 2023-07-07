@@ -10,6 +10,7 @@ import {
 } from 'data/storage';
 import Button from 'elements/Button';
 import { FormCheckboxInput, FormTextInput } from 'elements/FormInputs';
+import HSpace from 'elements/HSpace';
 import ImagePortrait from 'elements/ImagePortrait';
 import Input from 'elements/Input';
 import InputLabel from 'elements/InputLabel';
@@ -122,7 +123,7 @@ const Unit = (props: {
             display: 'flex',
             alignItems: 'center',
             marginLeft: '8px',
-            flexShrink: '0'
+            flexShrink: '0',
           }}
         >
           {props.count > 0 ? <div>{props.count}</div> : null}
@@ -211,7 +212,7 @@ const EncounterTemplateForm = (props: EncounterTemplateFormProps) => {
               formState={formState}
               change={change}
             />
-            <Button
+            {/* <Button
               color="plain"
               style={{
                 fontSize: '12px',
@@ -225,7 +226,14 @@ const EncounterTemplateForm = (props: EncounterTemplateFormProps) => {
               }}
             >
               Insert Date
-            </Button>
+            </Button> */}
+            <HSpace />
+            <FormTextInput
+              label="Campaign"
+              name="campaign"
+              formState={formState}
+              change={change}
+            />
             <div
               style={{
                 marginTop: '8px',

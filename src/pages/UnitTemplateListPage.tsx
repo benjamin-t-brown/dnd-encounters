@@ -145,16 +145,27 @@ const UnitTemplateListPage = (props: PageProps) => {
           >
             <NewUnitTemplateModal />
           </div>
-          <FormTextInput
-            label="Filter"
-            name="filter"
-            formState={{
-              filter,
-            }}
-            change={(_, value) => {
-              setFilter(value);
-            }}
-          />
+          <div>
+            <FormTextInput
+              label="Filter"
+              name="filter"
+              formState={{
+                filter,
+              }}
+              change={(_, value) => {
+                setFilter(value);
+              }}
+            />
+            <HSpace />
+            <Button
+              color={'plain'}
+              onClick={() => {
+                setFilter('');
+              }}
+            >
+              Clear
+            </Button>
+          </div>
           <PaginatedFlexWrapList
             items={filteredUnits.sort(sortByName)}
             maxItemsPerPage={20}

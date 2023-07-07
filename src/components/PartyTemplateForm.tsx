@@ -2,6 +2,7 @@ import { PartyStorage } from 'data/storage';
 import Button from 'elements/Button';
 import { FormTextInput, FormTextInputFullWidth } from 'elements/FormInputs';
 import ImagePortrait from 'elements/ImagePortrait';
+import VSpace from 'elements/VSpace';
 import { useForm, useGlobalAlert } from 'hooks';
 import React from 'react';
 import { MAX_HEIGHT_MODAL, getColors } from 'style';
@@ -57,6 +58,10 @@ const PartyTemplateForm = (props: PartyTemplateFormProps) => {
           return (
             <div key={index}>
               <div>
+                <ImagePortrait
+                  imgUrl={formState.partyMembersImages[index]}
+                  hideThreshold={-1}
+                />
                 <FormTextInput
                   label={'Party Member Name ' + (index + 1)}
                   name={String(index)}
@@ -100,6 +105,7 @@ const PartyTemplateForm = (props: PartyTemplateFormProps) => {
                   }}
                 />
               </div>
+              <br />
             </div>
           );
         })}

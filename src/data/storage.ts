@@ -73,6 +73,7 @@ export interface EncounterTemplate {
   units: string[];
   name: string;
   lastUpdated: number;
+  campaign?: string;
 }
 
 export interface Encounter {
@@ -83,6 +84,7 @@ export interface Encounter {
   units: UnitInEncounter[];
   lastUpdated: number;
   turnIndex: number;
+  campaign?: string;
 }
 
 export interface PartyStorage {
@@ -178,6 +180,7 @@ export const createEncounterTemplate = (): EncounterTemplate => {
     name: '',
     units: [],
     lastUpdated: +new Date(),
+    campaign: '',
   };
 };
 

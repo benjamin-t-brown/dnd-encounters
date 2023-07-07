@@ -9,6 +9,7 @@ const FlexWrapCard = styled.div<Object>(() => {
     padding: '4px',
     cursor: 'pointer',
     overflow: 'hidden',
+    boxShadow: '0px 0px 14px 2px rgba(0,0,0,0.75)',
   };
 });
 
