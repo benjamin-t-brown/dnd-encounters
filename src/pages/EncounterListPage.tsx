@@ -229,6 +229,7 @@ const EncounterItem = (props: { encounter: Encounter }) => {
         style={{
           color: getColors().ERROR_TEXT,
           marginBottom: '4px',
+          marginLeft: '4px',
         }}
       >
         {props.encounter.campaign || '(no campaign)'}

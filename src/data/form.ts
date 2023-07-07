@@ -201,5 +201,6 @@ export const formStateToEncounter = (
     units,
     lastUpdated: +new Date(),
     turnIndex: 0,
+    campaign: state.campaign,
   };
 };

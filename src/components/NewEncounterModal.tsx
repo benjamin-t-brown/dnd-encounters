@@ -55,6 +55,10 @@ const NewEncounterModal = (props: { templateId?: string }) => {
           showAlert('Encounter with that name already exists.');
           return false;
         } else {
+          encounter.campaign = getEncounterTemplateById(
+            props.templateId ?? '',
+            data
+          )?.campaign;
           data.encounters.push(encounter);
           saveEncounterDatabase(data);
           setLSRoute('run-encounter:' + encounter.id);
@@ -65,7 +69,7 @@ const NewEncounterModal = (props: { templateId?: string }) => {
     onCancel: () => {},
     title: 'New Encounter',
     body: (
-      <div style={{ minHeight: '300px' }}>
+      <div style={{ minHeight: '600px' }}>
         <EncounterForm
           encounter={createEncounter(
             props.templateId

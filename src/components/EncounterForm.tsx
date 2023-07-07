@@ -1,5 +1,9 @@
 import { encounterToFormState } from 'data/form';
-import { Encounter } from 'data/storage';
+import {
+  Encounter,
+  getEncounterTemplateById,
+  getUnitTemplateById,
+} from 'data/storage';
 import { FormTextInput } from 'elements/FormInputs';
 import InputLabel from 'elements/InputLabel';
 import { useDatabase, useForm } from 'hooks';
@@ -33,9 +37,14 @@ const EncounterForm = (props: EncounterFormProps) => {
     t => t.value === formState.templateId
   );
 
+  const template = getEncounterTemplateById(formState.templateId, data);
+
   return (
     <Root>
       <div>
+        <p>
+          Campaign: <b>{template?.campaign || '(no campaign)'}</b>
+        </p>
         <FormTextInput
           label="Name"
           name="name"

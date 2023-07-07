@@ -105,6 +105,7 @@ const EditPartyTemplatePage = () => {
 
                   const newPartyTemplate = formValues;
                   Object.assign(partyTemplate, newPartyTemplate);
+                  partyTemplate.lastUpdated = +new Date();
                   saveEncounterDatabase(data);
                   showAlert('Successfully saved party.');
                   setLSRoute('party-list');
