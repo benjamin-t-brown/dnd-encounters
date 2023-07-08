@@ -107,6 +107,25 @@ const EditEncounterHpModal = (props: { unit: UnitInEncounter }) => {
           <HSpace />
           <HSpace />
           <div>
+            <Button
+              color="secondary"
+              onClick={() => {
+                if (modifyBy === 0) {
+                  setModifyBy(-1);
+                } else {
+                  setModifyBy(modifyBy * -1);
+                }
+              }}
+              style={{
+                fontSize: '12px',
+              }}
+            >
+              {modifyBy < 0 ? '+' : '-'}
+            </Button>
+          </div>
+          <HSpace />
+          <HSpace />
+          <div>
             <div>
               <InputLabel>Modify By</InputLabel>
               <input

@@ -24,6 +24,10 @@ export const useModal = (modalProps: Partial<ModalProps>) => {
     ev => {
       if (open) {
         if (ev.key === 'Enter') {
+          if (modalProps.disableEnterConfirm) {
+            return;
+          }
+
           const shouldClose = modalProps.onConfirm?.();
           if (shouldClose === true || shouldClose === undefined) {
             setOpen(false);

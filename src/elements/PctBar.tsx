@@ -13,7 +13,8 @@ const PctBar = (props: { pct: number; height: string }) => {
         style={{
           background: 'black',
           height: props.height,
-          width: '100%',
+          width: 'calc(100% - 4px)',
+          border: '2px solid ' + getColors().TEXT_DESCRIPTION,
         }}
       >
         <div

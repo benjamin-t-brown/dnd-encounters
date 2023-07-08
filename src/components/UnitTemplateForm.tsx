@@ -69,7 +69,7 @@ const UnitTemplateForm = (props: UnitTemplateFormProps) => {
       body: (
         <div
           style={{
-            minHeight: '225px',
+            minHeight: '375px',
           }}
         >
           <InputLabel>Select Template</InputLabel>

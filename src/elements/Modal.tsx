@@ -44,6 +44,7 @@ export interface ModalProps extends React.PropsWithChildren {
   open: boolean;
   maxWidth?: string;
   body?: React.ReactNode;
+  disableEnterConfirm?: boolean;
 }
 
 const Modal = (props: ModalProps) => {

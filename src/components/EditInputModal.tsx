@@ -39,6 +39,17 @@ const EditInputModal = (props: {
           }}
         >
           <div>
+            <Button
+              color="primary"
+              onClick={() => {
+                setNextValue(String(0));
+              }}
+              style={{
+                fontSize: '12px',
+              }}
+            >
+              Reset
+            </Button>
             <InputLabel>{props.label}</InputLabel>
             <input
               id="edit-input-modal-input"

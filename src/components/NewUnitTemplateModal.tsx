@@ -44,6 +44,7 @@ const NewEncounterTemplateModal = () => {
     },
     onCancel: () => {},
     title: 'New Unit Template',
+    disableEnterConfirm: true,
     body: (
       <div>
         <UnitTemplateForm unitTemplate={createUnitTemplate()} data={data} />

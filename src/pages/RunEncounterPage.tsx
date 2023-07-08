@@ -779,7 +779,7 @@ const RunEncounterPage = () => {
                   color={showAll ? 'primary' : 'plain'}
                   onClick={() => setShowAll(!showAll)}
                 >
-                  All
+                  {showAll ? '-' : '+'}
                 </Button>
                 <Button
                   color="plain"
