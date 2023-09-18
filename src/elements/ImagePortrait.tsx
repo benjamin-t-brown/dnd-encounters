@@ -4,13 +4,18 @@ import { getColors } from 'style';
 const ImagePortrait = (props: {
   imgUrl: string;
   hideThreshold: number;
+  large?: boolean;
   style?: React.CSSProperties;
 }) => {
+  let size = '64px';
+  if (props.large && window.innerWidth > 600) {
+    size = '192px';
+  }
   return (
     <div
       style={{
-        width: '64px',
-        height: '64px',
+        width: size,
+        height: size,
         flexGrow: 0,
         flexShrink: 0,
         backgroundColor: 'black',

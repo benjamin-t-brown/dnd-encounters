@@ -101,7 +101,7 @@ const EncounterUnit = (props: {
 
   if (props.isSmall) {
     return (
-      <div style={rootStyle}>
+      <div onClick={props.onClick} style={{ ...rootStyle, cursor: 'pointer' }}>
         <div
           style={{
             width: '30px',
@@ -116,10 +116,17 @@ const EncounterUnit = (props: {
         >
           {unit.isPlayer ? '?' : <EditUnitPublicIdModal unit={props.unit} />}
         </div>
-        <span>{props.unit.name}</span>
         <div
           style={{
-            width: '100%',
+            userSelect: 'none',
+            width: '60%',
+          }}
+        >
+          {props.unit.name}
+        </div>
+        <div
+          style={{
+            width: '25%',
             display: 'flex',
             justifyContent: 'flex-end',
             alignItems: 'center',
@@ -186,14 +193,15 @@ const EncounterUnit = (props: {
         style={{
           display: 'flex',
           alignItems: 'center',
+          boxSizing: 'border-box',
           background: isDowned
             ? '#111'
             : props.isActive
             ? getColors().BACKGROUND3
             : getColors().BACKGROUND2,
-          border:
-            '1px solid ' +
-            (props.isActive ? getColors().TEXT_DEFAULT : getColors().SECONDARY),
+          border: props.isActive
+            ? '1px dashed ' + getColors().ERROR_TEXT
+            : '1px solid ' + getColors().SECONDARY,
           borderRadius: '4px',
           padding: '4px',
           // filter: props.unit.current.hp <= 0 ? 'grayscale(100%)' : undefined,
@@ -256,11 +264,23 @@ const EncounterUnit = (props: {
           hideThreshold={-1}
           style={{
             filter: isDowned ? 'grayscale(100%)' : undefined,
+            cursor: 'pointer',
           }}
         />
         <HSpace />
-        <div>
-          <span>{props.unit.name}</span>
+        <div
+          style={{
+            maxWidth: '142px',
+          }}
+        >
+          <span
+            style={{
+              cursor: 'pointer',
+              userSelect: 'none',
+            }}
+          >
+            {props.unit.name}
+          </span>
           <div>
             <FormStatNumberInput
               label="Initiative"
@@ -288,7 +308,7 @@ const EncounterUnit = (props: {
             <div
               style={{
                 width: '100%',
-                maxWidth: '138px',
+                maxWidth: '142px',
               }}
             >
               <PctBar pct={unit.current.hp / unit.hp} height={'8px'} />
@@ -312,11 +332,18 @@ const UnitInfo = (props: { unit: UnitInEncounter }) => {
         style={{
           display: 'flex',
           flexWrap: 'wrap',
+          alignItems: 'flex-end',
         }}
       >
-        <ImagePortrait imgUrl={props.unit.imgUrl} hideThreshold={-1} />
+        <ImagePortrait imgUrl={props.unit.imgUrl} hideThreshold={-1} large />
         <HSpace />
-        <h2>{props.unit.name}</h2>
+        <h2
+          style={{
+            margin: '10px',
+          }}
+        >
+          {props.unit.name}
+        </h2>
         <HSpace />
         {props.unit.type ? (
           <FormTextInput
@@ -801,9 +828,9 @@ const RunEncounterPage = () => {
                     isActive={isActive}
                     isSmall={showAll ? false : !isActive}
                     onClick={() => {
-                      if (!unit.isPlayer) {
-                        setSelectedUnit(unit);
-                      }
+                      // if (!unit.isPlayer) {
+                      setSelectedUnit(unit);
+                      // }
                     }}
                     // style={{
                     //   transition: 'transform 0.2s, height 0.2s',

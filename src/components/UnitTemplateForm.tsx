@@ -184,7 +184,11 @@ const UnitTemplateForm = (props: UnitTemplateFormProps) => {
           </Button>
         </div>
         <div>
-          <ImagePortrait imgUrl={formState.imgUrl} hideThreshold={-1} />
+          <ImagePortrait
+            imgUrl={formState.imgUrl}
+            hideThreshold={-1}
+            large={true}
+          />
           <br />
           <FormTextInputFullWidth
             label="Image"

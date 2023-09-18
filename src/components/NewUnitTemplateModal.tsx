@@ -2,6 +2,7 @@ import { DataContext } from 'App';
 import { UnitTemplateFormState, formStateToUnitTemplate } from 'data/form';
 import {
   createUnitTemplate,
+  getUnitTemplateById,
   getUnitTemplateByName,
   saveEncounterDatabase,
 } from 'data/storage';
@@ -10,7 +11,7 @@ import React, { useContext } from 'react';
 import UnitTemplateForm from './UnitTemplateForm';
 import Button from 'elements/Button';
 
-const NewEncounterTemplateModal = () => {
+const NewUnitTemplateModal = (props: { unitTemplateId?: string }) => {
   const data = useContext(DataContext);
   const showAlert = useGlobalAlert();
 
@@ -47,7 +48,15 @@ const NewEncounterTemplateModal = () => {
     disableEnterConfirm: true,
     body: (
       <div>
-        <UnitTemplateForm unitTemplate={createUnitTemplate()} data={data} />
+        <UnitTemplateForm
+          unitTemplate={
+            props.unitTemplateId
+              ? getUnitTemplateById(props.unitTemplateId, data) ??
+                createUnitTemplate()
+              : createUnitTemplate()
+          }
+          data={data}
+        />
       </div>
     ),
   });
@@ -56,6 +65,7 @@ const NewEncounterTemplateModal = () => {
     <>
       <Button
         color="primary"
+        id="new-unit-template"
         onClick={() => {
           setOpen(true);
         }}
@@ -67,4 +77,4 @@ const NewEncounterTemplateModal = () => {
   );
 };
 
-export default NewEncounterTemplateModal;
+export default NewUnitTemplateModal;

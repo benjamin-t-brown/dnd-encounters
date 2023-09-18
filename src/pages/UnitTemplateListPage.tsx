@@ -45,7 +45,10 @@ const InnerRoot = styled.div<Object>(() => {
   };
 });
 
-const UnitItem = (props: { unitTemplate: UnitTemplate }) => {
+const UnitItem = (props: {
+  unitTemplate: UnitTemplate;
+  setCloneTemplateId: (id: string) => void;
+}) => {
   const data = useDatabase();
   const render = usePageReRender();
 
@@ -79,6 +82,24 @@ const UnitItem = (props: { unitTemplate: UnitTemplate }) => {
             render();
           }
         }}
+        auxButton={
+          <>
+            <Button
+              color="primary"
+              style={{
+                fontSize: '12px',
+                padding: '2px 8px',
+              }}
+              onClick={ev => {
+                ev.stopPropagation();
+                props.setCloneTemplateId(props.unitTemplate.id);
+              }}
+            >
+              Clone
+            </Button>
+            <HSpace />
+          </>
+        }
       />
       <h3
         style={{
@@ -119,6 +140,7 @@ const UnitTemplateListPage = (props: PageProps) => {
     _setFilter(value);
     setLSUnitTemplateFilter(value);
   };
+  const [cloneTemplateId, setCloneTemplateId] = useState<string | undefined>();
 
   const filteredUnits = units.filter(unit => {
     if (filter) {
@@ -143,7 +165,7 @@ const UnitTemplateListPage = (props: PageProps) => {
               marginBottom: '16px',
             }}
           >
-            <NewUnitTemplateModal />
+            <NewUnitTemplateModal unitTemplateId={cloneTemplateId} />
           </div>
           <div>
             <FormTextInput
@@ -171,7 +193,16 @@ const UnitTemplateListPage = (props: PageProps) => {
             maxItemsPerPage={20}
             renderItem={unitTemplate => {
               return (
-                <UnitItem key={unitTemplate.id} unitTemplate={unitTemplate} />
+                <UnitItem
+                  key={unitTemplate.id}
+                  unitTemplate={unitTemplate}
+                  setCloneTemplateId={id => {
+                    setCloneTemplateId(id);
+                    setTimeout(() => {
+                      document.getElementById('new-unit-template')?.click();
+                    }, 1);
+                  }}
+                />
               );
             }}
           />

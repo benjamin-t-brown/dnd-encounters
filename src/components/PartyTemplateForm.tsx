@@ -36,7 +36,7 @@ const PartyTemplateForm = (props: PartyTemplateFormProps) => {
         />
         <br />
         <br />
-        <ImagePortrait imgUrl={formState.imgUrl} hideThreshold={-1} />
+        <ImagePortrait imgUrl={formState.imgUrl} hideThreshold={-1} large />
         <br />
         <FormTextInputFullWidth
           label="Image"
@@ -61,6 +61,7 @@ const PartyTemplateForm = (props: PartyTemplateFormProps) => {
                 <ImagePortrait
                   imgUrl={formState.partyMembersImages[index]}
                   hideThreshold={-1}
+                  large
                 />
                 <FormTextInput
                   label={'Party Member Name ' + (index + 1)}

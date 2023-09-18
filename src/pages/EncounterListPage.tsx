@@ -52,6 +52,7 @@ import VSpace from 'elements/VSpace';
 import NewEncounterModal from 'components/NewEncounterModal';
 import PaginatedFlexWrapList from 'elements/PaginatedFlexWrapList';
 import { FormTextInput } from 'elements/FormInputs';
+import Pill from 'elements/Pill';
 
 const InnerRoot = styled.div<Object>(() => {
   return {
@@ -138,12 +139,16 @@ const EncounterTemplateItem = (props: {
       />
       <div
         style={{
-          marginLeft: '14px',
+          // marginLeft: '14px',
           color: getColors().ERROR_TEXT,
           marginBottom: '4px',
         }}
       >
-        {props.encounterTemplate.campaign || '(no campaign)'}
+        {props.encounterTemplate.campaign ? (
+          <Pill>{props.encounterTemplate.campaign}</Pill>
+        ) : (
+          '(no campaign)'
+        )}
       </div>
       <h3
         style={{
@@ -232,7 +237,11 @@ const EncounterItem = (props: { encounter: Encounter }) => {
           marginLeft: '4px',
         }}
       >
-        {props.encounter.campaign || '(no campaign)'}
+        {props.encounter.campaign ? (
+          <Pill>{props.encounter.campaign}</Pill>
+        ) : (
+          '(no campaign)'
+        )}
       </div>
       <h3
         style={{
@@ -250,6 +259,7 @@ const EncounterItem = (props: { encounter: Encounter }) => {
         <p
           style={{
             marginLeft: '8px',
+            marginTop: '4px',
           }}
         >
           Encounter:{' '}
