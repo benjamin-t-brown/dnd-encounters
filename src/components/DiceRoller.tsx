@@ -7,6 +7,8 @@ import styled from 'styled-components';
 import { plusOrMinus } from 'utils';
 import EditInputModal from './EditInputModal';
 import { useReRender } from 'hooks';
+import RangeButtonInput from 'elements/RangeButtonInput';
+import InputLabel from 'elements/InputLabel';
 
 const Root = styled.div<Object>(() => {
   return {
@@ -19,6 +21,64 @@ const Root = styled.div<Object>(() => {
     flexDirection: window.innerWidth < 600 ? 'column' : 'row',
   };
 });
+
+const LogRollResult = (props: {
+  rolling: boolean;
+  result: number;
+  bonus: number;
+  showBonus: boolean;
+  dice: number;
+  minimal?: boolean;
+}) => {
+  return (
+    <span
+      style={{
+        fontSize: props.minimal ? 'unset' : '20px',
+        width: props.minimal
+          ? 'unset'
+          : window.innerWidth < 500
+          ? '100%'
+          : '280px',
+        // height: window.innerWidth < 500 ? 'unset' : '24px',
+        textAlign: props.minimal ? 'left' : 'center',
+        display: 'inline-block',
+        alignItems: 'center',
+      }}
+    >
+      <>
+        <span
+          style={{
+            color: getColors().SUCCESS_TEXT,
+            width: '45px',
+            display: 'inline-block',
+          }}
+        >
+          D{props.dice}
+        </span>{' '}
+        <>
+          <span
+            style={{
+              color:
+                props.dice === 20 && (props.result === 20 || props.result === 1)
+                  ? getColors().ERROR_TEXT
+                  : getColors().TEXT_DESCRIPTION,
+            }}
+          >
+            {props.result}
+          </span>{' '}
+          <span
+            style={{
+              color: getColors().TEXT_DESCRIPTION,
+            }}
+          >
+            {plusOrMinus(props.bonus)} {Math.abs(props.bonus)}
+          </span>
+          <span style={{}}> = {props.result + props.bonus}</span>
+        </>
+      </>
+    </span>
+  );
+};
 
 const RollResult = (props: {
   rolling: boolean;
@@ -44,21 +104,34 @@ const RollResult = (props: {
   }, [props.rolling]);
 
   return (
-    <span
+    <div
       style={{
         fontSize: props.minimal ? 'unset' : '20px',
         width: props.minimal
           ? 'unset'
           : window.innerWidth < 500
           ? '100%'
-          : '250px',
-        height: window.innerWidth < 500 ? 'unset' : '24px',
+          : '280px',
+        // height: window.innerWidth < 500 ? 'unset' : '24px',
         textAlign: props.minimal ? 'left' : 'center',
-        display: 'inline-block',
+        display: 'inline-flex',
+        justifyContent: props.rolling ? 'center' : 'space-between',
+        alignItems: 'center',
+        flexGrow: '0',
+        minHeight: '48px',
       }}
     >
       {props.rolling ? (
-        intermediateResult
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            minHeight: '48px',
+          }}
+        >
+          {intermediateResult}
+        </div>
       ) : (
         <>
           <span
@@ -84,22 +157,19 @@ const RollResult = (props: {
                 {props.result}
               </span>{' '}
               {props.editBonus ? (
-                <EditInputModal
-                  label="Bonus"
-                  value={String(props.bonus)}
-                  onConfirm={value => {
+                <RangeButtonInput
+                  value={props.bonus}
+                  onChange={v => {
                     if (props.setBonus) {
-                      props.setBonus(Number(value));
+                      props.setBonus(v);
                     }
                   }}
-                  inputType="number"
+                  min={-10}
+                  max={10}
+                  step={1}
                   style={{
-                    transform: 'translateY(-2px)',
-                    color: '#333',
+                    display: 'inline-flex',
                   }}
-                  buttonLabel={
-                    plusOrMinus(props.bonus) + ' ' + Math.abs(props.bonus)
-                  }
                 />
               ) : (
                 <span
@@ -110,14 +180,20 @@ const RollResult = (props: {
                   {plusOrMinus(props.bonus)} {Math.abs(props.bonus)}
                 </span>
               )}{' '}
-              = {props.result + props.bonus}
+              <span
+                style={{
+                  width: '44px',
+                }}
+              >
+                = {props.result + props.bonus}
+              </span>
             </>
           ) : (
-            props.result
+            plusOrMinus(props.result) + props.result
           )}
         </>
       )}
-    </span>
+    </div>
   );
 };
 
@@ -129,6 +205,7 @@ const DiceRoller = () => {
   >([]);
   const [rolling, setRolling] = React.useState(false);
   const [sumLastN, setSumLastN] = React.useState(1);
+  const [sumIncludeBonus, setSumIncludeBonus] = React.useState(false);
   const render = useReRender();
 
   const lastRoll = rollHistory[rollHistory.length - 1];
@@ -183,7 +260,7 @@ const DiceRoller = () => {
             );
           })}
         </div>
-        <div>
+        {/* <div>
           <div
             style={{
               textAlign: 'center',
@@ -203,13 +280,7 @@ const DiceRoller = () => {
             }}
             style={{ width: '100%' }}
           />
-        </div>
-      </div>
-      <div
-        style={{
-          margin: '0 16px',
-        }}
-      >
+        </div> */}
         <div
           style={{
             margin: '16px',
@@ -249,9 +320,16 @@ const DiceRoller = () => {
           )}
         </div>
       </div>
+      {/* <div
+        style={{
+          margin: '0 16px',
+        }}
+      >
+        
+      </div> */}
       <div
         style={{
-          margin: '16px',
+          margin: '4px',
           marginTop: window.innerWidth < 500 ? '0px' : '16px',
         }}
       >
@@ -259,22 +337,41 @@ const DiceRoller = () => {
           <div
             style={{
               textAlign: 'center',
-              marginTop: '8px',
+              marginTop: '4px',
             }}
           >
             Sum Last {sumLastN} ={' '}
             {rollHistory.slice(-sumLastN).reduce((prev, curr) => {
-              return prev + curr.result + curr.bonus;
+              return prev + curr.result + (sumIncludeBonus ? curr.bonus : 0);
             }, 0)}
           </div>
-          <input
-            type="range"
-            min="1"
-            max="12"
-            value={sumLastN}
-            onChange={ev => {
-              setSumLastN(ev.target.valueAsNumber);
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              margin: '4px',
             }}
+          >
+            <input
+              type="checkbox"
+              name="includeBonus"
+              id="includeBonus"
+              checked={sumIncludeBonus}
+              onChange={ev => {
+                setSumIncludeBonus(ev.target.checked);
+              }}
+            />
+            <InputLabel htmlFor="includeBonus">Include Bonus</InputLabel>
+          </div>
+          <RangeButtonInput
+            value={sumLastN}
+            onChange={v => {
+              setSumLastN(v);
+            }}
+            min={1}
+            max={12}
+            step={1}
             style={{ width: '100%' }}
           />
         </div>
@@ -296,7 +393,7 @@ const DiceRoller = () => {
               return (
                 <div key={index}>
                   {rollHistory.length - index}.{' '}
-                  <RollResult
+                  <LogRollResult
                     dice={roll.dice}
                     result={roll.result}
                     rolling={false}

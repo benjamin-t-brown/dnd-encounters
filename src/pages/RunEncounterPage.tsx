@@ -112,6 +112,8 @@ const EncounterUnit = (props: {
             fontSize: '18px',
             border: '1px solid white',
             borderRadius: '20px',
+            display: 'flex',
+            justifyContent: 'center',
           }}
         >
           {unit.isPlayer ? '?' : <EditUnitPublicIdModal unit={props.unit} />}
@@ -217,6 +219,8 @@ const EncounterUnit = (props: {
             fontSize: '18px',
             border: '1px solid white',
             borderRadius: '20px',
+            display: 'flex',
+            justifyContent: 'center',
           }}
         >
           {unit.isPlayer ? '?' : <EditUnitPublicIdModal unit={props.unit} />}
@@ -344,42 +348,46 @@ const UnitInfo = (props: { unit: UnitInEncounter }) => {
         >
           {props.unit.name}
         </h2>
-        <HSpace />
-        {props.unit.type ? (
-          <FormTextInput
-            label="Type"
-            name="type"
-            formState={props.unit}
-            change={change}
-            width={'100px'}
-            disabled
-          />
-        ) : null}
-        <HSpace />
-        <FormTextInput
-          label="Size"
-          name="size"
-          formState={props.unit}
-          change={change}
-          width={'100px'}
-          disabled
-        />
-        <HSpace />
-        <FormTextInput
-          label="Alignment"
-          name="alignment"
-          formState={props.unit}
-          change={change}
-          width={'100px'}
-          disabled
-        />
+        {props.unit.isPlayer ? null : (
+          <>
+            <HSpace />
+            {props.unit.type ? (
+              <FormTextInput
+                label="Type"
+                name="type"
+                formState={props.unit}
+                change={change}
+                width={'100px'}
+                disabled
+              />
+            ) : null}
+            <HSpace />
+            <FormTextInput
+              label="Size"
+              name="size"
+              formState={props.unit}
+              change={change}
+              width={'100px'}
+              disabled
+            />
+            <HSpace />
+            <FormTextInput
+              label="Alignment"
+              name="alignment"
+              formState={props.unit}
+              change={change}
+              width={'100px'}
+              disabled
+            />
+          </>
+        )}
       </div>
       <div
         style={{
           margin: '12px 0',
           padding: '12px',
           border: '1px solid ' + getColors().TEXT_DESCRIPTION,
-          display: 'flex',
+          display: props.unit.isPlayer ? 'none' : 'flex',
           flexDirection: 'row',
           flexWrap: 'wrap',
         }}
@@ -504,7 +512,11 @@ const UnitInfo = (props: { unit: UnitInEncounter }) => {
           </div>
         </div>
       </div>
-      <div>
+      <div
+        style={{
+          display: props.unit.isPlayer ? 'none' : 'block',
+        }}
+      >
         <FormTextInputFullWidth
           label="Status"
           name="status"
@@ -517,7 +529,11 @@ const UnitInfo = (props: { unit: UnitInEncounter }) => {
           }}
         />
       </div>
-      <div>
+      <div
+        style={{
+          display: props.unit.isPlayer ? 'none' : 'block',
+        }}
+      >
         <FormStatNumberInput
           label="Speed"
           name="speed"
@@ -542,7 +558,11 @@ const UnitInfo = (props: { unit: UnitInEncounter }) => {
           disabled
         />
       </div>
-      <div>
+      <div
+        style={{
+          display: props.unit.isPlayer ? 'none' : 'block',
+        }}
+      >
         <FormTextInputFullWidth
           label="Saving Throws"
           name="savingThrows"
@@ -582,6 +602,7 @@ const UnitInfo = (props: { unit: UnitInEncounter }) => {
     <div
       style={{
         margin: '16px 0px',
+        display: props.unit.isPlayer ? 'none' : 'block',
       }}
     >
       <MDEditor.Markdown
@@ -684,9 +705,9 @@ const RunEncounterPage = () => {
     } while (nextUnit.current.hp <= 0 && ctr < 2);
 
     encounter.turnIndex = nextIndex;
-    if (!nextUnit.isPlayer) {
-      setSelectedUnit(nextUnit);
-    }
+    // if (!nextUnit.isPlayer) {
+    setSelectedUnit(nextUnit);
+    // }
   };
 
   if (isError) {
@@ -706,6 +727,10 @@ const RunEncounterPage = () => {
           style={{
             display: 'flex',
             alignItems: 'center',
+            top: 0,
+            position: 'sticky',
+            background: getColors().BACKGROUND,
+            zIndex: '5',
           }}
         >
           <Dropdown
@@ -761,6 +786,18 @@ const RunEncounterPage = () => {
             </div>
           </Dropdown>
           <h3>Encounter: {encounter.name}</h3>
+          <HSpace />
+          <h3
+            style={{
+              color: getColors().TEXT_DESCRIPTION,
+              textDecoration: 'underline',
+            }}
+          >
+            {encounter.turnIndex + 1}/{encounter.units.length}
+            {' - '}(
+            {selectedUnit.isPlayer ? '?' : selectedUnit.current.publicId}){' '}
+            {selectedUnit.name}
+          </h3>
         </div>
         <InnerRoot>
           <div
