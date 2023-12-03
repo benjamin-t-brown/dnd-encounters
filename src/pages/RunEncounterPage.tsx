@@ -171,7 +171,9 @@ const EncounterUnit = (props: {
         <CornerButton
           style={{
             height: '20px',
-            transform: 'translate(-1px, 1px)',
+            transform: props.isActive
+              ? 'translate(-0px, 0px)'
+              : 'translate(-1px, 1px)',
           }}
           onClick={ev => {
             ev.preventDefault();
@@ -202,7 +204,7 @@ const EncounterUnit = (props: {
             ? getColors().BACKGROUND3
             : getColors().BACKGROUND2,
           border: props.isActive
-            ? '1px dashed ' + getColors().ERROR_TEXT
+            ? '4px dashed ' + getColors().ERROR_TEXT
             : '1px solid ' + getColors().SECONDARY,
           borderRadius: '4px',
           padding: '4px',
