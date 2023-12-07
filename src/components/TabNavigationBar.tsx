@@ -27,7 +27,7 @@ const Root = styled.div<Object>(() => {
     marginBottom: '8px',
     position: 'fixed',
     top: '52px',
-    width: 'calc(100% - 64px)',
+    width: 'calc(100% - 50px)',
     maxWidth: MAX_WIDTH + 'px',
     borderBottom: '1px solid ' + getColors().TEXT_DESCRIPTION,
   };
@@ -79,7 +79,7 @@ const TabNavigationBar = () => {
 
   return (
     <Root>
-      <div>
+      <div style={{ overflow: 'hidden' }}>
         <TabButton
           active={route?.includes('encounter-list') || !route}
           onClick={() => {

@@ -28,7 +28,11 @@ const InnerRoot = styled.div<{ useBoxShadow?: boolean }>(props => {
 });
 
 const StandardLayout = (
-  props: React.PropsWithChildren & { topBar?: boolean; useBoxShadow?: boolean }
+  props: React.PropsWithChildren & {
+    topBar?: boolean;
+    useBoxShadow?: boolean;
+    style?: Record<string, string>;
+  }
 ) => {
   return (
     <Root
@@ -36,6 +40,7 @@ const StandardLayout = (
       style={{
         top: props.topBar ? '52px' : '0px',
         marginTop: '52px',
+        ...(props.style ?? {}),
       }}
     >
       <InnerRoot useBoxShadow={props.useBoxShadow}>

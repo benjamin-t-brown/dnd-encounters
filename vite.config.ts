@@ -41,9 +41,15 @@ export default defineConfig((...args) => {
       assetsDir: 'release',
       cssCodeSplit: false,
     },
+    chokidarWatchOptions: {
+      usePolling: true,
+    },
     server: {
       port: '3005',
       host: '0.0.0.0',
+      watch: {
+        usePolling: true,
+      },
       // open: '/',
       // proxy: {
       //   '^/api/.*': 'http://localhost:3006/',
