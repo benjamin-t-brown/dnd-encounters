@@ -243,14 +243,14 @@ const RunEncounterPage = () => {
       <StandardLayout
         topBar
         style={{
-          top: '104px',
+          top: '107px',
           marginTop: '44px',
           height: 'calc(100% - 148px)',
         }}
       >
         <TabNavigationBar />
         <InnerRoot>
-          <div
+          {/* <div
             style={{
               display: 'flex',
               marginBottom: window.innerWidth < 600 ? '0px' : '8px',
@@ -260,7 +260,7 @@ const RunEncounterPage = () => {
             <div>
               <DiceRoller />
             </div>
-          </div>
+          </div> */}
           <div
             style={{
               display: 'flex',

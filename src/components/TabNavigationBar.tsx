@@ -77,9 +77,30 @@ const TabNavigationBar = () => {
     }
   }, [route, savedTab]);
 
-  return (
-    <Root>
-      <div style={{ overflow: 'hidden' }}>
+  console.log('route?', route);
+
+  const isRunningEncounter =
+    route?.includes('run-encounter') || route?.includes('dice');
+
+  const buttons: JSX.Element[] = [];
+
+  if (isRunningEncounter) {
+    buttons.push(
+      <React.Fragment key="enc-tabs">
+        <TabButton
+          active={route?.includes('encounter-list') || !route}
+          onClick={() => {
+            setLSRoute('encounter-list');
+          }}
+        >
+          Back
+        </TabButton>
+        <HSpace />
+      </React.Fragment>
+    );
+  } else {
+    buttons.push(
+      <React.Fragment key="normal-tabs">
         <TabButton
           active={route?.includes('encounter-list') || !route}
           onClick={() => {
@@ -107,22 +128,49 @@ const TabNavigationBar = () => {
           Parties
         </TabButton>
         <HSpace />
-        {savedTab ? (
-          <TabButton
-            active={savedTab === route}
-            onClick={() => {
-              if (savedTab && savedTab !== route) {
-                setLSRoute(savedTab);
-              }
-            }}
-          >
-            {getTemplateName(savedTab, data)}
-          </TabButton>
-        ) : null}
-        {/* {isEditRoute(route) ? (
-          <TabButton active={true}>{route?.split(':')[0]}</TabButton>
-        ) : null} */}
-      </div>
+      </React.Fragment>
+    );
+  }
+
+  if (savedTab) {
+    buttons.push(
+      <React.Fragment key="saved-tabs">
+        <TabButton
+          key="saved-tab"
+          active={savedTab === route}
+          onClick={() => {
+            if (savedTab && savedTab !== route) {
+              setLSRoute(savedTab);
+            }
+          }}
+        >
+          {getTemplateName(savedTab, data)}
+        </TabButton>
+        <HSpace />
+      </React.Fragment>
+    );
+  }
+
+  if (isRunningEncounter) {
+    buttons.push(
+      <React.Fragment key="enc-plus-tabs">
+        <TabButton
+          active={route?.includes('dice')}
+          onClick={() => {
+            console.log('set dice route');
+            setLSRoute('dice');
+          }}
+        >
+          Dice
+        </TabButton>
+        <HSpace />
+      </React.Fragment>
+    );
+  }
+
+  return (
+    <Root>
+      <div style={{ overflow: 'hidden' }}>{...buttons}</div>
     </Root>
   );
 };

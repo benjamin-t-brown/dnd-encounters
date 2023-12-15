@@ -13,6 +13,7 @@ interface RangeButtonInputProps {
   label?: string;
   onChange: (v: number) => void;
   disabled?: boolean;
+  disablePlus?: boolean;
   style?: React.CSSProperties;
   className?: string;
 }
@@ -63,7 +64,11 @@ const RangeButtonInput = (props: RangeButtonInputProps) => {
           color: '#333',
           height: '40px',
         }}
-        buttonLabel={plusOrMinus(props.value) + ' ' + Math.abs(props.value)}
+        buttonLabel={
+          (props.disablePlus ? '' : plusOrMinus(props.value)) +
+          ' ' +
+          Math.abs(props.value)
+        }
       />
       <HSpace />
       <Button

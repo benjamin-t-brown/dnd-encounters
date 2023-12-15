@@ -197,18 +197,34 @@ const RollResult = (props: {
   );
 };
 
+const getStoredRollHistory = () => {
+  const stored = localStorage.getItem('rollHistory');
+  if (stored) {
+    try {
+      return JSON.parse(stored);
+    } catch (e) {
+      console.error('Failed to parse roll history', e, stored);
+    }
+  }
+  return [];
+};
+
 const DiceRoller = () => {
   const [bonus, setBonus] = React.useState(0);
   const diceValues = [4, 6, 8, 10, 12, 20, 100];
   const [rollHistory, setRollHistory] = React.useState<
     { result: number; bonus: number; dice: number }[]
-  >([]);
+  >(getStoredRollHistory());
   const [rolling, setRolling] = React.useState(false);
   const [sumLastN, setSumLastN] = React.useState(1);
   const [sumIncludeBonus, setSumIncludeBonus] = React.useState(false);
   const render = useReRender();
 
   const lastRoll = rollHistory[rollHistory.length - 1];
+
+  useEffect(() => {
+    localStorage.setItem('rollHistory', JSON.stringify(rollHistory));
+  }, [rollHistory]);
 
   const handleDiceClick = (dice: number) => {
     if (rolling) {
@@ -249,6 +265,9 @@ const DiceRoller = () => {
                 <Button
                   color={diceValue === 20 ? 'secondary' : 'primary'}
                   key={diceValue}
+                  style={{
+                    fontSize: window.innerWidth < 500 ? '13px' : '18px',
+                  }}
                   onClick={() => {
                     handleDiceClick(diceValue);
                   }}
@@ -290,6 +309,13 @@ const DiceRoller = () => {
             padding: '8px',
           }}
         >
+          <h3
+            style={{
+              margin: '0',
+            }}
+          >
+            Bonus
+          </h3>
           {lastRoll ? (
             <RollResult
               rolling={rolling}
@@ -369,6 +395,7 @@ const DiceRoller = () => {
             onChange={v => {
               setSumLastN(v);
             }}
+            disablePlus={true}
             min={1}
             max={12}
             step={1}
@@ -379,7 +406,7 @@ const DiceRoller = () => {
           style={{
             background: 'black',
             padding: '4px 8px',
-            height: '80px',
+            height: '180px',
             width: '195px',
             overflow: 'auto',
             fontSize: '14px',
@@ -404,6 +431,21 @@ const DiceRoller = () => {
                 </div>
               );
             })}
+        </div>
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+          }}
+        >
+          <Button
+            color="secondary"
+            onClick={() => {
+              setRollHistory([]);
+            }}
+          >
+            Clear History
+          </Button>
         </div>
       </div>
     </Root>
