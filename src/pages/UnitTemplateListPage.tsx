@@ -36,6 +36,7 @@ import { UnitTemplateFormState, formStateToUnitTemplate } from 'data/form';
 import VSpace from 'elements/VSpace';
 import DatabaseManagementBar from 'components/DatabaseManagementBar';
 import { FormTextInput } from 'elements/FormInputs';
+import BackButton from 'elements/BackButton';
 
 const InnerRoot = styled.div<Object>(() => {
   return {
@@ -152,7 +153,9 @@ const UnitTemplateListPage = (props: PageProps) => {
   return (
     <>
       <TopBar>
-        <CardTitleZone align="left"></CardTitleZone>
+        <CardTitleZone align="left">
+          <BackButton />
+        </CardTitleZone>
         <CardTitle>DND Encounters</CardTitle>
         <CardTitleZone align="right"></CardTitleZone>
       </TopBar>

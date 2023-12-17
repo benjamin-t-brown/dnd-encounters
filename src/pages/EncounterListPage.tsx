@@ -318,17 +318,66 @@ const EncounterListPage = (props: PageProps) => {
       <StandardLayout topBar>
         <TabNavigationBar />
         <InnerRoot>
-          <h1>Encounter Templates</h1>
-          <div
-            style={{
-              marginBottom: '16px',
-            }}
-          >
+          <div>
             <NewEncounterTemplateModal />
             <HSpace />
             <NewEncounterModal templateId={defaultTemplateId} />
             <HSpace />
           </div>
+          <h2>Run Encounters</h2>
+          <div style={{}}>
+            <div>
+              <FormTextInput
+                label="Filter"
+                name="filter"
+                formState={{
+                  filter: encountersFilter,
+                }}
+                change={(_, value) => {
+                  setEncountersFilter(value);
+                }}
+              />
+              <HSpace />
+              <Button
+                color={'plain'}
+                onClick={() => {
+                  setEncountersFilter('');
+                }}
+              >
+                Clear
+              </Button>
+            </div>
+            <PaginatedFlexWrapList
+              items={props.data.encounters
+                .filter(encounter => {
+                  if (encountersFilter) {
+                    return (
+                      encounter.name
+                        .toLowerCase()
+                        .includes(encountersFilter.toLowerCase()) ||
+                      encounter.campaign
+                        ?.toLowerCase()
+                        .includes(encountersFilter.toLowerCase()) ||
+                      encounter.units.some(unit =>
+                        unit?.name
+                          .toLowerCase()
+                          .includes(encountersFilter.toLowerCase())
+                      )
+                    );
+                  }
+                  return true;
+                })
+                .sort(sortByDate)}
+              maxItemsPerPage={20}
+              renderItem={encounter => {
+                return (
+                  <EncounterItem key={encounter.id} encounter={encounter} />
+                );
+              }}
+            />
+          </div>
+
+          <h2>Encounter Templates</h2>
           <div style={{}}>
             <div>
               <FormTextInput
@@ -380,58 +429,6 @@ const EncounterListPage = (props: PageProps) => {
                     encounterTemplate={encounterTemplate}
                     setDefaultTemplateId={setDefaultTemplateId}
                   />
-                );
-              }}
-            />
-          </div>
-          <h1>Run Encounters</h1>
-          <div style={{}}>
-            <div>
-              <FormTextInput
-                label="Filter"
-                name="filter"
-                formState={{
-                  filter: encountersFilter,
-                }}
-                change={(_, value) => {
-                  setEncountersFilter(value);
-                }}
-              />
-              <HSpace />
-              <Button
-                color={'plain'}
-                onClick={() => {
-                  setEncountersFilter('');
-                }}
-              >
-                Clear
-              </Button>
-            </div>
-            <PaginatedFlexWrapList
-              items={props.data.encounters
-                .filter(encounter => {
-                  if (encountersFilter) {
-                    return (
-                      encounter.name
-                        .toLowerCase()
-                        .includes(encountersFilter.toLowerCase()) ||
-                      encounter.campaign
-                        ?.toLowerCase()
-                        .includes(encountersFilter.toLowerCase()) ||
-                      encounter.units.some(unit =>
-                        unit?.name
-                          .toLowerCase()
-                          .includes(encountersFilter.toLowerCase())
-                      )
-                    );
-                  }
-                  return true;
-                })
-                .sort(sortByDate)}
-              maxItemsPerPage={20}
-              renderItem={encounter => {
-                return (
-                  <EncounterItem key={encounter.id} encounter={encounter} />
                 );
               }}
             />

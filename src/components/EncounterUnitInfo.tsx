@@ -230,9 +230,11 @@ const EncounterUnitInfo = (props: { unit: UnitInEncounter }) => {
         </div>
       </div>
       <div
-        style={{
-          display: props.unit.isPlayer ? 'none' : 'block',
-        }}
+        style={
+          {
+            // display: props.unit.isPlayer ? 'none' : 'block',
+          }
+        }
       >
         <FormTextInputFullWidth
           label="Status"

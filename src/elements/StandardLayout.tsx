@@ -13,6 +13,7 @@ const Root = styled.div<Object>(() => {
     display: 'flex',
     justifyContent: 'center',
     overflow: 'auto',
+    scrollbarGutter: 'stable both-edges',
   };
 });
 

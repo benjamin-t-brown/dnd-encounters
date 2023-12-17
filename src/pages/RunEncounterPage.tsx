@@ -9,12 +9,14 @@ import TabNavigationBar from 'components/TabNavigationBar';
 import { getModifier, rollInitiative } from 'data/dice';
 import {
   Encounter,
+  EncounterTemplate,
   UnitInEncounter,
   getEncounterById,
   getEncounterTemplateById,
   isEncounterStarted,
   saveEncounterDatabase,
 } from 'data/storage';
+import BackButton from 'elements/BackButton';
 import Button from 'elements/Button';
 import CardTitle from 'elements/CardTitle';
 import CardTitleZone from 'elements/CardTitleZone';
@@ -53,6 +55,137 @@ const InnerRoot = styled.div<Object>(() => {
     flexDirection: 'column',
   };
 });
+
+const CardSubHeader = (props: {
+  selectedUnit: UnitInEncounter | undefined;
+  encounter: Encounter;
+  showConfirm: (msg: string, onConfirm: () => void) => void;
+  showAll: boolean;
+  render: () => void;
+  handleOrderByInitiative: () => void;
+  setShowAll: (showAll: boolean) => void;
+  handleTurnChange: (inc: number) => void;
+}) => {
+  const {
+    selectedUnit,
+    encounter,
+    showConfirm,
+    render,
+    handleOrderByInitiative,
+    handleTurnChange,
+    setShowAll,
+    showAll,
+  } = props;
+
+  return (
+    <div
+      style={{
+        display: 'flex',
+        alignItems: 'center',
+        top: 47,
+        position: 'relative',
+        // height: '60px',
+        background: getColors().BACKGROUND,
+        // padding: window.innerWidth < 600 ? '0 25px' : '2px 26px',
+        width: window.innerWidth < 600 ? 500 : window.innerWidth - 150,
+        left: window.innerWidth < 600 ? 26 : 76,
+      }}
+    >
+      <Dropdown
+        buttonText="..."
+        style={{
+          marginRight: '8px',
+        }}
+      >
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'flex-start',
+            flexDirection: 'column',
+          }}
+        >
+          <DropdownSection>
+            <Button
+              fullWidth
+              color="secondary"
+              onClick={() => {
+                if (isEncounterStarted(encounter)) {
+                  showConfirm(
+                    'Are you sure you wish to re-roll initiative?',
+                    () => {
+                      rollInitiative(encounter);
+                      render();
+                    }
+                  );
+                } else {
+                  rollInitiative(encounter);
+                  render();
+                }
+              }}
+            >
+              Roll Initiative
+            </Button>
+          </DropdownSection>
+          <DropdownSection>
+            <Button
+              fullWidth
+              color="secondary"
+              onClick={() => {
+                handleOrderByInitiative();
+                render();
+              }}
+            >
+              Sort By Initiative
+            </Button>
+          </DropdownSection>
+          <DropdownSection>
+            <AddUnitToEncounterModal encounter={encounter} />
+          </DropdownSection>
+        </div>
+      </Dropdown>
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          minWidth: '200px',
+        }}
+      >
+        <Button
+          color="plain"
+          onClick={() => {
+            handleTurnChange(-1);
+            render();
+          }}
+        >
+          - Prev
+        </Button>
+        <Button
+          color={showAll ? 'primary' : 'plain'}
+          onClick={() => setShowAll(!showAll)}
+        >
+          {showAll ? '-' : '+'}
+        </Button>
+        <Button
+          color="plain"
+          onClick={() => {
+            handleTurnChange(1);
+            render();
+          }}
+        >
+          + Next
+        </Button>
+      </div>
+      <div
+        style={{
+          marginLeft: '8px',
+        }}
+      >
+        <div>{selectedUnit?.name}</div>
+        {/* <div></div> */}
+      </div>
+    </div>
+  );
+};
 
 const RunEncounterPage = () => {
   const route = useLSRoute();
@@ -130,116 +263,22 @@ const RunEncounterPage = () => {
   return (
     <Root>
       <TopBar>
-        <CardTitleZone align="left"></CardTitleZone>
+        <CardTitleZone align="left">
+          <BackButton />
+        </CardTitleZone>
         <CardTitle>Run Encounter</CardTitle>
         <CardTitleZone align="right"></CardTitleZone>
-      </TopBar>
-      <div
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          top: 42,
-          position: 'relative',
-          height: '60px',
-          background: getColors().BACKGROUND,
-          padding: window.innerWidth < 600 ? '0 25px' : '2px 26px',
-          // width: window.innerWidth - 50,
-          // left: 25,
-        }}
-      >
-        <Dropdown
-          buttonText="..."
-          style={{
-            marginRight: '8px',
-          }}
-        >
-          <div
-            style={{
-              display: 'flex',
-              justifyContent: 'flex-start',
-              flexDirection: 'column',
-            }}
-          >
-            <DropdownSection>
-              <Button
-                fullWidth
-                color="secondary"
-                onClick={() => {
-                  if (isEncounterStarted(encounter)) {
-                    showConfirm(
-                      'Are you sure you wish to re-roll initiative?',
-                      () => {
-                        rollInitiative(encounter);
-                        render();
-                      }
-                    );
-                  } else {
-                    rollInitiative(encounter);
-                    render();
-                  }
-                }}
-              >
-                Roll Initiative
-              </Button>
-            </DropdownSection>
-            <DropdownSection>
-              <Button
-                fullWidth
-                color="secondary"
-                onClick={() => {
-                  handleOrderByInitiative();
-                  render();
-                }}
-              >
-                Sort By Initiative
-              </Button>
-            </DropdownSection>
-            <DropdownSection>
-              <AddUnitToEncounterModal encounter={encounter} />
-            </DropdownSection>
-          </div>
-        </Dropdown>
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            minWidth: '200px',
-          }}
-        >
-          <Button
-            color="plain"
-            onClick={() => {
-              handleTurnChange(-1);
-              render();
-            }}
-          >
-            - Prev
-          </Button>
-          <Button
-            color={showAll ? 'primary' : 'plain'}
-            onClick={() => setShowAll(!showAll)}
-          >
-            {showAll ? '-' : '+'}
-          </Button>
-          <Button
-            color="plain"
-            onClick={() => {
-              handleTurnChange(1);
-              render();
-            }}
-          >
-            + Next
-          </Button>
-        </div>
-        <div
-          style={{
-            marginLeft: '8px',
-          }}
-        >
-          <div>{selectedUnit.name}</div>
-          {/* <div></div> */}
-        </div>
-      </div>
+      </TopBar>{' '}
+      <CardSubHeader
+        selectedUnit={selectedUnit}
+        encounter={encounter}
+        showConfirm={showConfirm}
+        render={render}
+        handleOrderByInitiative={handleOrderByInitiative}
+        handleTurnChange={handleTurnChange}
+        setShowAll={setShowAll}
+        showAll={showAll}
+      />
       <StandardLayout
         topBar
         style={{

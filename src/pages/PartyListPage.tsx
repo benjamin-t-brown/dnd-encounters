@@ -20,6 +20,7 @@ import styled from 'styled-components';
 import { PageProps, sortByDate } from 'utils';
 import VSpace from 'elements/VSpace';
 import DatabaseManagementBar from 'components/DatabaseManagementBar';
+import BackButton from 'elements/BackButton';
 
 const InnerRoot = styled.div<Object>(() => {
   return {
@@ -99,7 +100,9 @@ const PartyListPage = (props: PageProps) => {
   return (
     <>
       <TopBar>
-        <CardTitleZone align="left"></CardTitleZone>
+        <CardTitleZone align="left">
+          <BackButton />
+        </CardTitleZone>
         <CardTitle>DND Encounters</CardTitle>
         <CardTitleZone align="right"></CardTitleZone>
       </TopBar>

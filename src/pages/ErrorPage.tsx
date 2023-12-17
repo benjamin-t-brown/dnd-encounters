@@ -6,6 +6,7 @@ import CardTitle from 'elements/CardTitle';
 import CardTitleZone from 'elements/CardTitleZone';
 import { PageProps } from 'utils';
 import TabNavigationBar from 'components/TabNavigationBar';
+import BackButton from 'elements/BackButton';
 
 const InnerRoot = styled.div<Object>(() => {
   return {
@@ -19,7 +20,9 @@ const ErrorPage = (props: PageProps) => {
   return (
     <>
       <TopBar>
-        <CardTitleZone align="left"></CardTitleZone>
+        <CardTitleZone align="left">
+          <BackButton />
+        </CardTitleZone>
         <CardTitle>DND Encounters</CardTitle>
         <CardTitleZone align="right"></CardTitleZone>
       </TopBar>

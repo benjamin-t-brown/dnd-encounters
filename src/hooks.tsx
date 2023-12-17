@@ -148,7 +148,29 @@ export const useLSRoute = (): RouteString => {
 };
 export const setLSRoute = (route: RouteString) => {
   localStorage.setItem(getKey('route'), route as string);
+  const history = getLSRouteHistory();
+  history.push(route);
+  setLSRouteHistory(history);
   (window as any).reRender();
+};
+export const setLSRouteBack = () => {
+  const history = getLSRouteHistory();
+  history.pop();
+  const route = history.pop() ?? 'encounter-list';
+  setLSRouteHistory(history);
+  setLSRoute(route);
+};
+export const getLSRouteHistory = () => {
+  const history = localStorage.getItem(getKey('route-history'));
+  try {
+    return JSON.parse(history ?? '[]') as RouteString[];
+  } catch (e) {
+    console.error('Failed to parse LSRoute History', history);
+    return [];
+  }
+};
+export const setLSRouteHistory = (routes: RouteString[]) => {
+  localStorage.setItem(getKey('route-history'), JSON.stringify(routes));
 };
 
 export const useGlobalAlert = () => {

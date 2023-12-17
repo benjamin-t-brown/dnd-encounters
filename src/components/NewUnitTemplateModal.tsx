@@ -6,12 +6,16 @@ import {
   getUnitTemplateByName,
   saveEncounterDatabase,
 } from 'data/storage';
-import { getFormValues, useGlobalAlert, useModal } from 'hooks';
+import { getFormValues, setLSRoute, useGlobalAlert, useModal } from 'hooks';
 import React, { useContext } from 'react';
 import UnitTemplateForm from './UnitTemplateForm';
 import Button from 'elements/Button';
+import { randomId } from 'utils';
 
-const NewUnitTemplateModal = (props: { unitTemplateId?: string }) => {
+const NewUnitTemplateModal = (props: {
+  unitTemplateId?: string;
+  clone?: boolean;
+}) => {
   const data = useContext(DataContext);
   const showAlert = useGlobalAlert();
 
@@ -38,8 +42,11 @@ const NewUnitTemplateModal = (props: { unitTemplateId?: string }) => {
           alert('Unit Template with that name already exists.');
           return false;
         } else {
-          data.unitTemplates.push(formStateToUnitTemplate(formValues));
+          unitTemplate.id = randomId();
+          data.unitTemplates.push(unitTemplate);
           saveEncounterDatabase(data);
+          setLSRoute('unit-template:' + unitTemplate.id);
+          window.location.reload();
         }
       }
     },
@@ -70,7 +77,7 @@ const NewUnitTemplateModal = (props: { unitTemplateId?: string }) => {
           setOpen(true);
         }}
       >
-        + Create Unit Template
+        {props.clone ? 'Clone' : '+ Create Unit Template'}
       </Button>
       {modal}
     </>

@@ -24,6 +24,7 @@ import {
 } from 'hooks';
 import React from 'react';
 import styled from 'styled-components';
+import BackButton from 'elements/BackButton';
 
 const InnerRoot = styled.div<Object>(() => {
   return {
@@ -53,7 +54,9 @@ const EditEncounterTemplatePage = () => {
   return (
     <>
       <TopBar>
-        <CardTitleZone align="left"></CardTitleZone>
+        <CardTitleZone align="left">
+          <BackButton />
+        </CardTitleZone>
         <CardTitle>DND Encounters</CardTitle>
         <CardTitleZone align="right"></CardTitleZone>
       </TopBar>

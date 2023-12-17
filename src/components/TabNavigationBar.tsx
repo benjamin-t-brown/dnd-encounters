@@ -77,8 +77,6 @@ const TabNavigationBar = () => {
     }
   }, [route, savedTab]);
 
-  console.log('route?', route);
-
   const isRunningEncounter =
     route?.includes('run-encounter') || route?.includes('dice');
 
@@ -93,7 +91,7 @@ const TabNavigationBar = () => {
             setLSRoute('encounter-list');
           }}
         >
-          Back
+          Encounters
         </TabButton>
         <HSpace />
       </React.Fragment>

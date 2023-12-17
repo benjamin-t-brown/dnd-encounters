@@ -7,6 +7,7 @@ import CardTitleZone from 'elements/CardTitleZone';
 import { PageProps } from 'utils';
 import TabNavigationBar from 'components/TabNavigationBar';
 import DiceRoller from 'components/DiceRoller';
+import BackButton from 'elements/BackButton';
 
 const InnerRoot = styled.div<Object>(() => {
   return {
@@ -16,11 +17,13 @@ const InnerRoot = styled.div<Object>(() => {
   };
 });
 
-const RunEncounterDicePage = (props: PageProps) => {
+const DicePage = (props: PageProps) => {
   return (
     <>
       <TopBar>
-        <CardTitleZone align="left"></CardTitleZone>
+        <CardTitleZone align="left">
+          <BackButton />
+        </CardTitleZone>
         <CardTitle>DND Encounters</CardTitle>
         <CardTitleZone align="right"></CardTitleZone>
       </TopBar>
@@ -44,4 +47,4 @@ const RunEncounterDicePage = (props: PageProps) => {
   );
 };
 
-export default RunEncounterDicePage;
+export default DicePage;

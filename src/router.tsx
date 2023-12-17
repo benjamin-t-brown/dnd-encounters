@@ -5,7 +5,7 @@ import EditUnitTemplatePage from 'pages/EditUnitTemplatePage';
 import EncounterListPage from 'pages/EncounterListPage';
 import ErrorPage from 'pages/ErrorPage';
 import PartyListPage from 'pages/PartyListPage';
-import RunEncounterDicePage from 'pages/RunEncounterDicePage';
+import DicePage from 'pages/DicePage';
 import RunEncounterPage from 'pages/RunEncounterPage';
 import UnitTemplateListPage from 'pages/UnitTemplateListPage';
 import React from 'react';
@@ -35,7 +35,7 @@ const Router = () => {
     return <RunEncounterPage />;
   }
   if (route?.includes('dice')) {
-    return <RunEncounterDicePage data={data} />;
+    return <DicePage data={data} />;
   }
   return <ErrorPage data={data} />;
 };
