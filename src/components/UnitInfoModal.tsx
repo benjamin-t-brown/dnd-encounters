@@ -21,7 +21,7 @@ const UnitInfoModal = (
     onConfirm: () => {
       render();
     },
-    onCancel: () => {},
+    confirmText: 'OK',
     title: 'Unit Info: ' + props.unitInEncounter?.name,
     body: (
       <div>

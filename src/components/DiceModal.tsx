@@ -22,7 +22,7 @@ const DiceModal = (
     onConfirm: () => {
       render();
     },
-    onCancel: () => {},
+    confirmText: 'OK',
     title: 'Roll Dice',
     body: (
       <div>
@@ -48,8 +48,9 @@ const DiceModal = (
       <Button
         style={Object.assign(props.style ?? {}, {
           position: 'fixed',
-          right: '4px',
+          right: '20px',
           bottom: '4px',
+          boxShadow: '0px 0px 15px 5px #000000',
         })}
         onClick={ev => {
           ev.stopPropagation();
