@@ -110,11 +110,15 @@ const EditEncounterHpModal = (props: { unit: UnitInEncounter }) => {
             <Button
               color="secondary"
               onClick={() => {
+                let nextModifyBy = 0;
                 if (modifyBy === 0) {
-                  setModifyBy(-1);
+                  nextModifyBy = -1;
                 } else {
-                  setModifyBy(modifyBy * -1);
+                  nextModifyBy = modifyBy * -1;
                 }
+                setModifyBy(nextModifyBy);
+                // setOverrideHp(0);
+                setNextHp(props.unit.current.hp + nextModifyBy);
               }}
               style={{
                 fontSize: '12px',

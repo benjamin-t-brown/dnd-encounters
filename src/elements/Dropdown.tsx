@@ -51,7 +51,7 @@ export const Dropdown = (props: DropdownProps) => {
   const [optionsOpen, setOptionsOpen] = React.useState(false);
   const { renderLayer, triggerProps, layerProps, arrowProps } = useLayer({
     isOpen: optionsOpen,
-    placement: 'right-start',
+    placement: 'left-start',
     triggerOffset: 8,
     arrowOffset: 4,
     onOutsideClick: () => setOptionsOpen(false),

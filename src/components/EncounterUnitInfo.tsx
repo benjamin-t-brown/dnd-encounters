@@ -29,6 +29,7 @@ import ImagePortrait from 'elements/ImagePortrait';
 import PctBar from 'elements/PctBar';
 import StandardLayout from 'elements/StandardLayout';
 import TopBar from 'elements/TopBar';
+import VSpace from 'elements/VSpace';
 import {
   setLSRoute,
   useDatabase,
@@ -65,9 +66,33 @@ const EncounterUnitInfo = (props: { unit: UnitInEncounter }) => {
         >
           {props.unit.name}
         </h2>
+        <div
+          style={{
+            marginTop: '8px',
+            width: '100%',
+            // display: props.unit.isPlayer ? 'none' : 'block',
+          }}
+        >
+          <FormTextInputFullWidth
+            label="Status"
+            name="status"
+            formState={{
+              status: props.unit.current.status ?? '',
+            }}
+            change={(key, value) => {
+              props.unit.current[key] = value;
+              render();
+            }}
+          />
+        </div>
         {props.unit.isPlayer ? null : (
-          <>
-            <HSpace />
+          <div
+            style={
+              {
+                // marginTop: '8px',
+              }
+            }
+          >
             {props.unit.type ? (
               <FormTextInput
                 label="Type"
@@ -96,7 +121,7 @@ const EncounterUnitInfo = (props: { unit: UnitInEncounter }) => {
               width={'100px'}
               disabled
             />
-          </>
+          </div>
         )}
       </div>
       <div
@@ -230,25 +255,6 @@ const EncounterUnitInfo = (props: { unit: UnitInEncounter }) => {
         </div>
       </div>
       <div
-        style={
-          {
-            // display: props.unit.isPlayer ? 'none' : 'block',
-          }
-        }
-      >
-        <FormTextInputFullWidth
-          label="Status"
-          name="status"
-          formState={{
-            status: props.unit.current.status ?? '',
-          }}
-          change={(key, value) => {
-            props.unit.current[key] = value;
-            render();
-          }}
-        />
-      </div>
-      <div
         style={{
           display: props.unit.isPlayer ? 'none' : 'block',
         }}
@@ -336,25 +342,27 @@ const EncounterUnitInfo = (props: { unit: UnitInEncounter }) => {
 
   return (
     <>
-      <Button
-        color="secondary"
-        onClick={() => {
-          setNotesFirst(!notesFirst);
-        }}
-        style={{
-          marginLeft: '8px',
-        }}
-      >
-        View {notesFirst ? 'Stats' : 'Notes'}
-      </Button>
-      <div
-        style={{
-          padding: '4px 8px',
-        }}
-      >
-        {notesFirst ? StatsNotes : null}
-        {StatsInfo}
-        {!notesFirst ? StatsNotes : null}
+      <div>
+        <Button
+          color="secondary"
+          onClick={() => {
+            setNotesFirst(!notesFirst);
+          }}
+          style={{
+            marginLeft: '8px',
+          }}
+        >
+          View {notesFirst ? 'Stats' : 'Notes'}
+        </Button>
+        <div
+          style={{
+            padding: '4px 8px',
+          }}
+        >
+          {notesFirst ? StatsNotes : null}
+          {StatsInfo}
+          {!notesFirst ? StatsNotes : null}
+        </div>
       </div>
     </>
   );

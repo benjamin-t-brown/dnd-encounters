@@ -84,6 +84,7 @@ export interface Encounter {
   units: UnitInEncounter[];
   lastUpdated: number;
   turnIndex: number;
+  shrinkUnitUi?: boolean;
   campaign?: string;
 }
 

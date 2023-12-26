@@ -1,11 +1,13 @@
 import MDEditor from '@uiw/react-md-editor';
 import AddUnitToEncounterModal from 'components/AddUnitToEncounterModal';
+import DiceModal from 'components/DiceModal';
 import DiceRoller from 'components/DiceRoller';
 import EditEncounterHpModal from 'components/EditEncounterHpModal';
 import EditUnitPublicIdModal from 'components/EditUnitPublicIdModal';
 import EncounterUnit from 'components/EncounterUnit';
 import EncounterUnitInfo from 'components/EncounterUnitInfo';
 import TabNavigationBar from 'components/TabNavigationBar';
+import UnitInfoModal from 'components/UnitInfoModal';
 import { getModifier, rollInitiative } from 'data/dice';
 import {
   Encounter,
@@ -82,19 +84,13 @@ const CardSubHeader = (props: {
       style={{
         display: 'flex',
         alignItems: 'center',
-        top: 47,
         position: 'relative',
-        // height: '60px',
-        background: getColors().BACKGROUND,
-        // padding: window.innerWidth < 600 ? '0 25px' : '2px 26px',
-        width: window.innerWidth < 600 ? 500 : window.innerWidth - 150,
-        left: window.innerWidth < 600 ? 26 : 76,
       }}
     >
       <Dropdown
         buttonText="..."
         style={{
-          marginRight: '8px',
+          marginLeft: '8px',
         }}
       >
         <div
@@ -143,46 +139,13 @@ const CardSubHeader = (props: {
           </DropdownSection>
         </div>
       </Dropdown>
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          minWidth: '200px',
-        }}
-      >
-        <Button
-          color="plain"
-          onClick={() => {
-            handleTurnChange(-1);
-            render();
-          }}
-        >
-          - Prev
-        </Button>
-        <Button
-          color={showAll ? 'primary' : 'plain'}
-          onClick={() => setShowAll(!showAll)}
-        >
-          {showAll ? '-' : '+'}
-        </Button>
-        <Button
-          color="plain"
-          onClick={() => {
-            handleTurnChange(1);
-            render();
-          }}
-        >
-          + Next
-        </Button>
-      </div>
-      <div
+      {/* <div
         style={{
           marginLeft: '8px',
         }}
       >
         <div>{selectedUnit?.name}</div>
-        {/* <div></div> */}
-      </div>
+      </div> */}
     </div>
   );
 };
@@ -194,7 +157,6 @@ const RunEncounterPage = () => {
   const data = useDatabase();
   const render = usePageReRender();
   const [, encounterId] = route?.split(':') ?? [];
-  const [showAll, setShowAll] = React.useState(true);
 
   useEffect(() => {
     saveEncounterDatabase(data);
@@ -214,9 +176,15 @@ const RunEncounterPage = () => {
     isError = true;
     // return <div></div>;
   }
+  const [showAll, _setShowAll] = React.useState(!encounter.shrinkUnitUi);
   const [selectedUnit, setSelectedUnit] = React.useState<UnitInEncounter>(
-    encounter.units[0]
+    encounter.units[encounter.turnIndex]
   );
+
+  const setShowAll = (v: boolean) => {
+    _setShowAll(v);
+    encounter.shrinkUnitUi = !v;
+  };
 
   const handleOrderByInitiative = () => {
     encounter.units.sort((a, b) => {
@@ -263,31 +231,68 @@ const RunEncounterPage = () => {
   return (
     <Root>
       <TopBar>
-        <CardTitleZone align="left">
+        <CardTitleZone
+          align="left"
+          style={{
+            width: 'unset',
+          }}
+        >
           <BackButton />
         </CardTitleZone>
-        <CardTitle>Run Encounter</CardTitle>
-        <CardTitleZone align="right"></CardTitleZone>
-      </TopBar>{' '}
-      <CardSubHeader
-        selectedUnit={selectedUnit}
-        encounter={encounter}
-        showConfirm={showConfirm}
-        render={render}
-        handleOrderByInitiative={handleOrderByInitiative}
-        handleTurnChange={handleTurnChange}
-        setShowAll={setShowAll}
-        showAll={showAll}
-      />
-      <StandardLayout
-        topBar
-        style={{
-          top: '107px',
-          marginTop: '44px',
-          height: 'calc(100% - 148px)',
-        }}
-      >
+        <CardTitle>
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              // minWidth: '200px',
+            }}
+          >
+            <Button
+              color="plain"
+              onClick={() => {
+                handleTurnChange(-1);
+                render();
+              }}
+            >
+              - Prev
+            </Button>
+            <HSpace />
+            <Button color={'secondary'} onClick={() => setShowAll(!showAll)}>
+              {showAll ? '-' : '+'}
+            </Button>
+            <HSpace />
+            <Button
+              color="plain"
+              onClick={() => {
+                handleTurnChange(1);
+                render();
+              }}
+            >
+              + Next
+            </Button>
+          </div>
+        </CardTitle>
+        <CardTitleZone
+          align="right"
+          style={{
+            width: 'unset',
+          }}
+        >
+          <CardSubHeader
+            selectedUnit={selectedUnit}
+            encounter={encounter}
+            showConfirm={showConfirm}
+            render={render}
+            handleOrderByInitiative={handleOrderByInitiative}
+            handleTurnChange={handleTurnChange}
+            setShowAll={setShowAll}
+            showAll={showAll}
+          />
+        </CardTitleZone>
+      </TopBar>
+      <StandardLayout topBar>
         <TabNavigationBar />
+        <DiceModal />
         <InnerRoot>
           {/* <div
             style={{
@@ -316,31 +321,22 @@ const RunEncounterPage = () => {
               {encounter.units.map((unit, i) => {
                 const isActive = encounter.turnIndex === i;
                 return (
-                  <EncounterUnit
+                  <UnitInfoModal
                     key={i + '-' + unit.current.publicId}
-                    unit={unit}
-                    encounter={encounter}
-                    isActive={isActive}
-                    isSmall={showAll ? false : !isActive}
-                    onClick={() => {
-                      // if (!unit.isPlayer) {
-                      setSelectedUnit(unit);
-                      // }
-                    }}
-                    // style={{
-                    //   transition: 'transform 0.2s, height 0.2s',
-                    //   transform: showAll
-                    //     ? 'scale(1)'
-                    //     : isActive
-                    //     ? 'scale(1)'
-                    //     : 'scale(0)',
-                    //   height: showAll
-                    //     ? 'inherit'
-                    //     : isActive
-                    //     ? 'inherit'
-                    //     : '0px',
-                    // }}
-                  />
+                    unitInEncounter={unit}
+                  >
+                    <EncounterUnit
+                      unit={unit}
+                      encounter={encounter}
+                      isActive={isActive}
+                      isSmall={showAll ? false : !isActive}
+                      onClick={() => {
+                        // if (!unit.isPlayer) {
+                        // setSelectedUnit(unit);
+                        // }
+                      }}
+                    />
+                  </UnitInfoModal>
                 );
               })}
             </div>

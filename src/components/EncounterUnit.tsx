@@ -156,7 +156,7 @@ const EncounterUnit = (props: {
         </CornerButton>
       </div>
       <div
-        onClick={props.onClick}
+        // onClick={props.onClick}
         style={{
           display: 'flex',
           alignItems: 'center',
