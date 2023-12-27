@@ -51,6 +51,7 @@ const DiceModal = (
           right: '20px',
           bottom: '4px',
           boxShadow: '0px 0px 15px 5px #000000',
+          zIndex: 1,
         })}
         onClick={ev => {
           ev.stopPropagation();
