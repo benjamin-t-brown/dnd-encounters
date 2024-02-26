@@ -12,6 +12,7 @@ import ImagePortrait from 'elements/ImagePortrait';
 import { usePageReRender } from 'hooks';
 import React, { useState } from 'react';
 import { getColors } from 'style';
+import UnitInfoModal from './UnitInfoModal';
 
 const EncounterUnitInfo = (props: { unit: UnitInEncounter }) => {
   const change = () => void 0;
@@ -28,7 +29,14 @@ const EncounterUnitInfo = (props: { unit: UnitInEncounter }) => {
           alignItems: 'flex-end',
         }}
       >
-        <ImagePortrait imgUrl={props.unit.imgUrl} hideThreshold={-1} large />
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+          }}
+        >
+          <ImagePortrait imgUrl={props.unit.imgUrl} hideThreshold={-1} large />
+        </div>
         <HSpace />
         <h2
           style={{

@@ -62,6 +62,9 @@ const RangeButtonInput = (props: RangeButtonInputProps) => {
           // transform: 'translateY(-2px)',
           color: '#333',
           height: '40px',
+          display: 'inline-block',
+          width: '44px',
+          whiteSpace: 'pre',
         }}
         buttonLabel={
           (props.disablePlus ? '' : plusOrMinus(props.value)) +

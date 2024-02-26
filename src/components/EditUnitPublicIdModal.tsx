@@ -47,8 +47,8 @@ const EditUnitPublicIdModal = (props: { unit: UnitInEncounter }) => {
             imgUrl={props.unit.imgUrl}
             hideThreshold={-1}
             style={{
-              width: '48px',
-              height: '48px',
+              width: '96px',
+              height: '96px',
             }}
           />
           <HSpace />

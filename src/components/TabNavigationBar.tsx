@@ -81,53 +81,69 @@ const TabNavigationBar = () => {
 
   const buttons: JSX.Element[] = [];
 
-  if (isRunningEncounter) {
-    buttons.push(
-      <React.Fragment key="enc-tabs">
-        <TabButton
-          active={route?.includes('encounter-list') || !route}
-          onClick={() => {
-            setLSRoute('encounter-list');
-          }}
-        >
-          Encounters
-        </TabButton>
-        <HSpace />
-      </React.Fragment>
-    );
-  } else {
-    buttons.push(
-      <React.Fragment key="normal-tabs">
-        <TabButton
-          active={route?.includes('encounter-list') || !route}
-          onClick={() => {
-            setLSRoute('encounter-list');
-          }}
-        >
-          Encounters
-        </TabButton>
-        <HSpace />
-        <TabButton
-          active={route?.includes('unit-list')}
-          onClick={() => {
-            setLSRoute('unit-list');
-          }}
-        >
-          Units
-        </TabButton>
-        <HSpace />
-        <TabButton
-          active={route?.includes('party-list')}
-          onClick={() => {
-            setLSRoute('party-list');
-          }}
-        >
-          Parties
-        </TabButton>
-        <HSpace />
-      </React.Fragment>
-    );
-  }
+  // if (isRunningEncounter) {
+  //   buttons.push(
+  //     <React.Fragment key="enc-tabs">
+  //       <TabButton
+  //         active={route?.includes('encounter-list') || !route}
+  //         onClick={() => {
+  //           setLSRoute('encounter-list');
+  //         }}
+  //       >
+  //         Encounters
+  //       </TabButton>
+  //       <HSpace />
+  //     </React.Fragment>
+  //   );
+  // } else {
+  buttons.push(
+    <React.Fragment key="normal-tabs">
+      <TabButton
+        active={route?.includes('encounter-list') || !route}
+        onClick={() => {
+          setLSRoute('encounter-list');
+        }}
+      >
+        Home
+      </TabButton>
+      <HSpace />
+      <TabButton
+        active={route?.includes('unit-list')}
+        onClick={() => {
+          setLSRoute('unit-list');
+        }}
+      >
+        Units
+      </TabButton>
+      <HSpace />
+      <TabButton
+        active={route?.includes('party-list')}
+        onClick={() => {
+          setLSRoute('party-list');
+        }}
+      >
+        Parties
+      </TabButton>
+      <HSpace />
+    </React.Fragment>
+  );
+  // }
+
+  // if (isRunningEncounter) {
+  buttons.push(
+    <React.Fragment key="enc-plus-tabs">
+      <TabButton
+        active={route?.includes('dice')}
+        onClick={() => {
+          setLSRoute('dice');
+        }}
+      >
+        Dice
+      </TabButton>
+      <HSpace />
+    </React.Fragment>
+  );
+  // }
 
   if (savedTab) {
     buttons.push(
@@ -142,23 +158,6 @@ const TabNavigationBar = () => {
           }}
         >
           {getTemplateName(savedTab, data)}
-        </TabButton>
-        <HSpace />
-      </React.Fragment>
-    );
-  }
-
-  if (isRunningEncounter) {
-    buttons.push(
-      <React.Fragment key="enc-plus-tabs">
-        <TabButton
-          active={route?.includes('dice')}
-          onClick={() => {
-            console.log('set dice route');
-            setLSRoute('dice');
-          }}
-        >
-          Dice
         </TabButton>
         <HSpace />
       </React.Fragment>

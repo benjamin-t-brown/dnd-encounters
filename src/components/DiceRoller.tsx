@@ -101,7 +101,8 @@ const RollResult = (props: {
       };
     }
   }, [props.rolling]);
-
+  const total = props.result + props.bonus;
+  const nbsp = total > 9 ? '' : '\u00A0';
   return (
     <div
       style={{
@@ -168,6 +169,7 @@ const RollResult = (props: {
                   step={1}
                   style={{
                     display: 'inline-flex',
+                    // width: '64px',
                   }}
                 />
               ) : (
@@ -179,13 +181,17 @@ const RollResult = (props: {
                   {plusOrMinus(props.bonus)} {Math.abs(props.bonus)}
                 </span>
               )}{' '}
-              <span
+              <div
                 style={{
                   width: '44px',
+                  whiteSpace: 'pre',
+                  display: 'inline-block',
+                  flexShrink: 0,
+                  flexGrow: 0,
                 }}
               >
-                = {props.result + props.bonus}
-              </span>
+                = {nbsp + total}
+              </div>
             </>
           ) : (
             plusOrMinus(props.result) + props.result

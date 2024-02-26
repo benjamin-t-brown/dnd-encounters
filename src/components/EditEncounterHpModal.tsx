@@ -66,37 +66,66 @@ const EditEncounterHpModal = (props: { unit: UnitInEncounter }) => {
             border: '1px solid ' + getColors().TEXT_DESCRIPTION,
           }}
         >
-          <div>
-            <ImagePortrait imgUrl={props.unit.imgUrl} hideThreshold={-1} />
-            {nextHp > 0 ? (
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+            }}
+          >
+            <ImagePortrait
+              imgUrl={props.unit.imgUrl}
+              hideThreshold={-1}
+              style={{
+                width: '96px',
+                height: '96px',
+              }}
+            />
+            <div>
+              {nextHp > 0 ? (
+                <Button
+                  color="primary"
+                  onClick={() => {
+                    setModifyBy(0);
+                    setOverrideHp(0);
+                    setNextHp(0);
+                  }}
+                  style={{
+                    width: '66px',
+                  }}
+                >
+                  Down!
+                </Button>
+              ) : (
+                <Button
+                  color="primary"
+                  onClick={() => {
+                    setModifyBy(0);
+                    setOverrideHp(1);
+                    setNextHp(1);
+                  }}
+                  style={{
+                    width: '66px',
+                  }}
+                >
+                  Up!
+                </Button>
+              )}
+              <HSpace />
               <Button
-                color="primary"
+                color="secondary"
                 onClick={() => {
                   setModifyBy(0);
-                  setOverrideHp(0);
-                  setNextHp(0);
+                  setOverrideHp(props.unit.hp);
+                  setNextHp(props.unit.hp);
                 }}
                 style={{
                   width: '66px',
                 }}
               >
-                Down!
+                Max!
               </Button>
-            ) : (
-              <Button
-                color="primary"
-                onClick={() => {
-                  setModifyBy(0);
-                  setOverrideHp(1);
-                  setNextHp(1);
-                }}
-                style={{
-                  width: '66px',
-                }}
-              >
-                Up!
-              </Button>
-            )}
+            </div>
           </div>
           <HSpace />
           <HSpace />
@@ -190,6 +219,7 @@ const EditEncounterHpModal = (props: { unit: UnitInEncounter }) => {
           <div
             style={{
               color: getNextHpColor(nextHp, props.unit.current.hp),
+              width: '100px',
             }}
           >
             Next HP: {nextHp}

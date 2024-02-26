@@ -14,6 +14,7 @@ import Button from 'elements/Button';
 import HSpace from 'elements/HSpace';
 import ImagePortrait from 'elements/ImagePortrait';
 import { FormStatNumberInput } from 'elements/FormInputs';
+import UnitInfoModal from './UnitInfoModal';
 
 const EncounterUnit = (props: {
   unit: UnitInEncounter;
@@ -156,7 +157,7 @@ const EncounterUnit = (props: {
         </CornerButton>
       </div>
       <div
-        // onClick={props.onClick}
+        onClick={props.onClick}
         style={{
           display: 'flex',
           alignItems: 'center',
@@ -228,14 +229,33 @@ const EncounterUnit = (props: {
           </div>
         </div>
         <HSpace />
-        <ImagePortrait
-          imgUrl={props.unit.imgUrl}
-          hideThreshold={-1}
+        <div
           style={{
-            filter: isDowned ? 'grayscale(100%)' : undefined,
-            cursor: 'pointer',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
           }}
-        />
+        >
+          <ImagePortrait
+            imgUrl={props.unit.imgUrl}
+            hideThreshold={-1}
+            style={{
+              filter: isDowned ? 'grayscale(100%)' : undefined,
+              cursor: 'pointer',
+            }}
+          />
+          <UnitInfoModal unitInEncounter={props.unit}>
+            <Button
+              color="primary"
+              style={{
+                fontSize: '11px',
+                padding: '0px 4px',
+              }}
+            >
+              Info
+            </Button>
+          </UnitInfoModal>
+        </div>
         <HSpace />
         <div
           style={{
