@@ -3,7 +3,6 @@ import {
   getEncounterById,
   getEncounterTemplateById,
   getPartyStorageById,
-  getPartyStorageByName,
   getUnitTemplateById,
 } from 'data/storage';
 import HSpace from 'elements/HSpace';

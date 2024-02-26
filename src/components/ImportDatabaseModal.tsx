@@ -1,7 +1,6 @@
-import { DataContext } from 'App';
 import { saveEncounterDatabase } from 'data/storage';
 import Button from 'elements/Button';
-import { useGlobalAlert, useModal } from 'hooks';
+import { useModal } from 'hooks';
 import React from 'react';
 import { getColors } from 'style';
 

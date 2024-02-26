@@ -11,6 +11,7 @@ plugins:
   - 'babel'
   - 'prettier'
   - '@typescript-eslint'
+  - 'unused-imports'
 
 env:
   browser: true
@@ -45,7 +46,6 @@ rules:
   comma-dangle: 0
   no-sparse-arrays: 0
   arrow-body-style: 0
-  no-unused-vars: 0
   no-else-return: 0
   radix: 0
   object-shorthand: 0
@@ -55,8 +55,14 @@ rules:
   no-undef: 0
   camelcase: 0
   react/prop-types: 0
+  no-unused-vars: 0
+  "unused-imports/no-unused-imports": 1
+  "unused-imports/no-unused-vars": [
+    "warn",
+    { "vars": "all", "varsIgnorePattern": "^_", "args": "after-used", "argsIgnorePattern": "^_" }
+  ]
   # 'prettier/prettier': 0
-  '@typescript-eslint/no-unused-vars': 1
+  '@typescript-eslint/no-unused-vars': 0
   '@typescript-eslint/no-empty-function': 0
   '@typescript-eslint/no-explicit-any': 0
   '@typescript-eslint/no-var-requires': 0

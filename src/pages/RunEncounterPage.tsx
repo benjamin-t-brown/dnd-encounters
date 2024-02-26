@@ -1,20 +1,14 @@
-import MDEditor from '@uiw/react-md-editor';
 import AddUnitToEncounterModal from 'components/AddUnitToEncounterModal';
 import DiceModal from 'components/DiceModal';
-import DiceRoller from 'components/DiceRoller';
-import EditEncounterHpModal from 'components/EditEncounterHpModal';
-import EditUnitPublicIdModal from 'components/EditUnitPublicIdModal';
 import EncounterUnit from 'components/EncounterUnit';
 import EncounterUnitInfo from 'components/EncounterUnitInfo';
 import TabNavigationBar from 'components/TabNavigationBar';
 import UnitInfoModal from 'components/UnitInfoModal';
-import { getModifier, rollInitiative } from 'data/dice';
+import { rollInitiative } from 'data/dice';
 import {
   Encounter,
-  EncounterTemplate,
   UnitInEncounter,
   getEncounterById,
-  getEncounterTemplateById,
   isEncounterStarted,
   saveEncounterDatabase,
 } from 'data/storage';
@@ -22,16 +16,9 @@ import BackButton from 'elements/BackButton';
 import Button from 'elements/Button';
 import CardTitle from 'elements/CardTitle';
 import CardTitleZone from 'elements/CardTitleZone';
-import CornerButton from 'elements/CornerButton';
 import { Dropdown, DropdownSection } from 'elements/Dropdown';
-import {
-  FormStatNumberInput,
-  FormTextInput,
-  FormTextInputFullWidth,
-} from 'elements/FormInputs';
 import HSpace from 'elements/HSpace';
-import ImagePortrait from 'elements/ImagePortrait';
-import PctBar from 'elements/PctBar';
+
 import StandardLayout from 'elements/StandardLayout';
 import TopBar from 'elements/TopBar';
 import {
@@ -42,7 +29,7 @@ import {
   useLSRoute,
   usePageReRender,
 } from 'hooks';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { MAX_WIDTH, getColors } from 'style';
 import styled from 'styled-components';
 
@@ -321,22 +308,18 @@ const RunEncounterPage = () => {
               {encounter.units.map((unit, i) => {
                 const isActive = encounter.turnIndex === i;
                 return (
-                  <UnitInfoModal
+                  <EncounterUnit
                     key={i + '-' + unit.current.publicId}
-                    unitInEncounter={unit}
-                  >
-                    <EncounterUnit
-                      unit={unit}
-                      encounter={encounter}
-                      isActive={isActive}
-                      isSmall={showAll ? false : !isActive}
-                      onClick={() => {
-                        // if (!unit.isPlayer) {
-                        // setSelectedUnit(unit);
-                        // }
-                      }}
-                    />
-                  </UnitInfoModal>
+                    unit={unit}
+                    encounter={encounter}
+                    isActive={isActive}
+                    isSmall={showAll ? false : !isActive}
+                    onClick={() => {
+                      // if (!unit.isPlayer) {
+                      setSelectedUnit(unit);
+                      // }
+                    }}
+                  />
                 );
               })}
             </div>

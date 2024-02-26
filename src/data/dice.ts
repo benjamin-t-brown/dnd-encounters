@@ -1,4 +1,3 @@
-import { randomId } from 'utils';
 import { Encounter } from './storage';
 
 export const roll = (d: number) => {

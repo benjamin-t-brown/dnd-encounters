@@ -1,6 +1,5 @@
 import { randomId } from 'utils';
 import DefaultDatabase from 'data/defaultDatabase';
-import { getModifier, roll } from './dice';
 
 export type Alignment =
   | 'any'
@@ -125,7 +124,8 @@ export const loadEncounterDatabase = (): EncounterDatabase => {
     return structuredClone(DefaultDatabase) as any;
   }
   try {
-    return JSON.parse(data);
+    const db = JSON.parse(data);
+    return validateEncounterDatabase(db);
   } catch (e) {
     console.error(
       'Failed to parse db from local storage, returning a new one',
@@ -138,6 +138,40 @@ export const loadEncounterDatabase = (): EncounterDatabase => {
       parties: [],
     };
   }
+};
+
+export const validateEncounterDatabase = (data: EncounterDatabase) => {
+  const duplicateUnitTemplates: UnitTemplate[] = [];
+  const duplicateEncounterTemplates: EncounterTemplate[] = [];
+
+  for (const unitTemplate of data.unitTemplates) {
+    const unitTemplate2 = data.unitTemplates.find(
+      t => t !== unitTemplate && t.id === unitTemplate.id
+    );
+    if (unitTemplate2) {
+      duplicateUnitTemplates.push(unitTemplate);
+    }
+  }
+
+  for (const encounterTemplate of data.encounterTemplates) {
+    const encounterTemplate2 = data.encounterTemplates.find(
+      t => t !== encounterTemplate && t.id === encounterTemplate.id
+    );
+    if (encounterTemplate2) {
+      duplicateEncounterTemplates.push(encounterTemplate);
+    }
+  }
+
+  if (duplicateUnitTemplates.length > 0) {
+    console.error('Duplicate unit templates found', duplicateUnitTemplates);
+  }
+  if (duplicateEncounterTemplates.length > 0) {
+    console.error(
+      'Duplicate encounter templates found',
+      duplicateEncounterTemplates
+    );
+  }
+  return data;
 };
 
 export const createUnitTemplate = (): UnitTemplate => {

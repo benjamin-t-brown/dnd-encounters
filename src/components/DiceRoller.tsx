@@ -5,7 +5,6 @@ import React, { useEffect } from 'react';
 import { getColors } from 'style';
 import styled from 'styled-components';
 import { plusOrMinus } from 'utils';
-import EditInputModal from './EditInputModal';
 import { useReRender } from 'hooks';
 import RangeButtonInput from 'elements/RangeButtonInput';
 import InputLabel from 'elements/InputLabel';

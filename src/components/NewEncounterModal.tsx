@@ -1,9 +1,6 @@
 import {
   createEncounter,
-  createEncounterTemplate,
   getEncounterTemplateById,
-  getEncounterTemplateByName,
-  getUnitTemplateById,
   saveEncounterDatabase,
 } from 'data/storage';
 import {
@@ -15,15 +12,9 @@ import {
   usePageReRender,
 } from 'hooks';
 import React from 'react';
-import EncounterTemplateForm from './EncounterTemplateForm';
 import Button from 'elements/Button';
-import {
-  EncounterFormState,
-  EncounterTemplateFormState,
-  formStateToEncounter,
-  formStateToEncounterTemplate,
-} from 'data/form';
-import { MAX_HEIGHT_MODAL, MAX_WIDTH } from 'style';
+import { EncounterFormState, formStateToEncounter } from 'data/form';
+import { MAX_WIDTH } from 'style';
 import EncounterForm from './EncounterForm';
 import { getEncounterByName } from 'data/storage';
 

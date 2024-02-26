@@ -8,7 +8,6 @@ import {
   UnitTemplate,
   getUnitTemplateById,
 } from 'data/storage';
-import Button from 'elements/Button';
 import { FormCheckboxInput, FormTextInput } from 'elements/FormInputs';
 import HSpace from 'elements/HSpace';
 import ImagePortrait from 'elements/ImagePortrait';

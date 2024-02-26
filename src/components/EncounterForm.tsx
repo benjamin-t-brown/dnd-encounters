@@ -1,9 +1,5 @@
 import { encounterToFormState } from 'data/form';
-import {
-  Encounter,
-  getEncounterTemplateById,
-  getUnitTemplateById,
-} from 'data/storage';
+import { Encounter, getEncounterTemplateById } from 'data/storage';
 import { FormTextInput } from 'elements/FormInputs';
 import InputLabel from 'elements/InputLabel';
 import { useDatabase, useForm } from 'hooks';

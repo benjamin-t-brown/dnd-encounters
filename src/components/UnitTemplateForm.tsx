@@ -14,16 +14,13 @@ import { useModal } from 'hooks';
 import Button from 'elements/Button';
 import { randomId } from 'utils';
 import {
-  FormCheckboxInput,
   FormOptionsInput,
   FormRte,
   FormStatNumberInput,
-  FormTextAreaInput,
   FormTextInput,
   FormTextInputFullWidth,
 } from 'elements/FormInputs';
 import HSpace from 'elements/HSpace';
-import VSpace from 'elements/VSpace';
 import { getModifier } from 'data/dice';
 import { parse } from 'data/parse';
 import ImagePortrait from 'elements/ImagePortrait';

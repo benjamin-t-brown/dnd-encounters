@@ -3,17 +3,11 @@ import NewPartyTemplateModal from 'components/NewPartyTemplateModal';
 import { PartyStorage, saveEncounterDatabase } from 'data/storage';
 import CardTitle from 'elements/CardTitle';
 import CardTitleZone from 'elements/CardTitleZone';
-import CornerButton from 'elements/CornerButton';
 import FlexWrapCard from 'elements/FlexWrapCard';
 import FlexWrapCardDateTime from 'elements/FlexWrapCardDateTime';
 import StandardLayout from 'elements/StandardLayout';
 import TopBar from 'elements/TopBar';
-import {
-  setLSRoute,
-  useDatabase,
-  useGlobalConfirm,
-  usePageReRender,
-} from 'hooks';
+import { setLSRoute, useDatabase, usePageReRender } from 'hooks';
 import React from 'react';
 import { getColors } from 'style';
 import styled from 'styled-components';

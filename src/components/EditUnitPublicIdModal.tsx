@@ -1,9 +1,7 @@
 import { UnitInEncounter } from 'data/storage';
-import Button from 'elements/Button';
 import HSpace from 'elements/HSpace';
 import ImagePortrait from 'elements/ImagePortrait';
 import InputLabel from 'elements/InputLabel';
-import VSpace from 'elements/VSpace';
 import { useModal, usePageReRender } from 'hooks';
 import React from 'react';
 import { MAX_WIDTH, getColors } from 'style';

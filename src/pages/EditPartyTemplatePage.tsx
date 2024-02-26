@@ -17,7 +17,6 @@ import {
   useDatabase,
   useGlobalAlert,
   useLSRoute,
-  usePageReRender,
 } from 'hooks';
 import React from 'react';
 import styled from 'styled-components';

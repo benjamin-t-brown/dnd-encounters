@@ -1,21 +1,16 @@
 import {
   Encounter,
-  UnitInEncounter,
   UnitTemplate,
   createUnit,
   getUnitTemplateById,
   saveEncounterDatabase,
 } from 'data/storage';
 import Button from 'elements/Button';
-import HSpace from 'elements/HSpace';
-import ImagePortrait from 'elements/ImagePortrait';
 import InputLabel from 'elements/InputLabel';
-import VSpace from 'elements/VSpace';
 import { useDatabase, useModal, usePageReRender } from 'hooks';
 import React from 'react';
-import { MAX_WIDTH, getColors } from 'style';
+import { MAX_WIDTH } from 'style';
 import Select from 'react-select';
-import { FormTextInput } from 'elements/FormInputs';
 import { FormStatNumberInput } from 'elements/FormInputs';
 
 const AddUnitToEncounterModal = (props: { encounter: Encounter }) => {

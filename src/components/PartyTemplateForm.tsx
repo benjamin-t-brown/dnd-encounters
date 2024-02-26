@@ -2,10 +2,9 @@ import { PartyStorage } from 'data/storage';
 import Button from 'elements/Button';
 import { FormTextInput, FormTextInputFullWidth } from 'elements/FormInputs';
 import ImagePortrait from 'elements/ImagePortrait';
-import VSpace from 'elements/VSpace';
 import { useForm, useGlobalAlert } from 'hooks';
 import React from 'react';
-import { MAX_HEIGHT_MODAL, getColors } from 'style';
+import { getColors } from 'style';
 import styled from 'styled-components';
 
 const Root = styled.div<Object>(() => {

@@ -5,7 +5,7 @@ import ImagePortrait from 'elements/ImagePortrait';
 import InputLabel from 'elements/InputLabel';
 import VSpace from 'elements/VSpace';
 import { useModal, usePageReRender } from 'hooks';
-import React, { useEffect } from 'react';
+import React from 'react';
 import { MAX_WIDTH, getColors } from 'style';
 
 const getNextHpColor = (nextHp: number, currentHp: number) => {

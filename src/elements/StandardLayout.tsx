@@ -1,7 +1,6 @@
 import React from 'react';
 import { MAX_WIDTH } from 'style';
 import styled from 'styled-components';
-import VSpace from './VSpace';
 
 const Root = styled.div<Object>(() => {
   return {

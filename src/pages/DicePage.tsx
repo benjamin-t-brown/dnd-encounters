@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import StandardLayout from 'elements/StandardLayout';
 import TopBar from 'elements/TopBar';
 import styled from 'styled-components';

@@ -4,7 +4,7 @@ import {
   saveEncounterDatabase,
 } from 'data/storage';
 import { useDatabase, useGlobalConfirm, usePageReRender } from 'hooks';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { getColors } from 'style';
 import EditUnitPublicIdModal from './EditUnitPublicIdModal';
 import EditEncounterHpModal from './EditEncounterHpModal';

@@ -1,24 +1,7 @@
 import MDEditor from '@uiw/react-md-editor';
-import AddUnitToEncounterModal from 'components/AddUnitToEncounterModal';
-import DiceRoller from 'components/DiceRoller';
-import EditEncounterHpModal from 'components/EditEncounterHpModal';
-import EditUnitPublicIdModal from 'components/EditUnitPublicIdModal';
-import EncounterUnit from 'components/EncounterUnit';
-import TabNavigationBar from 'components/TabNavigationBar';
-import { getModifier, rollInitiative } from 'data/dice';
-import {
-  Encounter,
-  UnitInEncounter,
-  getEncounterById,
-  getEncounterTemplateById,
-  isEncounterStarted,
-  saveEncounterDatabase,
-} from 'data/storage';
+import { getModifier } from 'data/dice';
+import { UnitInEncounter } from 'data/storage';
 import Button from 'elements/Button';
-import CardTitle from 'elements/CardTitle';
-import CardTitleZone from 'elements/CardTitleZone';
-import CornerButton from 'elements/CornerButton';
-import { Dropdown, DropdownSection } from 'elements/Dropdown';
 import {
   FormStatNumberInput,
   FormTextInput,
@@ -26,21 +9,9 @@ import {
 } from 'elements/FormInputs';
 import HSpace from 'elements/HSpace';
 import ImagePortrait from 'elements/ImagePortrait';
-import PctBar from 'elements/PctBar';
-import StandardLayout from 'elements/StandardLayout';
-import TopBar from 'elements/TopBar';
-import VSpace from 'elements/VSpace';
-import {
-  setLSRoute,
-  useDatabase,
-  useGlobalAlert,
-  useGlobalConfirm,
-  useLSRoute,
-  usePageReRender,
-} from 'hooks';
-import React, { useEffect, useState } from 'react';
-import { MAX_WIDTH, getColors } from 'style';
-import styled from 'styled-components';
+import { usePageReRender } from 'hooks';
+import React, { useState } from 'react';
+import { getColors } from 'style';
 
 const EncounterUnitInfo = (props: { unit: UnitInEncounter }) => {
   const change = () => void 0;

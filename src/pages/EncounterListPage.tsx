@@ -1,52 +1,26 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import StandardLayout from 'elements/StandardLayout';
 import TopBar from 'elements/TopBar';
 import styled from 'styled-components';
 import CardTitle from 'elements/CardTitle';
 import CardTitleZone from 'elements/CardTitleZone';
-import {
-  PageProps,
-  createAggStringList,
-  downloadObjectAsJson,
-  sortByDate,
-} from 'utils';
+import { PageProps, createAggStringList, sortByDate } from 'utils';
 import Button from 'elements/Button';
-import {
-  getFormValues,
-  setLSRoute,
-  useDatabase,
-  useModal,
-  usePageReRender,
-  useReRender,
-} from 'hooks';
-import UnitTemplateForm from 'components/UnitTemplateForm';
+import { setLSRoute, useDatabase, usePageReRender } from 'hooks';
 import {
   Encounter,
-  EncounterDatabase,
   EncounterTemplate,
-  createEncounterTemplate,
-  createUnitTemplate,
-  getEncounterById,
   getEncounterTemplateById,
-  getLSUnitTemplateFilter,
   getPartyStorageById,
   getUnitTemplateById,
-  getUnitTemplateByName,
   saveEncounterDatabase,
 } from 'data/storage';
-import { UnitTemplateFormState, formStateToUnitTemplate } from 'data/form';
-import EncounterTemplateForm from 'components/EncounterTemplateForm';
 import { getColors } from 'style';
-import { DataContext } from 'App';
 import NewEncounterTemplateModal from 'components/NewEncounterTemplateModal';
 import HSpace from 'elements/HSpace';
-import ImportDatabaseModal from 'components/ImportDatabaseModal';
-import NewUnitTemplateModal from 'components/NewUnitTemplateModal';
-import NewPartyTemplateModal from 'components/NewPartyTemplateModal';
 import TabNavigationBar from 'components/TabNavigationBar';
 import FlexWrapCard from 'elements/FlexWrapCard';
 import FlexWrapCardDateTime from 'elements/FlexWrapCardDateTime';
-import DefaultDatabase from 'data/defaultDatabase';
 import DatabaseManagementBar from 'components/DatabaseManagementBar';
 import VSpace from 'elements/VSpace';
 import NewEncounterModal from 'components/NewEncounterModal';

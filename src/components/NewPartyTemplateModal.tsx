@@ -1,7 +1,6 @@
 import {
   PartyStorage,
   createPartyStorage,
-  getEncounterTemplateByName,
   getPartyStorageByName,
   saveEncounterDatabase,
 } from 'data/storage';
