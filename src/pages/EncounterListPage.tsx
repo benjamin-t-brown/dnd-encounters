@@ -39,6 +39,7 @@ const InnerRoot = styled.div<Object>(() => {
 const EncounterTemplateItem = (props: {
   encounterTemplate: EncounterTemplate;
   setDefaultTemplateId: (str: string) => void;
+  key?: string;
 }) => {
   const data = useDatabase();
   const render = usePageReRender();
@@ -169,7 +170,7 @@ const EncounterTemplateItem = (props: {
   );
 };
 
-const EncounterItem = (props: { encounter: Encounter }) => {
+const EncounterItem = (props: { encounter: Encounter, key?: string }) => {
   const data = useDatabase();
   const render = usePageReRender();
 

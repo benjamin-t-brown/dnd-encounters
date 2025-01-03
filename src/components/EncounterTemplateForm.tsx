@@ -167,13 +167,13 @@ interface EncounterTemplateFormProps {
   maxHeight: number | string;
 }
 const EncounterTemplateForm = (props: EncounterTemplateFormProps) => {
+  const data = useContext(DataContext);
   const { formState, change, reset } = useForm({
     formId: 'EncounterTemplateForm',
-    initialValues: encounterTemplateToFormState(props.encounterTemplate),
+    initialValues: encounterTemplateToFormState(props.encounterTemplate, data),
   });
   const [unitTemplateFilter, setUnitTemplateFilter] = React.useState('');
   const [onlyCustomUnits, setOnlyCustomUnits] = React.useState(false);
-  const data = useContext(DataContext);
 
   const aggUnits = formState.units.reduce(
     (arr, templateId) => {
@@ -289,7 +289,8 @@ const EncounterTemplateForm = (props: EncounterTemplateFormProps) => {
             {aggUnits.map(({ id, count }) => {
               const unitTemplate = getUnitTemplateById(id, data);
               if (!unitTemplate) {
-                throw new Error('Unit template not found: ' + id);
+                // throw new Error('Unit template not found: ' + id);
+                return null;
               }
               return (
                 <Unit

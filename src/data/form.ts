@@ -120,12 +120,13 @@ export interface EncounterTemplateFormState {
 }
 
 export const encounterTemplateToFormState = (
-  t: EncounterTemplate
+  t: EncounterTemplate,
+  data: EncounterDatabase
 ): EncounterTemplateFormState => {
   return {
     id: t.id,
     name: t.name,
-    units: t.units.slice(),
+    units: t.units.slice().filter(id => getUnitTemplateById(id, data)),
     campaign: t.campaign ?? '',
   };
 };
