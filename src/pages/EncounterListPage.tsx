@@ -114,7 +114,6 @@ const EncounterTemplateItem = (props: {
       />
       <div
         style={{
-          // marginLeft: '14px',
           color: getColors().ERROR_TEXT,
           marginBottom: '4px',
         }}
@@ -127,7 +126,6 @@ const EncounterTemplateItem = (props: {
       </div>
       <h3
         style={{
-          // textAlign: 'center',
           margin: '4px 0px',
           whiteSpace: 'pre',
           width: '100%',
@@ -170,7 +168,7 @@ const EncounterTemplateItem = (props: {
   );
 };
 
-const EncounterItem = (props: { encounter: Encounter, key?: string }) => {
+const EncounterItem = (props: { encounter: Encounter; key?: string }) => {
   const data = useDatabase();
   const render = usePageReRender();
 

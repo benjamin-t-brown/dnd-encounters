@@ -24,7 +24,9 @@ for (const encounter of db.encounters) {
 const encounterTemplateIds: string[] = [];
 for (const encounterTemplate of db.encounterTemplates) {
   if (encounterTemplateIds.includes(encounterTemplate.id)) {
-    console.log(`Duplicate encounter template id: ${encounterTemplate.id} (${encounterTemplate.name})`);
+    console.log(
+      `Duplicate encounter template id: ${encounterTemplate.id} (${encounterTemplate.name})`
+    );
     encounterTemplate.id = randomId();
   }
   encounterTemplateIds.push(encounterTemplate.id);
@@ -33,7 +35,9 @@ for (const encounterTemplate of db.encounterTemplates) {
 const unitTemplateIds: string[] = [];
 for (const unitTemplate of db.unitTemplates) {
   if (unitTemplateIds.includes(unitTemplate.id)) {
-    console.log(`Duplicate unit template id: ${unitTemplate.id} (${unitTemplate.name})`);
+    console.log(
+      `Duplicate unit template id: ${unitTemplate.id} (${unitTemplate.name})`
+    );
     unitTemplate.id = randomId();
   }
   unitTemplateIds.push(unitTemplate.id);

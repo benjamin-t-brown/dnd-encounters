@@ -96,16 +96,92 @@ export interface PartyStorage {
   lastUpdated: number;
 }
 
+export type ItemRarity =
+  | 'common'
+  | 'uncommon'
+  | 'rare'
+  | 'very rare'
+  | 'legendary';
+
+export interface ItemTemplate {
+  id: string;
+  name: string;
+  imgUrl: string;
+  rarity: ItemRarity;
+  notes: string;
+  lastUpdated: number;
+}
+
 export interface EncounterDatabase {
   encounterTemplates: EncounterTemplate[];
   encounters: Encounter[];
   unitTemplates: UnitTemplate[];
   parties: PartyStorage[];
+  itemTemplates?: ItemTemplate[];
 }
 
 const STORAGE_KEY = 'dnd5e-encounter-tracker_';
 export const getKey = (postFix: string) => {
   return STORAGE_KEY + postFix;
+};
+
+export const mergeEncounterDatabase = (
+  existingData: EncounterDatabase,
+  newData: EncounterDatabase
+) => {
+  const existingItemTemplates = existingData.itemTemplates ?? [];
+  const newItemTemplates = newData.itemTemplates ?? [];
+  for (const unitTemplate of newData.unitTemplates) {
+    const existingUnitTemplate = existingData.unitTemplates.find(
+      t => t.id === unitTemplate.id
+    );
+    if (!existingUnitTemplate) {
+      existingData.unitTemplates.push(unitTemplate);
+    } else {
+      Object.assign(existingUnitTemplate, unitTemplate);
+    }
+  }
+  for (const itemTemplate of newItemTemplates) {
+    const existingItemTemplate = existingItemTemplates.find(
+      t => t.id === itemTemplate.id
+    );
+    if (!existingItemTemplate) {
+      existingItemTemplates.push(itemTemplate);
+    } else {
+      Object.assign(existingItemTemplate, itemTemplate);
+    }
+  }
+  for (const encounterTemplate of newData.encounterTemplates) {
+    const existingEncounterTemplate = existingData.encounterTemplates.find(
+      t => t.id === encounterTemplate.id
+    );
+    if (!existingEncounterTemplate) {
+      existingData.encounterTemplates.push(encounterTemplate);
+    } else {
+      Object.assign(existingEncounterTemplate, encounterTemplate);
+    }
+  }
+  for (const party of newData.parties) {
+    const existingParty = existingData.parties.find(p => p.id === party.id);
+    if (!existingParty) {
+      existingData.parties.push(party);
+    } else {
+      Object.assign(existingParty, party);
+    }
+  }
+
+  for (const encounter of newData.encounters) {
+    const existingEncounter = existingData.encounters.find(
+      e => e.id === encounter.id
+    );
+    if (!existingEncounter) {
+      existingData.encounters.push(encounter);
+    } else {
+      Object.assign(existingEncounter, encounter);
+    }
+  }
+
+  return validateEncounterDatabase(structuredClone(existingData));
 };
 
 export const saveEncounterDatabase = (data: EncounterDatabase) => {
@@ -136,6 +212,7 @@ export const loadEncounterDatabase = (): EncounterDatabase => {
       encounters: [],
       unitTemplates: [],
       parties: [],
+      itemTemplates: [],
     };
   }
 };
@@ -143,6 +220,7 @@ export const loadEncounterDatabase = (): EncounterDatabase => {
 export const validateEncounterDatabase = (data: EncounterDatabase) => {
   const duplicateUnitTemplates: UnitTemplate[] = [];
   const duplicateEncounterTemplates: EncounterTemplate[] = [];
+  const duplicateItemTemplates: ItemTemplate[] = [];
 
   for (const unitTemplate of data.unitTemplates) {
     const unitTemplate2 = data.unitTemplates.find(
@@ -150,6 +228,16 @@ export const validateEncounterDatabase = (data: EncounterDatabase) => {
     );
     if (unitTemplate2) {
       duplicateUnitTemplates.push(unitTemplate);
+    }
+  }
+
+  const itemTemplates = data.itemTemplates ?? [];
+  for (const itemTemplate of itemTemplates) {
+    const itemTemplate2 = itemTemplates.find(
+      t => t !== itemTemplate && t.id === itemTemplate.id
+    );
+    if (itemTemplate2) {
+      duplicateItemTemplates.push(itemTemplate);
     }
   }
 
@@ -170,6 +258,9 @@ export const validateEncounterDatabase = (data: EncounterDatabase) => {
       'Duplicate encounter templates found',
       duplicateEncounterTemplates
     );
+  }
+  if (duplicateItemTemplates.length > 0) {
+    console.error('Duplicate item templates found', duplicateItemTemplates);
   }
   return data;
 };
@@ -219,6 +310,17 @@ export const createEncounterTemplate = (): EncounterTemplate => {
   };
 };
 
+export const createItemTemplate = (): ItemTemplate => {
+  return {
+    id: randomId(),
+    name: '',
+    imgUrl: '',
+    rarity: 'common',
+    notes: '',
+    lastUpdated: +new Date(),
+  };
+};
+
 export const createPartyStorage = (): PartyStorage => {
   return {
     id: randomId(),
@@ -256,6 +358,21 @@ export const getUnitTemplateByName = (
 ): UnitTemplate | undefined => {
   return data.unitTemplates.find(
     unit => unit.name?.toLowerCase() === name?.toLowerCase()
+  );
+};
+
+export const getItemTemplateById = (
+  id: string,
+  data: EncounterDatabase
+): ItemTemplate | undefined => {
+  return data.itemTemplates?.find(item => item.id === id);
+};
+export const getItemTemplateByName = (
+  name: string,
+  data: EncounterDatabase
+): ItemTemplate | undefined => {
+  return data.itemTemplates?.find(
+    item => item.name?.toLowerCase() === name?.toLowerCase()
   );
 };
 
@@ -321,4 +438,11 @@ export const setLSUnitTemplateFilter = (filter: string) => {
 };
 export const getLSUnitTemplateFilter = () => {
   return localStorage.getItem(getKey('unitTemplateFilter')) ?? '';
+};
+
+export const setLSItemTemplateFilter = (filter: string) => {
+  localStorage.setItem(getKey('itemTemplateFilter'), filter);
+};
+export const getLSItemTemplateFilter = () => {
+  return localStorage.getItem(getKey('itemTemplateFilter')) ?? '';
 };

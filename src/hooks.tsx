@@ -10,6 +10,7 @@ import React, {
 } from 'react';
 import { DataContext } from 'App';
 import { getKey } from 'data/storage';
+import TemporaryNotification from 'elements/TemporaryNotification';
 
 export const useReRender = () => {
   const [, updateState] = useState();
@@ -201,3 +202,38 @@ export const useKeyboardEventListener = (
     };
   }, captures);
 };
+
+interface ShowNotificationOptions {
+  message: string;
+  variant?: 'neutral' | 'success' | 'error';
+  duration?: number;
+  visible?: boolean;
+}
+
+let notifTimeoutId: any;
+
+export function useTemporaryNotification() {
+  const [notificationOptions, setNotificationOptions] =
+    useState<ShowNotificationOptions | null>(null);
+
+  const showNotification = (options: ShowNotificationOptions) => {
+    setNotificationOptions(options);
+    if (notifTimeoutId) {
+      clearTimeout(notifTimeoutId);
+      notifTimeoutId = undefined;
+    }
+    notifTimeoutId = setTimeout(() => {
+      notifTimeoutId = undefined;
+      setNotificationOptions(null);
+    }, options.duration ?? 3000);
+  };
+
+  const notificationComponent = notificationOptions ? (
+    <TemporaryNotification
+      message={notificationOptions.message}
+      variant={notificationOptions.variant}
+    />
+  ) : null;
+
+  return { showNotification, notificationComponent };
+}

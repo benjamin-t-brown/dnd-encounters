@@ -1,4 +1,4 @@
-import { getPartyStorageById } from './storage';
+import { getPartyStorageById, ItemRarity, ItemTemplate } from './storage';
 import { createUnitTemplate } from './storage';
 import { createUnit } from './storage';
 import { getEncounterTemplateById } from './storage';
@@ -108,6 +108,39 @@ export const formStateToUnitTemplate = (
       WIS: state.WIS,
       CHA: state.CHA,
     },
+    lastUpdated: +new Date(),
+  };
+};
+
+export interface ItemTemplateFormState {
+  id: string;
+  name: string;
+  imgUrl: string;
+  rarity: string;
+  notes: string;
+}
+
+export const itemTemplateToFormState = (
+  t: ItemTemplate
+): ItemTemplateFormState => {
+  return {
+    id: t.id,
+    name: t.name,
+    rarity: t.rarity,
+    imgUrl: t.imgUrl,
+    notes: t.notes,
+  };
+};
+
+export const formStateToItemTemplate = (
+  state: ItemTemplateFormState
+): ItemTemplate => {
+  return {
+    id: state.id,
+    name: state.name,
+    imgUrl: state.imgUrl,
+    notes: state.notes,
+    rarity: state.rarity as ItemRarity,
     lastUpdated: +new Date(),
   };
 };

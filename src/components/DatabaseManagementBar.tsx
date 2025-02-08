@@ -18,7 +18,7 @@ const DatabaseManagementBar = () => {
         display: 'flex',
       }}
     >
-      <ImportDatabaseModal />
+      <ImportDatabaseModal data={data} />
       <HSpace />
       <Button
         color="secondary"

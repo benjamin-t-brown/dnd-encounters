@@ -117,6 +117,15 @@ const TabNavigationBar = () => {
       </TabButton>
       <HSpace />
       <TabButton
+        active={route?.includes('item-list')}
+        onClick={() => {
+          setLSRoute('item-list');
+        }}
+      >
+        Items
+      </TabButton>
+      <HSpace />
+      <TabButton
         active={route?.includes('party-list')}
         onClick={() => {
           setLSRoute('party-list');

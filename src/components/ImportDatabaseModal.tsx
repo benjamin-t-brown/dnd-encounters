@@ -1,10 +1,14 @@
-import { saveEncounterDatabase } from 'data/storage';
+import {
+  EncounterDatabase,
+  mergeEncounterDatabase,
+  saveEncounterDatabase,
+} from 'data/storage';
 import Button from 'elements/Button';
 import { useModal } from 'hooks';
 import React from 'react';
 import { getColors } from 'style';
 
-const ImportDatabaseModal = () => {
+const ImportDatabaseModal = (props: { data: EncounterDatabase }) => {
   const [fileName, setFileName] = React.useState('');
   const fileInputRef = React.useRef<any>(null);
 
@@ -16,8 +20,8 @@ const ImportDatabaseModal = () => {
         reader.onload = e => {
           try {
             const parsedData = JSON.parse(e.target?.result as string);
-            // data.unitTemplates = parsedData
-            saveEncounterDatabase(parsedData);
+            const newDb = mergeEncounterDatabase(props.data, parsedData);
+            saveEncounterDatabase(newDb);
             window.location.reload();
           } catch (e) {
             console.error('Error during import', e);
@@ -28,7 +32,7 @@ const ImportDatabaseModal = () => {
       }
     },
     onCancel: () => {},
-    title: 'Import',
+    title: 'Import and Merge',
     body: (
       <div>
         <div
