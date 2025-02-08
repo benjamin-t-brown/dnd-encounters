@@ -129,7 +129,10 @@ export const mergeEncounterDatabase = (
   existingData: EncounterDatabase,
   newData: EncounterDatabase
 ) => {
-  const existingItemTemplates = existingData.itemTemplates ?? [];
+  if (!existingData.itemTemplates) {
+    existingData.itemTemplates = [];
+  }
+  const existingItemTemplates = existingData.itemTemplates;
   const newItemTemplates = newData.itemTemplates ?? [];
   for (const unitTemplate of newData.unitTemplates) {
     const existingUnitTemplate = existingData.unitTemplates.find(
