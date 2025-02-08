@@ -1,4 +1,3 @@
-import { DataContext } from 'App';
 import {
   EncounterTemplateFormState,
   encounterTemplateToFormState,
@@ -8,6 +7,7 @@ import {
   UnitTemplate,
   getUnitTemplateById,
 } from 'data/storage';
+import { getDataContext } from 'db';
 import { FormCheckboxInput, FormTextInput } from 'elements/FormInputs';
 import HSpace from 'elements/HSpace';
 import ImagePortrait from 'elements/ImagePortrait';
@@ -167,7 +167,7 @@ interface EncounterTemplateFormProps {
   maxHeight: number | string;
 }
 const EncounterTemplateForm = (props: EncounterTemplateFormProps) => {
-  const data = useContext(DataContext);
+  const data = useContext(getDataContext());
   const { formState, change, reset } = useForm({
     formId: 'EncounterTemplateForm',
     initialValues: encounterTemplateToFormState(props.encounterTemplate, data),

@@ -1,12 +1,8 @@
-import { EncounterDatabase, loadEncounterDatabase } from 'data/storage';
+import { getDataContext } from 'db';
 import { useModal, useReRender } from 'hooks';
 import React, { useEffect } from 'react';
 import Router from 'router';
 import { MAX_WIDTH } from 'style';
-
-const data = loadEncounterDatabase();
-(window as any).data = data;
-export const DataContext = React.createContext<EncounterDatabase>(data);
 
 (window as any).reRender = () => void 0;
 
@@ -63,9 +59,11 @@ const App = () => {
     setInfoModalOpen(true);
   };
 
+  const DataContext = getDataContext();
+
   return (
     // <React.StrictMode>
-    <DataContext.Provider value={data}>
+    <DataContext.Provider value={(window as any).data}>
       <Router />
       {confirmModal}
       {infoModal}

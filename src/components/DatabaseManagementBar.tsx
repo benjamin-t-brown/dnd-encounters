@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import ImportDatabaseModal from './ImportDatabaseModal';
 import HSpace from 'elements/HSpace';
 import Button from 'elements/Button';
@@ -12,6 +12,17 @@ const DatabaseManagementBar = () => {
   const data = useDatabase();
   const showConfirm = useGlobalConfirm();
 
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if ((e.ctrlKey || e.metaKey) && e.key === 's') {
+        e.preventDefault();
+        downloadObjectAsJson(data, 'dnd-encounters-database.json');
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [data]);
+
   return (
     <div
       style={{
@@ -23,7 +34,7 @@ const DatabaseManagementBar = () => {
       <Button
         color="secondary"
         onClick={() => {
-          downloadObjectAsJson(data, 'dnd-encounters-database.json');
+          downloadObjectAsJson(data, 'dnd-encounters-database');
           render();
         }}
       >

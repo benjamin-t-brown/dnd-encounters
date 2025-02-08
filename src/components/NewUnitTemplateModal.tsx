@@ -1,4 +1,3 @@
-import { DataContext } from 'App';
 import { UnitTemplateFormState, formStateToUnitTemplate } from 'data/form';
 import {
   createUnitTemplate,
@@ -11,12 +10,13 @@ import React, { useContext } from 'react';
 import UnitTemplateForm from './UnitTemplateForm';
 import Button from 'elements/Button';
 import { randomId } from 'utils';
+import { getDataContext } from 'db';
 
 const NewUnitTemplateModal = (props: {
   unitTemplateId?: string;
   clone?: boolean;
 }) => {
-  const data = useContext(DataContext);
+  const data = useContext(getDataContext());
   const showAlert = useGlobalAlert();
 
   const { modal, setOpen } = useModal({

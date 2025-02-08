@@ -8,9 +8,9 @@ import React, {
   useReducer,
   useState,
 } from 'react';
-import { DataContext } from 'App';
 import { getKey } from 'data/storage';
 import TemporaryNotification from 'elements/TemporaryNotification';
+import { getDataContext } from 'db';
 
 export const useReRender = () => {
   const [, updateState] = useState();
@@ -129,7 +129,7 @@ export function useForm<T>(formProps: FormProps<T>) {
 }
 
 export const useDatabase = () => {
-  return useContext(DataContext);
+  return useContext(getDataContext());
 };
 
 export const usePageReRender = () => {

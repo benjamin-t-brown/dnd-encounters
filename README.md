@@ -4,6 +4,10 @@ The app is deployed here:
 
 [https://benjamin-t-brown.github.io/dnd-encounters/](https://benjamin-t-brown.github.io/dnd-encounters/)
 
+To use github db:
+
+[https://benjamin-t-brown.github.io/dnd-encounters/?databaseUrl=https%3A%2F%2Fraw.githubusercontent.com%2Fbenjamin-t-brown%2Fdnd-encounters%2Frefs%2Fheads%2Fmain%2Fscratch%2Fhosted_database.json](https://benjamin-t-brown.github.io/dnd-encounters/?databaseUrl=https%3A%2F%2Fraw.githubusercontent.com%2Fbenjamin-t-brown%2Fdnd-encounters%2Frefs%2Fheads%2Fmain%2Fscratch%2Fhosted_database.json)
+
 I was on the D&D Beyond site messing around with their encounter runner, and I felt that it was lacking in some areas.  I've made an attempt to improve upon their design.  In addition, I have provided a way to import their monsters into the application as you need them.  All you need to do is copy the contents of their monster page into the tool and it will parse it out for you.
 
 To run an encounter requires some setup:
