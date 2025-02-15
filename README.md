@@ -33,3 +33,5 @@ For example, to add a "Goblin Boss" from the basic monster set,
 
 4. Once you have these things, you can create a new encounter and run it!
 ![image](https://github.com/benjamin-t-brown/dnd-encounters/assets/1266353/56437ca8-709d-47f4-8bc7-8d82bbd916cd)
+
+You can import stat blocks from dndbeyond or https://www.dandwiki.com/wiki/5e_Fiend_Monsters

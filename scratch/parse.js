@@ -208,7 +208,8 @@ const findStat = (lines, stat) => {
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i];
     if (line.toLowerCase().startsWith(stat.toLowerCase())) {
-      return parseInt(lines[i + 1]);
+      const stat = parseInt(lines[i + 1]);
+      return isNaN(stat) ? 10 : stat;
     }
   }
 };
