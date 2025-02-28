@@ -5,6 +5,8 @@ import {
   getPartyStorageById,
   getUnitTemplateById,
 } from 'data/storage';
+import Button from 'elements/Button';
+import { Dropdown, DropdownSection } from 'elements/Dropdown';
 import HSpace from 'elements/HSpace';
 import TabButton from 'elements/TabButton';
 import {
@@ -25,7 +27,7 @@ const Root = styled.div<Object>(() => {
     whiteSpace: 'pre',
     marginBottom: '8px',
     position: 'fixed',
-    top: '52px',
+    top: '55px',
     width: 'calc(100% - 50px)',
     maxWidth: MAX_WIDTH + 'px',
     borderBottom: '1px solid ' + getColors().TEXT_DESCRIPTION,
@@ -136,6 +138,26 @@ const TabNavigationBar = () => {
       <HSpace />
     </React.Fragment>
   );
+
+  const getButtonLabel = () => {
+    switch (true) {
+      case route?.includes('unit-list'):
+        return 'Units';
+      case route?.includes('item-list'):
+        return 'Items';
+      case route?.includes('party-list'):
+        return 'Parties';
+      case route?.includes('dice'):
+        return 'Dice';
+      case savedTab && savedTab === route:
+        getTemplateName(savedTab, data);
+      case route?.includes('encounter-list') || !route:
+      default:
+        return 'Home';
+    }
+  };
+
+  const buttonLabel = getButtonLabel();
   // }
 
   // if (isRunningEncounter) {
@@ -159,7 +181,7 @@ const TabNavigationBar = () => {
       <React.Fragment key="saved-tabs">
         <TabButton
           key="saved-tab"
-          active={savedTab === route}
+          active={false}
           onClick={() => {
             if (savedTab && savedTab !== route) {
               setLSRoute(savedTab);
@@ -175,9 +197,89 @@ const TabNavigationBar = () => {
 
   return (
     <Root>
-      <div style={{ overflow: 'hidden' }}>{...buttons}</div>
+      <Dropdown buttonText={buttonLabel + ' ≡'} placement="right-start">
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'flex-start',
+            flexDirection: 'column',
+          }}
+        >
+          <DropdownSection>
+            <TabButton
+              active={false}
+              onClick={() => {
+                setLSRoute('encounter-list');
+              }}
+            >
+              Home
+            </TabButton>
+          </DropdownSection>
+          <DropdownSection>
+            <TabButton
+              active={false}
+              onClick={() => {
+                setLSRoute('unit-list');
+              }}
+            >
+              Units
+            </TabButton>
+          </DropdownSection>
+          <DropdownSection>
+            <TabButton
+              active={false}
+              onClick={() => {
+                setLSRoute('item-list');
+              }}
+            >
+              Items
+            </TabButton>
+          </DropdownSection>
+          <DropdownSection>
+            <TabButton
+              active={false}
+              onClick={() => {
+                setLSRoute('party-list');
+              }}
+            >
+              Parties
+            </TabButton>
+          </DropdownSection>
+          <DropdownSection>
+            <TabButton
+              active={false}
+              onClick={() => {
+                setLSRoute('dice');
+              }}
+            >
+              Dice
+            </TabButton>
+          </DropdownSection>
+          {savedTab ? (
+            <DropdownSection>
+              <TabButton
+                key="saved-tab"
+                active={false}
+                onClick={() => {
+                  if (savedTab && savedTab !== route) {
+                    setLSRoute(savedTab);
+                  }
+                }}
+              >
+                {getTemplateName(savedTab, data)}
+              </TabButton>
+            </DropdownSection>
+          ) : null}
+        </div>
+      </Dropdown>
     </Root>
   );
+
+  // return (
+  //   <Root>
+  //     <div style={{ overflow: 'hidden' }}>{...buttons}</div>
+  //   </Root>
+  // );
 };
 
 export default TabNavigationBar;

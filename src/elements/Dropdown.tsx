@@ -2,6 +2,7 @@ import React from 'react';
 import Button from './Button';
 import { useLayer } from 'react-laag';
 import { getColors } from 'style';
+import { PlacementType } from 'react-laag/dist/PlacementType';
 
 interface DropdownLayerProps extends React.PropsWithChildren {
   style?: React.CSSProperties;
@@ -41,6 +42,7 @@ export const DropdownSection = (props: React.PropsWithChildren) => {
 interface DropdownProps extends React.PropsWithChildren {
   buttonText?: React.ReactNode;
   style?: React.CSSProperties;
+  placement?: PlacementType;
 }
 
 export const Dropdown = (props: DropdownProps) => {
@@ -51,7 +53,7 @@ export const Dropdown = (props: DropdownProps) => {
   const [optionsOpen, setOptionsOpen] = React.useState(false);
   const { renderLayer, triggerProps, layerProps, arrowProps } = useLayer({
     isOpen: optionsOpen,
-    placement: 'left-start',
+    placement: props.placement ?? 'left-start',
     triggerOffset: 8,
     arrowOffset: 4,
     onOutsideClick: () => setOptionsOpen(false),

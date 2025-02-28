@@ -77,6 +77,8 @@ export const FormStatNumberInput = (props: {
   formState: Record<string, any>;
   change: (key: string, value: number) => void;
   disabled?: boolean;
+  fullWidth?: boolean;
+  inputStyle?: React.CSSProperties;
 }) => {
   return (
     <div
@@ -101,10 +103,11 @@ export const FormStatNumberInput = (props: {
           ev.stopPropagation();
         }}
         style={{
-          width: '75px',
+          width: props.fullWidth ? '100%' : '75px',
           marginRight: '2px',
           background: props.disabled ? getColors().BACKGROUND : undefined,
           color: props.disabled ? getColors().TEXT_DEFAULT : undefined,
+          ...(props.inputStyle ?? {}),
         }}
       />
     </div>

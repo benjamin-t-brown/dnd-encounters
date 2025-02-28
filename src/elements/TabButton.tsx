@@ -21,12 +21,13 @@ const TabButton = styled.button<ITabButtonProps>(props => {
     fontSize: window.innerWidth < 600 ? '12px' : '18px',
     cursor: 'pointer',
     border: '1px solid ' + colorsDark.TEXT_DEFAULT,
-    borderBottom: props.active ? 'none' : '1px solid black',
+    // borderBottom: props.active ? 'none' : '1px solid black',
     borderRadius: '4px',
-    borderBottomLeftRadius: '0px',
-    borderBottomRightRadius: '0px',
+    // borderBottomLeftRadius: '0px',
+    // borderBottomRightRadius: '0px',
     maxWidth: '150px',
     overflow: 'hidden',
+    width: '100%',
     textOverflow: 'ellipsis',
   };
   if (props.flex) {

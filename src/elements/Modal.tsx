@@ -45,6 +45,7 @@ export interface ModalProps extends React.PropsWithChildren {
   maxWidth?: string;
   body?: React.ReactNode;
   disableEnterConfirm?: boolean;
+  isInputModal?: boolean;
 }
 
 const Modal = (props: ModalProps) => {
@@ -57,7 +58,16 @@ const Modal = (props: ModalProps) => {
         ev.stopPropagation();
       }}
     >
-      <InnerRoot maxWidth={props.maxWidth}>
+      <InnerRoot
+        maxWidth={props.maxWidth}
+        style={{
+          transform: props.isInputModal
+            ? window.innerWidth < 800
+              ? 'translateY(-75px)'
+              : ''
+            : '',
+        }}
+      >
         <h2>{props.title ?? 'Modal'}</h2>
         <div
           style={{

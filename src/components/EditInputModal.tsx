@@ -10,6 +10,7 @@ const EditInputModal = (props: {
   buttonLabel: string;
   onConfirm: (v: string) => void;
   inputType?: 'text' | 'number';
+  disableReset?: boolean;
   style: React.CSSProperties;
 }) => {
   const [nextValue, setNextValue] = React.useState(String(props.value));
@@ -20,6 +21,7 @@ const EditInputModal = (props: {
       props.onConfirm(nextValue);
       render();
     },
+    isInputModal: true,
     onCancel: () => {},
     title: 'Edit ' + props.label,
     body: (
@@ -34,18 +36,27 @@ const EditInputModal = (props: {
             border: '1px solid ' + getColors().TEXT_DESCRIPTION,
           }}
         >
-          <div>
-            <Button
-              color="primary"
-              onClick={() => {
-                setNextValue(String(0));
-              }}
-              style={{
-                fontSize: '12px',
-              }}
-            >
-              Reset
-            </Button>
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              flexDirection: 'column',
+            }}
+          >
+            {!props.disableReset ? (
+              <Button
+                color="primary"
+                onClick={() => {
+                  setNextValue(String(0));
+                }}
+                style={{
+                  fontSize: '12px',
+                }}
+              >
+                Reset
+              </Button>
+            ) : null}
             <InputLabel>{props.label}</InputLabel>
             <input
               id="edit-input-modal-input"
@@ -54,7 +65,6 @@ const EditInputModal = (props: {
               onChange={ev => {
                 setNextValue(ev.target.value);
               }}
-              autoFocus={true}
               style={{
                 marginTop: '4px',
                 width: '75px',

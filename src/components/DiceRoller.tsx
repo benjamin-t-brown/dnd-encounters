@@ -216,7 +216,7 @@ const getStoredRollHistory = () => {
 
 const DiceRoller = () => {
   const [bonus, setBonus] = React.useState(0);
-  const diceValues = [4, 6, 8, 10, 12, 20, 100];
+  const diceValues = [4, 6, 8, 10, 12, 100, 20];
   const [rollHistory, setRollHistory] = React.useState<
     { result: number; bonus: number; dice: number }[]
   >(getStoredRollHistory());
@@ -262,9 +262,13 @@ const DiceRoller = () => {
         <div
           style={{
             minWidth: '168px',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            flexWrap: 'wrap',
           }}
         >
-          {diceValues.map(diceValue => {
+          {diceValues.map((diceValue, i) => {
             return (
               <React.Fragment key={diceValue}>
                 <Button
@@ -279,35 +283,13 @@ const DiceRoller = () => {
                 >
                   D{diceValue}
                 </Button>
-                <HSpace />
+                {i < diceValues.length - 1 ? <HSpace /> : null}
               </React.Fragment>
             );
           })}
         </div>
-        {/* <div>
-          <div
-            style={{
-              textAlign: 'center',
-              marginTop: '8px',
-            }}
-          >
-            Bonus {bonus >= 0 ? '+' : ''}
-            {bonus}
-          </div>
-          <input
-            type="range"
-            min="-10"
-            max="10"
-            value={bonus}
-            onChange={ev => {
-              setBonus(ev.target.valueAsNumber);
-            }}
-            style={{ width: '100%' }}
-          />
-        </div> */}
         <div
           style={{
-            margin: '16px',
             background: getColors().BACKGROUND,
             border: '1px solid ' + getColors().TEXT_DESCRIPTION,
             borderRadius: '8px',
@@ -351,13 +333,6 @@ const DiceRoller = () => {
           )}
         </div>
       </div>
-      {/* <div
-        style={{
-          margin: '0 16px',
-        }}
-      >
-        
-      </div> */}
       <div
         style={{
           margin: '4px',
@@ -396,6 +371,7 @@ const DiceRoller = () => {
             <InputLabel htmlFor="includeBonus">Include Bonus</InputLabel>
           </div>
           <RangeButtonInput
+            label="Sum Last N"
             value={sumLastN}
             onChange={v => {
               setSumLastN(v);
@@ -411,7 +387,7 @@ const DiceRoller = () => {
           style={{
             background: 'black',
             padding: '4px 8px',
-            height: '180px',
+            height: window.innerHeight < 800 ? '50px' : '180px',
             width: '195px',
             overflow: 'auto',
             fontSize: '14px',

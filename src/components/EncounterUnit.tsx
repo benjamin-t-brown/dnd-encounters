@@ -15,6 +15,7 @@ import HSpace from 'elements/HSpace';
 import ImagePortrait from 'elements/ImagePortrait';
 import { FormStatNumberInput } from 'elements/FormInputs';
 import UnitInfoModal from './UnitInfoModal';
+import EditEncounterHpModal2 from './EditEncounterHpModal2';
 
 const EncounterUnit = (props: {
   unit: UnitInEncounter;
@@ -108,7 +109,12 @@ const EncounterUnit = (props: {
                 >
                   HP
                 </div> */}
-            <EditEncounterHpModal unit={props.unit} />
+            <EditEncounterHpModal2
+              unit={props.unit}
+              onHpChanged={() => {
+                render();
+              }}
+            />
             <div
               style={{
                 width: '100%',
@@ -271,29 +277,47 @@ const EncounterUnit = (props: {
             {props.unit.name}
           </span>
           <div>
-            <FormStatNumberInput
-              label="Initiative"
-              name="initiative"
-              formState={{
-                initiative: unit.current.initiative ?? '',
-              }}
-              change={change}
-            />
-            <span
+            <div
               style={{
-                display: 'inline-block',
+                display: 'flex',
+                alignItems: 'flex-end',
               }}
             >
+              <div>
+                <FormStatNumberInput
+                  label="Init."
+                  name="initiative"
+                  fullWidth={true}
+                  formState={{
+                    initiative: unit.current.initiative ?? '',
+                  }}
+                  change={change}
+                  inputStyle={{
+                    width: '55px',
+                  }}
+                />
+              </div>
               <div
                 style={{
-                  color: getColors().TEXT_DESCRIPTION,
-                  textAlign: 'center',
+                  display: 'block',
                 }}
               >
-                HP
+                <div
+                  style={{
+                    color: getColors().TEXT_DESCRIPTION,
+                    textAlign: 'center',
+                  }}
+                >
+                  HP
+                </div>
+                <EditEncounterHpModal2
+                  unit={props.unit}
+                  onHpChanged={() => {
+                    render();
+                  }}
+                />
               </div>
-              <EditEncounterHpModal unit={props.unit} />
-            </span>
+            </div>
             <div
               style={{
                 width: '100%',

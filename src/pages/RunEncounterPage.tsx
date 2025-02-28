@@ -240,6 +240,9 @@ const RunEncounterPage = () => {
                 handleTurnChange(-1);
                 render();
               }}
+              style={{
+                fontSize: '12px',
+              }}
             >
               - Prev
             </Button>
@@ -253,6 +256,9 @@ const RunEncounterPage = () => {
               onClick={() => {
                 handleTurnChange(1);
                 render();
+              }}
+              style={{
+                fontSize: '12px',
               }}
             >
               + Next
@@ -301,7 +307,7 @@ const RunEncounterPage = () => {
           >
             <div
               style={{
-                width: '355px',
+                // width: '355px',
                 flexShrink: 0,
               }}
             >

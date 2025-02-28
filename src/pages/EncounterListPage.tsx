@@ -65,6 +65,12 @@ const EncounterTemplateItem = (props: {
         width: '300px',
         height: '160px',
         background: getColors().BACKGROUND2,
+        transform:
+          window.innerWidth < 400
+            ? 'scale(0.8)'
+            : window.innerWidth < 500
+            ? 'scale(0.9)'
+            : '',
       }}
       onClick={() => {
         setLSRoute('encounter-template:' + props.encounterTemplate.id);
@@ -178,6 +184,12 @@ const EncounterItem = (props: { encounter: Encounter; key?: string }) => {
         width: '300px',
         height: '132px',
         background: getColors().BACKGROUND3,
+        transform:
+          window.innerWidth < 400
+            ? 'scale(0.8)'
+            : window.innerWidth < 500
+            ? 'scale(0.9)'
+            : '',
       }}
       onClick={() => {
         setLSRoute('run-encounter:' + props.encounter.id);
@@ -291,13 +303,14 @@ const EncounterListPage = (props: PageProps) => {
       <StandardLayout topBar>
         <TabNavigationBar />
         <InnerRoot>
-          <div>
-            <NewEncounterTemplateModal />
-            <HSpace />
-            <NewEncounterModal templateId={defaultTemplateId} />
-            <HSpace />
-          </div>
           <h2>Run Encounters</h2>
+          <div
+            style={{
+              marginBottom: '16px',
+            }}
+          >
+            <NewEncounterModal templateId={defaultTemplateId} />
+          </div>
           <div style={{}}>
             <div>
               <FormTextInput
@@ -349,8 +362,14 @@ const EncounterListPage = (props: PageProps) => {
               }}
             />
           </div>
-
           <h2>Encounter Templates</h2>
+          <div
+            style={{
+              marginBottom: '16px',
+            }}
+          >
+            <NewEncounterTemplateModal />
+          </div>
           <div style={{}}>
             <div>
               <FormTextInput

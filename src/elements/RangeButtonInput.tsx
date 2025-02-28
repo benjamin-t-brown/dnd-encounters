@@ -13,7 +13,9 @@ interface RangeButtonInputProps {
   onChange: (v: number) => void;
   disabled?: boolean;
   disablePlus?: boolean;
+  disableReset?: boolean;
   style?: React.CSSProperties;
+  inputButtonStyle?: React.CSSProperties;
   className?: string;
 }
 
@@ -45,8 +47,9 @@ const RangeButtonInput = (props: RangeButtonInputProps) => {
       </Button>
       <HSpace />
       <EditInputModal
-        label="Bonus"
+        label={props.label ?? 'Value'}
         value={String(props.value)}
+        disableReset={props.disableReset}
         onConfirm={value => {
           const nextValue = Number(value);
           if (nextValue > props.max) {
@@ -65,11 +68,12 @@ const RangeButtonInput = (props: RangeButtonInputProps) => {
           display: 'inline-block',
           width: '44px',
           whiteSpace: 'pre',
+          ...(props.inputButtonStyle ?? {}),
         }}
         buttonLabel={
-          (props.disablePlus ? '' : plusOrMinus(props.value)) +
-          ' ' +
-          Math.abs(props.value)
+          props.disablePlus
+            ? '' + props.value
+            : plusOrMinus(props.value) + ' ' + Math.abs(props.value)
         }
       />
       <HSpace />

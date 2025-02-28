@@ -17,6 +17,7 @@ const EditUnitPublicIdModal = (props: { unit: UnitInEncounter }) => {
     },
     onCancel: () => {},
     title: 'Edit Id',
+    isInputModal: true,
     body: (
       <div>
         <div
